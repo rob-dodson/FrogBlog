@@ -1,0 +1,21 @@
+FrogBlog To Do
+------------------
+
+- Don't load articles and images into memory until editing
+	- have a loaded Bool
+
+- Update export/import to handle images
+
+- Allow edit of the html template
+
+- some kind of syncing
+
+- RSS support
+
+* PHP handle muiltple pages of articles
+
+* move PHP code to seperate file from index.html to alllow customizing index.html
+
+* publish all articles function
+
+* delete all on server function

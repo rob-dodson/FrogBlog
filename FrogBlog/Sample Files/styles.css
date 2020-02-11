@@ -1,0 +1,152 @@
+
+body
+{
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border-top: 10px solid gray;
+    border-bottom: 10px solid gray;
+    font: 11pt Avenir, 'Segoe UI', 'Lucida Grande', Lucida, Verdana, sans-serif;
+}
+
+
+.articledate
+{
+    color: gray;
+    font-size: 15px;
+}
+
+
+.title
+{
+    color:darkgreen;
+    font-size: 50px;
+}
+
+
+.subtitle
+{
+    color:gray;
+    font-size: 20px;
+    letter-spacing: 0.3em;
+}
+
+
+.author
+{
+    color:darkgray;
+    font-size: 25px;
+}
+
+
+#article
+{
+    background: lightgray;
+    padding:10px;
+    width:800;
+    padding:20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.articletitle
+{
+    color:darkgreen;
+    font-size: 25px;
+}
+
+
+.articleauthor
+{
+    color:darkgreen;
+    font-size: 14px;
+}
+
+
+p
+{
+    text-align:left|right|center;
+    line-height: 180%;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+
+h1
+{
+    color:darkgreen
+}
+
+
+h2
+{
+    color:lightgreen;
+    text-decoration: underline;
+}
+
+
+h3
+{
+    color:green;
+    text-decoration: underline;
+}
+
+
+blockquote
+{
+    margin-left: 40px;
+    font-style: italic;
+    border-left: 3px solid gray;
+    padding-left: 1em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+img
+{
+  max-width: 100%;
+  height: auto;
+}
+
+.nav
+{
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 25px;
+        padding: 10px;
+        text-decoration: none;
+}
+
+.previous, .nav
+{
+        color: green;
+        text-decoration: none;
+}
+
+.next, .nav
+ {
+        padding-left:20px;
+        color: green;
+        text-decoration: none;
+ }
+
+.noprevious, .nav
+{
+        color: lightgray;
+}
+
+.nonext, .nav
+ {
+        padding-left:20px;
+        color: lightgray;
+}
+
+.footer
+{
+    color: gray;
+    font-size: 15px;
+}

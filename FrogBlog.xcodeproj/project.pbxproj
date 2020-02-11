@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A0C7A9023F3388B00890FD9 /* blogengine.php in Resources */ = {isa = PBXBuildFile; fileRef = 4A0C7A8F23F3388B00890FD9 /* blogengine.php */; };
+		4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4A2585C923CBF43F00EC176F /* KeychainSwift */; };
+		4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 4A2585DB23CCD7CD00EC176F /* Ink */; };
+		4A4E333723D92539009EC347 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E333623D92539009EC347 /* Utils.swift */; };
+		4A83D39923D26BB30011049C /* SqliteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D39823D26BB30011049C /* SqliteDB.swift */; };
+		4A83D39C23D27F710011049C /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 4A83D39B23D27F710011049C /* GRDB */; };
+		7867BB1AE8B693246B81CA9B /* Pods_FrogBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */; };
+		AE0059DD23C7682F00CD0DFB /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0059DC23C7682F00CD0DFB /* Blog.swift */; };
+		AE0059DF23C798C100CD0DFB /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = AE0059DE23C798C100CD0DFB /* index.html */; };
+		AE0059E423C903B600CD0DFB /* BlogSettingsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0059E223C903B600CD0DFB /* BlogSettingsPanel.swift */; };
+		AE0059E523C903B600CD0DFB /* BlogSettingsPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0059E323C903B600CD0DFB /* BlogSettingsPanel.xib */; };
+		AE0804E323B29E5C0019F922 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = AE0804E223B29E5C0019F922 /* styles.css */; };
+		AE10EC5223DB7E68003483BF /* Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC5123DB7E68003483BF /* Doc.swift */; };
+		AE10EC5523DB8C3C003483BF /* DocWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC5323DB8C3C003483BF /* DocWindow.swift */; };
+		AE10EC5623DB8C3C003483BF /* DocWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE10EC5423DB8C3C003483BF /* DocWindow.xib */; };
+		AE10EC5923DBA0C2003483BF /* BrowserWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC5723DBA0C2003483BF /* BrowserWindow.swift */; };
+		AE10EC5A23DBA0C2003483BF /* BrowserWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE10EC5823DBA0C2003483BF /* BrowserWindow.xib */; };
+		AE10EC5C23DBA39B003483BF /* FrogBlogHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = AE10EC5B23DBA39B003483BF /* FrogBlogHelp.txt */; };
+		AE10EC6223DE26F1003483BF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC6123DE26F1003483BF /* Image.swift */; };
+		AE10EC6423E08374003483BF /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC6323E08374003483BF /* Preview.swift */; };
+		AE3DB61223EDA7040087BB26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DB61123EDA7040087BB26 /* Model.swift */; };
+		AE5200D123AEFB0100F3D522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5200D023AEFB0100F3D522 /* AppDelegate.swift */; };
+		AE5200D623AEFB0300F3D522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5200D523AEFB0300F3D522 /* Assets.xcassets */; };
+		AE5200D923AEFB0300F3D522 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE5200D723AEFB0300F3D522 /* MainMenu.xib */; };
+		AE5200FD23AFF53D00F3D522 /* MarkdownHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = AE5200FC23AFF53D00F3D522 /* MarkdownHelp.txt */; };
+		AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5CCECC23E24BFB00A19E0E /* WebKit.framework */; };
+		AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CCECE23E26E1800A19E0E /* Publish.swift */; };
+		AEA07E7523CD20D1009E07A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07E7423CD20D1009E07A0 /* Alert.swift */; };
+		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
+		AECDBE8623CD3DFE0014B73F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDBE8523CD3DFE0014B73F /* Article.swift */; };
+		AEE84CAC23D4E72A009E20DA /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE84CAB23D4E72A009E20DA /* File.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE5200FB23AFCA8300F3D522 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		31B05568A490CA7C1013ABD9 /* Pods-FrogBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogBlog.debug.xcconfig"; path = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		4A0C7A8F23F3388B00890FD9 /* blogengine.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = blogengine.php; sourceTree = "<group>"; };
+		4A4E333623D92539009EC347 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4A83D39823D26BB30011049C /* SqliteDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDB.swift; sourceTree = "<group>"; };
+		900640F0187F95DBBE7A0655 /* Pods-FrogBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogBlog.release.xcconfig"; path = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.release.xcconfig"; sourceTree = "<group>"; };
+		AE0059DC23C7682F00CD0DFB /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
+		AE0059DE23C798C100CD0DFB /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		AE0059E223C903B600CD0DFB /* BlogSettingsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogSettingsPanel.swift; sourceTree = "<group>"; };
+		AE0059E323C903B600CD0DFB /* BlogSettingsPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogSettingsPanel.xib; sourceTree = "<group>"; };
+		AE0804E223B29E5C0019F922 /* styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
+		AE10EC5123DB7E68003483BF /* Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doc.swift; sourceTree = "<group>"; };
+		AE10EC5323DB8C3C003483BF /* DocWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocWindow.swift; sourceTree = "<group>"; };
+		AE10EC5423DB8C3C003483BF /* DocWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocWindow.xib; sourceTree = "<group>"; };
+		AE10EC5723DBA0C2003483BF /* BrowserWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWindow.swift; sourceTree = "<group>"; };
+		AE10EC5823DBA0C2003483BF /* BrowserWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowserWindow.xib; sourceTree = "<group>"; };
+		AE10EC5B23DBA39B003483BF /* FrogBlogHelp.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = FrogBlogHelp.txt; sourceTree = "<group>"; };
+		AE10EC6123DE26F1003483BF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		AE10EC6323E08374003483BF /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		AE3DB61123EDA7040087BB26 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AE5200CD23AEFB0100F3D522 /* FrogBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrogBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE5200D023AEFB0100F3D522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AE5200D523AEFB0300F3D522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE5200D823AEFB0300F3D522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AE5200DA23AEFB0300F3D522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE5200DB23AEFB0300F3D522 /* FrogBlog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FrogBlog.entitlements; sourceTree = "<group>"; };
+		AE5200FC23AFF53D00F3D522 /* MarkdownHelp.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = MarkdownHelp.txt; sourceTree = "<group>"; };
+		AE5CCECC23E24BFB00A19E0E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		AE5CCECE23E26E1800A19E0E /* Publish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publish.swift; sourceTree = "<group>"; };
+		AEA07E7423CD20D1009E07A0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		AECD48E323CFB3DC00A9F503 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		AECDBE8523CD3DFE0014B73F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		AEE84CAB23D4E72A009E20DA /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE5200CA23AEFB0100F3D522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */,
+				4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */,
+				4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */,
+				7867BB1AE8B693246B81CA9B /* Pods_FrogBlog.framework in Frameworks */,
+				4A83D39C23D27F710011049C /* GRDB in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		267E6103B08233362818470E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31B05568A490CA7C1013ABD9 /* Pods-FrogBlog.debug.xcconfig */,
+				900640F0187F95DBBE7A0655 /* Pods-FrogBlog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AE5200C423AEFB0100F3D522 = {
+			isa = PBXGroup;
+			children = (
+				AE5200CF23AEFB0100F3D522 /* FrogBlog */,
+				AE5200CE23AEFB0100F3D522 /* Products */,
+				AE5200F823AFCA8200F3D522 /* Frameworks */,
+				267E6103B08233362818470E /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		AE5200CE23AEFB0100F3D522 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE5200CD23AEFB0100F3D522 /* FrogBlog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE5200CF23AEFB0100F3D522 /* FrogBlog */ = {
+			isa = PBXGroup;
+			children = (
+				AEA07E7B23CD2298009E07A0 /* Main */,
+				AEA07E7923CD224A009E07A0 /* Supporting Files */,
+				AEA07E7A23CD2261009E07A0 /* Sample Files */,
+				AEA07E7723CD215D009E07A0 /* Panels */,
+				AEA07E7823CD216A009E07A0 /* Utils */,
+			);
+			path = FrogBlog;
+			sourceTree = "<group>";
+		};
+		AE5200F823AFCA8200F3D522 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE5CCECC23E24BFB00A19E0E /* WebKit.framework */,
+				C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AEA07E7723CD215D009E07A0 /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				AE0059E223C903B600CD0DFB /* BlogSettingsPanel.swift */,
+				AE0059E323C903B600CD0DFB /* BlogSettingsPanel.xib */,
+				AE10EC5323DB8C3C003483BF /* DocWindow.swift */,
+				AE10EC5423DB8C3C003483BF /* DocWindow.xib */,
+				AE10EC5723DBA0C2003483BF /* BrowserWindow.swift */,
+				AE10EC5823DBA0C2003483BF /* BrowserWindow.xib */,
+			);
+			path = Panels;
+			sourceTree = "<group>";
+		};
+		AEA07E7823CD216A009E07A0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4A4E333623D92539009EC347 /* Utils.swift */,
+				AEA07E7423CD20D1009E07A0 /* Alert.swift */,
+				AECD48E323CFB3DC00A9F503 /* Keys.swift */,
+				AE5CCECE23E26E1800A19E0E /* Publish.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AEA07E7923CD224A009E07A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE5200D523AEFB0300F3D522 /* Assets.xcassets */,
+				AE5200DA23AEFB0300F3D522 /* Info.plist */,
+				AE5200DB23AEFB0300F3D522 /* FrogBlog.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEA07E7A23CD2261009E07A0 /* Sample Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A0C7A8F23F3388B00890FD9 /* blogengine.php */,
+				AE5200FC23AFF53D00F3D522 /* MarkdownHelp.txt */,
+				AE10EC5B23DBA39B003483BF /* FrogBlogHelp.txt */,
+				AE0804E223B29E5C0019F922 /* styles.css */,
+				AE0059DE23C798C100CD0DFB /* index.html */,
+			);
+			path = "Sample Files";
+			sourceTree = "<group>";
+		};
+		AEA07E7B23CD2298009E07A0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AE5200D023AEFB0100F3D522 /* AppDelegate.swift */,
+				AE5200D723AEFB0300F3D522 /* MainMenu.xib */,
+				AE0059DC23C7682F00CD0DFB /* Blog.swift */,
+				AECDBE8523CD3DFE0014B73F /* Article.swift */,
+				AEE84CAB23D4E72A009E20DA /* File.swift */,
+				AE10EC5123DB7E68003483BF /* Doc.swift */,
+				AE10EC6123DE26F1003483BF /* Image.swift */,
+				4A83D39823D26BB30011049C /* SqliteDB.swift */,
+				AE10EC6323E08374003483BF /* Preview.swift */,
+				AE3DB61123EDA7040087BB26 /* Model.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE5200CC23AEFB0100F3D522 /* FrogBlog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE5200DE23AEFB0300F3D522 /* Build configuration list for PBXNativeTarget "FrogBlog" */;
+			buildPhases = (
+				9D10902A48B22ED34E46D8EC /* [CP] Check Pods Manifest.lock */,
+				AE5200C923AEFB0100F3D522 /* Sources */,
+				AE5200CA23AEFB0100F3D522 /* Frameworks */,
+				AE5200CB23AEFB0100F3D522 /* Resources */,
+				AE5200FB23AFCA8300F3D522 /* Embed Frameworks */,
+				CB4DBC1E4B567A3C317821CD /* [CP] Embed Pods Frameworks */,
+				AED6174923E8D81F005F3E45 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FrogBlog;
+			packageProductDependencies = (
+				4A2585C923CBF43F00EC176F /* KeychainSwift */,
+				4A2585DB23CCD7CD00EC176F /* Ink */,
+				4A83D39B23D27F710011049C /* GRDB */,
+			);
+			productName = FrogBlog;
+			productReference = AE5200CD23AEFB0100F3D522 /* FrogBlog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE5200C523AEFB0100F3D522 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Robert Dodson";
+				TargetAttributes = {
+					AE5200CC23AEFB0100F3D522 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = AE5200C823AEFB0100F3D522 /* Build configuration list for PBXProject "FrogBlog" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE5200C423AEFB0100F3D522;
+			packageReferences = (
+				4A2585C823CBF43F00EC176F /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */,
+				4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+			);
+			productRefGroup = AE5200CE23AEFB0100F3D522 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE5200CC23AEFB0100F3D522 /* FrogBlog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE5200CB23AEFB0100F3D522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE0059DF23C798C100CD0DFB /* index.html in Resources */,
+				AE0059E523C903B600CD0DFB /* BlogSettingsPanel.xib in Resources */,
+				AE0804E323B29E5C0019F922 /* styles.css in Resources */,
+				AE5200D623AEFB0300F3D522 /* Assets.xcassets in Resources */,
+				AE10EC5623DB8C3C003483BF /* DocWindow.xib in Resources */,
+				AE10EC5C23DBA39B003483BF /* FrogBlogHelp.txt in Resources */,
+				4A0C7A9023F3388B00890FD9 /* blogengine.php in Resources */,
+				AE5200FD23AFF53D00F3D522 /* MarkdownHelp.txt in Resources */,
+				AE10EC5A23DBA0C2003483BF /* BrowserWindow.xib in Resources */,
+				AE5200D923AEFB0300F3D522 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9D10902A48B22ED34E46D8EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FrogBlog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AED6174923E8D81F005F3E45 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${INFOPLIST_FILE}\"\n";
+		};
+		CB4DBC1E4B567A3C317821CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FrogBlog/Pods-FrogBlog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FrogBlog/Pods-FrogBlog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FrogBlog/Pods-FrogBlog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE5200C923AEFB0100F3D522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */,
+				AE0059DD23C7682F00CD0DFB /* Blog.swift in Sources */,
+				AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */,
+				4A4E333723D92539009EC347 /* Utils.swift in Sources */,
+				AE5200D123AEFB0100F3D522 /* AppDelegate.swift in Sources */,
+				4A83D39923D26BB30011049C /* SqliteDB.swift in Sources */,
+				AEA07E7523CD20D1009E07A0 /* Alert.swift in Sources */,
+				AE3DB61223EDA7040087BB26 /* Model.swift in Sources */,
+				AE10EC6423E08374003483BF /* Preview.swift in Sources */,
+				AE10EC6223DE26F1003483BF /* Image.swift in Sources */,
+				AEE84CAC23D4E72A009E20DA /* File.swift in Sources */,
+				AE0059E423C903B600CD0DFB /* BlogSettingsPanel.swift in Sources */,
+				AE10EC5223DB7E68003483BF /* Doc.swift in Sources */,
+				AE10EC5523DB8C3C003483BF /* DocWindow.swift in Sources */,
+				AE10EC5923DBA0C2003483BF /* BrowserWindow.swift in Sources */,
+				AECDBE8623CD3DFE0014B73F /* Article.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AE5200D723AEFB0300F3D522 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE5200D823AEFB0300F3D522 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE5200DC23AEFB0300F3D522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE5200DD23AEFB0300F3D522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		AE5200DF23AEFB0300F3D522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31B05568A490CA7C1013ABD9 /* Pods-FrogBlog.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FrogBlog/Supporting Files/FrogBlog.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYF5X8SV2F;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "FrogBlog/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = net.frogradio.frogblog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = FrogBlogDeveloper;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AE5200E023AEFB0300F3D522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 900640F0187F95DBBE7A0655 /* Pods-FrogBlog.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FrogBlog/Supporting Files/FrogBlog.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYF5X8SV2F;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "FrogBlog/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = net.frogradio.frogblog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = FrogBlogDeveloper;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE5200C823AEFB0100F3D522 /* Build configuration list for PBXProject "FrogBlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE5200DC23AEFB0300F3D522 /* Debug */,
+				AE5200DD23AEFB0300F3D522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE5200DE23AEFB0300F3D522 /* Build configuration list for PBXNativeTarget "FrogBlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE5200DF23AEFB0300F3D522 /* Debug */,
+				AE5200E023AEFB0300F3D522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A2585C823CBF43F00EC176F /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
+		4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnsundell/ink.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+		4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A2585C923CBF43F00EC176F /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A2585C823CBF43F00EC176F /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		4A2585DB23CCD7CD00EC176F /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */;
+			productName = Ink;
+		};
+		4A83D39B23D27F710011049C /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AE5200C523AEFB0100F3D522 /* Project object */;
+}

@@ -1,0 +1,50 @@
+
+**Markdown Help**
+
+Markdown is a plain text format that gets transformed into HTML.
+You write your article in Markdown and FrogBlog transforms it into
+HTML during the publishing process. You can review how your article
+will look in a web browser by pressing the **Preview** button. You can
+copy and paste this help document into an article to try this **Preview**
+feature.
+
+
+*Italic*
+
+**Bold**
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+
+[Link](https://frogradio.net)
+
+
+![Image](https://frogradio.net/images/icon_128x128.png)
+
+
+> Blockquote
+
+
+Bulleted List
+* List
+* List
+* List
+
+
+Horizontal Rule
+
+---
+
+
+`Inline code`
+
+
+```
+# code block
+print '3 backticks or'
+print 'indent 4 spaces'
+```

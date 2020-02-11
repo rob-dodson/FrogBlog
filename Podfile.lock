@@ -1,0 +1,24 @@
+PODS:
+  - NMSSH (2.3.1)
+  - PwGen (1.0.2)
+  - Sparkle (1.22.0)
+
+DEPENDENCIES:
+  - NMSSH
+  - PwGen
+  - Sparkle
+
+SPEC REPOS:
+  trunk:
+    - NMSSH
+    - PwGen
+    - Sparkle
+
+SPEC CHECKSUMS:
+  NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
+  PwGen: c84dba4d6961cfbce08e9cd64013be9f4d3812ca
+  Sparkle: 593ac2e677c07bcb6c3b22d621240e7cbedaab57
+
+PODFILE CHECKSUM: 0efceb112e754225311e8b004ca36b97ca8c4dba
+
+COCOAPODS: 1.8.4

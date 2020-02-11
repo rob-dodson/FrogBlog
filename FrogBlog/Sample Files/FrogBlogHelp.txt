@@ -1,0 +1,57 @@
+
+FrogBlog Help
+
+To set up a blog:
+
+- File -> New Blog
+- Press Blog Settings (see below)
+- Press New Article
+- In Article Editor set Title and Author
+- Press Preview
+- Press Publish
+- View in Browser to check published blog
+
+Blog Settings
+
+- Blog Nickname: Simple name to refer to this blog
+- Blog Title: This will be the public name of the blog
+- Blog Address: The actual URL of the blog
+- Main Author: This will be display under the title of the blog
+
+Server Settings
+
+- Server Name: Domain name of the server
+- Remote Folder: The location of the blog files on the server
+- Server Login Name: Your user login name on the server
+- Public Key: The local file that contains your Public Key
+- Private Key: The local file that contains your Private Key
+- Key Password: The password needed to access the Public Key
+
+Your server admin may be able to give you a blog import file that
+contains these setting all ready configured. If this is the case
+use the File -> Import Blog to import it. You will still have to press
+Create Key and then Copy the key and send it back to your admin.
+
+
+Editing
+
+- To preview your article click the Preview button or press ⌘-R.
+- To delete an article select it and press the delete key.
+
+
+File Menu Actions
+
+- New Blog
+- New Article
+- Insert Image
+- Delete Blog
+- Delete Article
+- Import Blog
+- Export Blog
+
+
+Help
+
+- Markdown help
+- CSS Colors help
+- This FrogBlog help
