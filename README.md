@@ -27,7 +27,6 @@ Todo:
 
 * Don't load articles and images into memory until editing
 * Update export/import to handle images
-* Allow edit of the html template
 * some kind of syncing
 * RSS support
 * Support password login to server
