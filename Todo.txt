@@ -6,7 +6,7 @@ FrogBlog To Do
 
 - Update export/import to handle images
 
-- Allow edit of the html template
+* Allow edit of the html template
 
 - some kind of syncing
 
