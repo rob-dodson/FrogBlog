@@ -3,7 +3,7 @@ A simple blog editor for macOS.
 
 <br />
 
-<img src="https://robdodson.net/FrogBlog/images/frog_purple_icon_128x128.png" alt="" width="128" height="128" border="0" style="max-width:100%;height:auto;">
+<img src="https://robdodson.net/FrogBlog/images/FrogBlogIcon-128x128.png" alt="" width="128" height="128" border="0" style="max-width:100%;height:auto;">
 
 <hr>
 
