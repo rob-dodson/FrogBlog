@@ -750,7 +750,7 @@ CA
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="396" minWidth="40" maxWidth="1000" id="m5V-LP-fVl">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Blog">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -918,12 +918,12 @@ CA
                                         <font key="font" metaFont="system"/>
                                         <tabViewItems>
                                             <tabViewItem label="Preview" identifier="" id="xJU-iH-lcU">
-                                                <view key="view" id="bwK-Yz-RYh">
+                                                <view key="view" ambiguous="YES" id="bwK-Yz-RYh">
                                                     <rect key="frame" x="10" y="33" width="512" height="774"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <wkWebView wantsLayer="YES" fixedFrame="YES" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJm-xM-d28">
-                                                            <rect key="frame" x="17" y="19" width="477" height="752"/>
+                                                            <rect key="frame" x="10" y="10" width="495" height="755"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                             <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="FrogBlog">
                                                                 <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -939,7 +939,7 @@ CA
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivY-BL-THD">
-                                                            <rect key="frame" x="8" y="11" width="495" height="755"/>
+                                                            <rect key="frame" x="10" y="10" width="495" height="755"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="cce-pC-zCy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="495" height="755"/>
@@ -969,24 +969,24 @@ CA
                                                 </view>
                                             </tabViewItem>
                                             <tabViewItem label="HTML" identifier="" id="YQu-hu-idL" userLabel="html">
-                                                <view key="view" ambiguous="YES" id="X4N-Hu-Hx0">
+                                                <view key="view" id="X4N-Hu-Hx0">
                                                     <rect key="frame" x="10" y="33" width="512" height="774"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K80-OM-utm">
-                                                            <rect key="frame" x="-3" y="-3" width="518" height="774"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <rect key="frame" x="10" y="10" width="495" height="755"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="mcS-if-gWP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="518" height="774"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="495" height="755"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="2G2-El-xdR">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="518" height="774"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="495" height="755"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                        <size key="minSize" width="518" height="774"/>
-                                                                        <size key="maxSize" width="518" height="10000000"/>
+                                                                        <size key="minSize" width="495" height="755"/>
+                                                                        <size key="maxSize" width="497" height="10000000"/>
                                                                         <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     </textView>
                                                                 </subviews>
@@ -996,7 +996,7 @@ CA
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="rhd-FK-Yfq">
-                                                                <rect key="frame" x="502" y="0.0" width="16" height="774"/>
+                                                                <rect key="frame" x="479" y="0.0" width="16" height="755"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                         </scrollView>
