@@ -4,13 +4,15 @@ FrogBlog To Do
 - Don't load articles and images into memory until editing
 	- have a loaded Bool
 
-- Update export/import to handle images
+- Only save/publish files when they've changed. Right now we save/publish too often.
 
-* Allow edit of the html template
+- Update export/import to handle images
 
 - some kind of syncing
 
 - RSS support
+
+* Allow edit of the html template
 
 * PHP handle muiltple pages of articles
 
