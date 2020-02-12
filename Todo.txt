@@ -12,12 +12,3 @@ FrogBlog To Do
 
 - RSS support
 
-* Allow edit of the html template
-
-* PHP handle muiltple pages of articles
-
-* move PHP code to seperate file from index.html to alllow customizing index.html
-
-* publish all articles function
-
-* delete all on server function
