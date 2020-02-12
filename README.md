@@ -1,11 +1,10 @@
 # FrogBlog
+
 A simple blog editor for macOS. 
 
-<br />
+![](https://robdodson.net/FrogBlog/images/FrogBlogIcon-128x128.png)
 
-<img src="https://robdodson.net/FrogBlog/images/FrogBlogIcon-128x128.png" alt="" width="128" height="128" border="0" style="max-width:100%;height:auto;">
-
-<hr>
+---
 
 FrogBlog installs HTML,CSS and PHP files on your web server to display the blog. Super simple system. Comes with easy to modify default template files. 
 
@@ -17,11 +16,11 @@ Export/Import writes/reads standard json files.
 
 All data is stored in a local Sqlite database on your Mac.
 
-<hr>
+---
 
-<img src="https://robdodson.net/FrogBlog/images/screencap.png" alt=""  style="max-width:100%;height:auto;">
+![](https://robdodson.net/FrogBlog/images/screencap.png)
 
-<hr>
+---
 
 Todo:
 
