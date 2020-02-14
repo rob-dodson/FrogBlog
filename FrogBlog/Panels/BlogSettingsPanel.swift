@@ -23,6 +23,8 @@ class ServerSettingsPanel: NSWindowController
     @IBOutlet var privateKeyPathTextField: NSTextField!
     @IBOutlet var keyPasswordTextfield: NSSecureTextField!
     @IBOutlet var serverTextField: NSTextField!
+    @IBOutlet var showKeyButton: NSButton!
+    @IBOutlet var unsecureKeyPasswordField: NSTextField!
     
     var theblog:Blog!
     var theappwindow:NSWindow!
@@ -73,7 +75,26 @@ class ServerSettingsPanel: NSWindowController
         }
     }
     
-   
+    @IBAction func showKeyAction(_ sender: Any)
+    {
+        let state = showKeyButton.state
+        if state == .on
+        {
+            showKeyButton.title = "Hide Key"
+            keyPasswordTextfield.isHidden = true
+            unsecureKeyPasswordField.isHidden = false
+            unsecureKeyPasswordField.stringValue = Keys.getFromKeychain(name:theblog.makekey()) ?? ""
+        }
+        else
+        {
+            showKeyButton.title = "Show Key"
+            showKeyButton.state = .off
+            keyPasswordTextfield.isHidden = false
+            unsecureKeyPasswordField.isHidden = true
+            unsecureKeyPasswordField.stringValue = ""
+        }
+    }
+    
     @IBAction func saveButtonAction(_ sender: Any)
     {
         theblog.nickname       = nicknameTextfield.stringValue

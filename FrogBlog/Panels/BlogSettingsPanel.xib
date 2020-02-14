@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,8 +17,10 @@
                 <outlet property="remotePathTextfield" destination="ECE-4T-cmu" id="7Pi-yT-W2C"/>
                 <outlet property="serverLoginNameTextField" destination="Il8-w4-O6b" id="gFR-rL-nkg"/>
                 <outlet property="serverTextField" destination="oEO-b6-ErE" id="L4O-Nb-AXx"/>
+                <outlet property="showKeyButton" destination="aS0-5C-YhP" id="Kv0-ee-i4X"/>
                 <outlet property="subTitleTextField" destination="Ah3-f5-H92" id="AEJ-nr-SJ0"/>
                 <outlet property="titleTextField" destination="BvJ-Eh-MBv" id="sB8-Xd-iLD"/>
+                <outlet property="unsecureKeyPasswordField" destination="yoC-Tc-4cl" id="aUL-7B-guv"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="5lK-gZ-jg2"/>
             </connections>
         </customObject>
@@ -323,6 +326,26 @@ Gw
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                     </secureTextField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aS0-5C-YhP">
+                        <rect key="frame" x="405" y="72" width="91" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Show Key" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="bK3-RQ-pQZ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="showKeyAction:" target="-2" id="8s2-vn-R9R"/>
+                        </connections>
+                    </button>
+                    <textField hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoC-Tc-4cl">
+                        <rect key="frame" x="155" y="79" width="247" height="21"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="r7I-lS-MhE">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
