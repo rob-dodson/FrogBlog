@@ -188,11 +188,7 @@ class Model
     //
     func filterBlogSupportFiles(blog:Blog) throws
     {
-      //  let htmlfilteredtext = try self.getSampleFile(blog: blog, filename: File.INDEXHTML)
-      //  { (filetext) -> String in
-       //     return Utils.filterHtmlText(blog: blog, text: filetext)
-        //}
-        blog.html.filteredtext = blog.html.filetext
+        blog.html.filteredtext = Utils.filterHtmlText(blog: blog, text:  blog.html.filetext)           
 
         let enginefilteredtext = try self.getSampleFile(blog: blog, filename: File.BLOGENGINE)
         { (filetext) -> String in
