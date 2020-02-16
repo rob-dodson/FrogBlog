@@ -26,6 +26,7 @@ Todo:
 
 * Don't load articles and images into memory until editing
 * Update export/import to handle images
-* some kind of syncing
+* some kind of syncing 
+	- Investigate using GRDB json export/import to/from the web server
 * RSS support
 * Support password login to server
