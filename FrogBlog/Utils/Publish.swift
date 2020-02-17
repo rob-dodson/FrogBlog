@@ -205,7 +205,7 @@ class Publish
     }
     
     
-    func sendArticleAndSupportFiles(blog:Blog, article:Article,images:[Image]) throws
+    func sendArticleAndSupportFiles(blog:Blog, article:Article) throws
     {
         try publishTask(blog: blog)
         { (blog:Blog, sftp:NMSFTP, session:NMSSHSession) in // you can put types in here!
@@ -214,7 +214,7 @@ class Publish
             try self.sendSupportFiles(blog: blog, ftp: sftp)
             
             try self.sendArticle(blog: blog, article:article, ftp: sftp)
-            try self.sendArticleImages(blog: blog, article:article, images:images, ftp: sftp)
+            try self.sendArticleImages(blog: blog, article:article, images:article.images, ftp: sftp)
         }
     }
     

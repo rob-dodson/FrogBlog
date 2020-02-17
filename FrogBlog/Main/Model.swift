@@ -78,10 +78,14 @@ class Model
     {
         do
         {
-            let images = try self.db.loadImages(fromArticle: article)
+            for image in article.images
+            {
+                try deleteImage(image: image)
+            }
+            
             let blog = article.blog!
             
-            try self.db.deleteArticle(article: article)
+            try db.deleteArticle(article: article)
             blog.articles.removeAll(where: { $0.uuid == article.uuid } )
 
             if article.published == true
@@ -90,7 +94,7 @@ class Model
                 {
                     let pub = Publish()
                     try pub.deleteArticleFromServer(blog: blog, article: article)
-                    try pub.deleteImagesFromServer(blog: blog, images: images)
+                    try pub.deleteImagesFromServer(blog: blog, images: article.images)
                 }
                 catch let err as Publish.PublishError
                 {
@@ -147,12 +151,6 @@ class Model
     }
     
     
-    func loadImages(fromArticle:Article) throws -> [Image]?
-    {
-        return try db.loadImages(fromArticle: fromArticle)
-    }
-    
-    
     func deleteBlog(blog:Blog) throws
     {
         do
@@ -167,19 +165,22 @@ class Model
             try db.deleteFile(file:blog.engine)
             
             try db.deleteBlog(blog:blog)
-            
             blogs!.removeAll(where: {$0.nickname == blog.nickname})
+        }
+        catch
+        {
+            throw ModelError(msg:"Error deleting blog \(blog.nickname): \(error)")
+        }
             
+        do
+        {
             try Publish().deleteBlogFolderFromServer(blog:blog)
         }
         catch let err as Publish.PublishError
         {
             throw ModelError(msg:"Error deleting blog on server \(blog.nickname): \(err.localizedDescription)")
         }
-        catch
-        {
-            throw ModelError(msg:"Error deleting blog \(blog.nickname): \(error)")
-        }
+        
     }
     
     

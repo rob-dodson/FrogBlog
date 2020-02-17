@@ -20,9 +20,11 @@ class Article : Record,Codable
     var publisheddate  : Date
     var published      : Bool = false
     
+    var images         : [Image]!
     var filename       : String!
     var blog           : Blog!
     var userdate       : Bool = false
+   
     
     enum CodingKeys: String,CodingKey
     {
@@ -33,6 +35,7 @@ class Article : Record,Codable
         case markdowntext
         case publisheddate
         case published
+        case images
     }
     
     override class var databaseTableName: String
@@ -56,6 +59,7 @@ class Article : Record,Codable
         self.published     = false
         
         self.blog = blog
+        images = Array()
         
         super.init()
     }
@@ -70,6 +74,8 @@ class Article : Record,Codable
         markdowntext  = row[CodingKeys.markdowntext.rawValue]
         publisheddate = row[CodingKeys.publisheddate.rawValue]
         published     = row[CodingKeys.published.rawValue]
+        
+        images = Array()
         
         super.init()
     }
@@ -86,6 +92,12 @@ class Article : Record,Codable
         container[CodingKeys.published.rawValue]     = published
     }
     
+    
+    func addImage(newimage:Image)
+    {
+        images.append(newimage)
+    }
+
     
     func makePathOnServer() -> String
     {

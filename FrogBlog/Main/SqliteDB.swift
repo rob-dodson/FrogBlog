@@ -161,6 +161,7 @@ class SqliteDB
             for article in blog.articles
             {
                 article.blog = blog
+                article.images = try Image.filter(Column("articleuuid") == article.uuid).fetchAll(db)
             }
         }
     }
@@ -176,17 +177,7 @@ class SqliteDB
        }
     }
 
-    
-    func loadImages(fromArticle:Article) throws -> [Image]
-    {
-        try dbqueue.write
-        { db in
-           
-            let images = try Image.filter(Column("articleuuid") == fromArticle.uuid).fetchAll(db)
-            
-            return images
-        }
-    }
+
     
     
     func loadFile(blog:Blog,filename:String) throws

@@ -25,8 +25,8 @@ All data is stored in a local Sqlite database on your Mac.
 Todo:
 
 * Don't load articles and images into memory until editing
-* Update export/import to handle images
 * some kind of syncing 
 	- Investigate using GRDB json export/import to/from the web server
 * RSS support
 * Support password login to server
+* seperate local db delete items from server delete of same so we can handle errors separately

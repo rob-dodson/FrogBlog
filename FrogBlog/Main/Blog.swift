@@ -178,6 +178,15 @@ class Blog : Record,Codable
                         }
                         
                         article.blog = blog
+                        
+                        for image in article.images
+                        {
+                            if replace == false
+                            {
+                                image.uuid = UUID()
+                                image.articleuuid = article.uuid
+                            }
+                        }
                     }
                 }
                 else

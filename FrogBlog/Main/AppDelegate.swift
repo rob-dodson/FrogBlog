@@ -246,18 +246,7 @@ class AppDelegate: NSObject,
            return
        }
        
-       var images : [Image]
-       
-       do
-       {
-            images = try (model.loadImages(fromArticle:article) ?? [Image]())
-       }
-       catch
-       {
-           errmsg(msg:"Error loading article images: \(error), won't publish.")
-           return
-       }
-      
+    
        
        let alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
         
@@ -266,7 +255,7 @@ class AppDelegate: NSObject,
             try model.filterBlogSupportFiles(blog:blog)
             markCurrentArticlePublished()
 
-           try Publish().sendArticleAndSupportFiles(blog: blog, article: article, images: images)
+           try Publish().sendArticleAndSupportFiles(blog: blog, article: article)
            
            Alert.showAlertInWindow(window: self.window, message: "Article published", info: article.title, ok: {}, cancel:{})
        }
@@ -292,8 +281,6 @@ class AppDelegate: NSObject,
     {
         do
         {
-            let images = try model.loadImages(fromArticle: article) ?? [Image]()
-          
           var imagenamedict = Dictionary<String, Any>()
           
           let pattern = #"!\[.*\]\(images/(.*)\)"#
@@ -308,29 +295,29 @@ class AppDelegate: NSObject,
               imagenamedict[file] = file
           }
           
-          var images_to_delete_from_server = [Image]()
-          for image in images
-          {
-              if imagenamedict[image.name] == nil
-              {
-                  Utils.writeDebugMsgToFile(msg:"Deleting unused image \(image.name) from article \(article.title)")
-                  
-                  try model.deleteImage(image:image)
-                  images_to_delete_from_server.append(image)
-              }
-          }
+        var images_to_delete_from_server = [Image]()
+        for image in article.images
+        {
+            if imagenamedict[image.name] == nil
+            {
+                Utils.writeDebugMsgToFile(msg:"Deleting unused image \(image.name) from article \(article.title)")
+
+                try model.deleteImage(image:image)
+                images_to_delete_from_server.append(image)
+            }
+        }
           
-          
-          if images_to_delete_from_server.count > 0
-          {
-              do
-              {
-                  try Publish().deleteImagesFromServer(blog: article.blog, images:images_to_delete_from_server)
-              }
-              catch let err as Publish.PublishError
-              {
-                  Utils.writeDebugMsgToFile(msg:"Error deleting images from server: \(err.msg) - \(err.info) - \(err.blog)")
-              }
+
+        if images_to_delete_from_server.count > 0
+        {
+            do
+            {
+                try Publish().deleteImagesFromServer(blog: article.blog, images:images_to_delete_from_server)
+            }
+            catch let err as Publish.PublishError
+            {
+                Utils.writeDebugMsgToFile(msg:"Error deleting images from server: \(err.msg) - \(err.info) - \(err.blog)")
+            }
           }
       }
       catch
@@ -354,16 +341,15 @@ class AppDelegate: NSObject,
          
          do
          {
-             let images = try model.loadImages(fromArticle: model.currentArticle) ?? [Image]()
-             for image in images
-             {
-                 let imagefilepath = "\(self.preview.imagedir.path)/\(image.name)"
-                 
-                 if FileManager.default.fileExists(atPath: imagefilepath) == false
-                 {
-                     try image.imagedata.write(to: URL(fileURLWithPath: imagefilepath))
-                 }
-             }
+            for image in model.currentArticle.images
+            {
+                let imagefilepath = "\(self.preview.imagedir.path)/\(image.name)"
+
+                if FileManager.default.fileExists(atPath: imagefilepath) == false
+                {
+                    try image.imagedata.write(to: URL(fileURLWithPath: imagefilepath))
+                }
+            }
              
              webView.loadFileURL(preview.previewdir.appendingPathComponent("\(model.currentArticle.title).html"),
                                             allowingReadAccessTo: preview.previewdir)
@@ -699,6 +685,11 @@ class AppDelegate: NSObject,
                                 for article in newblog.articles
                                 {
                                     self.saveArticle(article: article)
+                                    
+                                    for image in article.images
+                                    {
+                                        try self.model.saveImage(image: image)
+                                    }
                                 }
                             }
 
@@ -863,7 +854,10 @@ class AppDelegate: NSObject,
            
             let markdownimagetext = "\n![\(image.name)](images/\(image.name))\n"
             self.markdownTextView.string.append(markdownimagetext)
-           
+            
+            article.addImage(newimage: image)
+        
+            self.articleFromUI()
             self.saveArticle(article:article)
            
        })
