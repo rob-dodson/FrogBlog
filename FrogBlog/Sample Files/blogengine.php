@@ -49,7 +49,6 @@
                    $articlecount++;
                }
           }
-          closedir($handle);
           
           $prev = $page - 1;
           $next = $page + 1;
