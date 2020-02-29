@@ -32,7 +32,7 @@
           while ($files[] = readdir($handle));
           
           usort($files,"cmp");
-          closedir($dir);
+          closedir($handle);
           
           $filecount = count($files) - 3; // . and ..
           $pages = ceil($filecount / $pagesize);
