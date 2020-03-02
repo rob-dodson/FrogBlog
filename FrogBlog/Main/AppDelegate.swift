@@ -77,6 +77,12 @@ class AppDelegate: NSObject,
         markdownTextView.isAutomaticQuoteSubstitutionEnabled = false;
         markdownTextView.isAutomaticDashSubstitutionEnabled = false;
         markdownTextView.isAutomaticTextReplacementEnabled = false;
+        cssTextView.isAutomaticQuoteSubstitutionEnabled = false;
+        cssTextView.isAutomaticDashSubstitutionEnabled = false;
+        cssTextView.isAutomaticTextReplacementEnabled = false;
+        htmlTextView.isAutomaticQuoteSubstitutionEnabled = false;
+        htmlTextView.isAutomaticDashSubstitutionEnabled = false;
+        htmlTextView.isAutomaticTextReplacementEnabled = false;
         
         Utils.writeDebugMsgToFile(msg: "FrogBlog Starting Up", rewindfile: true)
         
