@@ -617,15 +617,16 @@ class AppDelegate: NSObject,
             do
             {
                 try self.model.deleteBlog(blog:blog)
-                
-                self.updateOutline(blog:nil)
-                self.clearUI()
-                self.model.currentBlog = nil
             }
             catch
             {
                 self.errmsg(msg:"Error deleting blog \(blog.nickname): \(error)")
             }
+            
+            self.model.currentBlog = nil
+            self.updateOutline(blog:nil)
+            self.clearUI()
+           
             
             alert.window.sheetParent!.endSheet(alert.window, returnCode: .cancel)
             Alert.showAlertInWindow(window: self.window, message: "Blog deleted", info:"", ok: {}, cancel: {})
@@ -646,17 +647,30 @@ class AppDelegate: NSObject,
            info: "Are you sure?",
            ok:
            {
-               let articlename = self.model.currentArticle.title
-               let alert = Alert.showProgressWindow(window: self.window, message: "Deleting article: \"\(articlename)\"...")
-               
-               do
-               {
+                let articlename = self.model.currentArticle.title
+                let alert = Alert.showProgressWindow(window: self.window, message: "Deleting article: \"\(articlename)\"...")
+
+                do
+                {
                     try self.model.deleteArticle(article: self.model.currentArticle)
-               }
-               catch
-               {
-                   Utils.writeDebugMsgToFile(msg:"Error deleting article \(self.model.currentArticle.title): \(error)")
-               }
+                }
+                catch
+                {
+                    Utils.writeDebugMsgToFile(msg:"Error deleting article \(self.model.currentArticle.title): \(error)")
+                }
+
+                if self.model.currentArticle.published == true
+                {
+                    do
+                    {
+                        try self.model.deleteArticleFromServer(article: self.model.currentArticle)
+                    }
+                    catch
+                    {
+                        Utils.writeDebugMsgToFile(msg:"Error deleting article from server\(self.model.currentArticle.title): \(error)")
+                    }
+                }
+            
             
                 self.updateOutline(blog:self.model.currentBlog)
                 self.clearUI()

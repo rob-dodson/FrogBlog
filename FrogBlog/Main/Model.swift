@@ -72,7 +72,7 @@ class Model
     //
     // Delete an article.
     // Delete the images that it uses and delete it from its blog's list of articles.
-    // Delete the article and it's images from the server.
+   
     //
     func deleteArticle(article:Article) throws
     {
@@ -87,24 +87,33 @@ class Model
             
             try db.deleteArticle(article: article)
             blog.articles.removeAll(where: { $0.uuid == article.uuid } )
-
-            if article.published == true
-            {
-                do
-                {
-                    let pub = Publish()
-                    try pub.deleteArticleFromServer(blog: blog, article: article)
-                    try pub.deleteImagesFromServer(blog: blog, images: article.images)
-                }
-                catch let err as Publish.PublishError
-                {
-                    throw ModelError(msg: "Error deleting article from server: \(err.msg) - \(err.info) - \(err.blog)")
-                }
-            }
         }
         catch
         {
-            throw ModelError(msg:"Error deleting article \(article.title): \(error)")
+            throw ModelError(msg:"Error deleting article from database \(article.title): \(error)")
+        }
+    }
+    
+    
+    //
+    // Delete the article and it's images from the server.
+    //
+    func deleteArticleFromServer(article:Article) throws
+    {
+        if article.published == true
+        {
+            do
+            {
+                let blog = article.blog!
+                
+                let pub = Publish()
+                try pub.deleteArticleFromServer(blog: blog, article: article)
+                try pub.deleteImagesFromServer(blog: blog, images: article.images)
+            }
+            catch let err as Publish.PublishError
+            {
+                throw ModelError(msg: "Error deleting article from server: \(err.msg) - \(err.info) - \(err.blog)")
+            }
         }
     }
     
@@ -155,6 +164,18 @@ class Model
     {
         do
         {
+            for article in blog.articles
+            {
+                do
+                {
+                    try deleteArticleFromServer(article: article)
+                }
+                catch
+                {
+                    NSLog("Error deleting article from server: \(error)")
+                }
+            }
+            
             for article in blog.articles
             {
                 try deleteArticle(article: article)

@@ -248,10 +248,6 @@ class SqliteDB
         try dbqueue.write
         { db in
             
-            try Article
-                .filter(Column("bloguuid") == blog.nickname)
-                .deleteAll(db)
-            
             try blog.delete(db)
             Utils.writeDebugMsgToFile(msg:"blog deleted: \(blog.nickname)")
         }
