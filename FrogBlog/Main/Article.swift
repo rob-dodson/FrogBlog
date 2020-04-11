@@ -42,7 +42,9 @@ class Article : Record,Codable
     {
         return SqliteDB.ARTICLE
     }
-    
+   
+   
+
     
     init(blog:Blog,
          title:String,

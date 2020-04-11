@@ -157,16 +157,48 @@ class AppDelegate: NSObject,
     //
     @IBAction func publishButtonAction(_ sender: Any) { publish()                   }
     @IBAction func toHTMLButtonAction(_ sender: Any)  { tohtml()                    }
-    @IBAction func blogSettingsAction(_ sender: Any)  { editBlog(editDoneBlock: {}) }
+    @IBAction func blogSettingsAction(_ sender: Any)  { editBlog(overridepublickeypasswod: nil,editDoneBlock: {}) }
     @IBAction func viewInBrowserAction(_ sender: Any) { viewinbrowser()             }
     @IBAction func deleteBlogAction(_ sender: Any)    { deleteblog()                }
     @IBAction func deleteArticleAction(_ sender: Any) { deletearticle()             }
     @IBAction func importBlogAction(_ sender: Any)    { importblog()                }
     @IBAction func exportBlogAction(_ sender: Any)    { exportblog()                }
-    @IBAction func newBlogAction(_ sender: Any)       { newblog(newblog:Blog())     }
+    @IBAction func newBlogAction(_ sender: Any)       { newblog(overidepublickeypassword: nil,newblog:Blog())     }
     @IBAction func insertImageAction(_ sender: Any)   { insertImage()               }
     @IBAction func newArticleAction(_ sender: Any)    { newarticle()                }
     @IBAction func publishAllAction(_ sender: Any)    { publishAllArticles()        }
+    @IBAction func newBlogFromCopyAction(_ sender: Any) { newBlogFromCopy()         }
+        
+        
+       
+    
+    func newBlogFromCopy()
+    {
+        if model.currentBlog == nil
+        {
+            Alert.showAlertInWindow(window: self.window, message: "Select a blog first.", info: "", ok: {}, cancel: {})
+            return
+        }
+        
+        let newblog = model.currentBlog.copy()
+        
+        newblog.nickname = "NEWBLOG_NICKNAME"
+        newblog.uuid = UUID()
+        
+        let straddress : NSString = newblog.address as NSString
+        let strremote  : NSString = newblog.remoteroot as NSString
+       
+        newblog.address = straddress.deletingLastPathComponent
+        newblog.remoteroot = strremote.deletingLastPathComponent
+        
+        newblog.address.append("/NEWBLOG")
+        newblog.remoteroot.append("/NEWBLOG")
+        
+        let publickeypassword = Keys.getFromKeychain(name:model.currentBlog.makekey())
+            
+        self.newblog(overidepublickeypassword: publickeypassword, newblog: newblog)
+        
+    }
     
     
     //
@@ -463,7 +495,7 @@ class AppDelegate: NSObject,
     }
     
     
-    func editBlog(editDoneBlock: @escaping () -> Void)
+    func editBlog(overridepublickeypasswod:String?,editDoneBlock: @escaping () -> Void)
     {
         if isBlogSelected() == false
         {
@@ -478,6 +510,10 @@ class AppDelegate: NSObject,
         // (Only lost one full day on this).
         //
         blogsettingspanel = ServerSettingsPanel.init(blog: blog, window:NSApplication.shared.mainWindow!)
+        if overridepublickeypasswod != nil
+        {
+            blogsettingspanel?.setPublicKeyPassword(key: overridepublickeypasswod ?? "XXX")
+        }
         blogsettingspanel?.show(doneBlock:
             { (returnedblog) in
                 
@@ -694,7 +730,7 @@ class AppDelegate: NSObject,
                 let blog = try Blog.importFromFile(importfile: filename)
                 if blog != nil
                 {
-                    self.newblog(newblog:blog!)
+                    self.newblog(overidepublickeypassword: nil, newblog:blog!)
                     
                     if let newblog = self.model.currentBlog
                     {
@@ -800,12 +836,12 @@ class AppDelegate: NSObject,
     }
    
     
-    func newblog(newblog:Blog)
+    func newblog(overidepublickeypassword:String?, newblog:Blog)
     {
         model.addABlog(blog: newblog)
         model.currentBlog = newblog
         
-        editBlog(editDoneBlock:
+        editBlog(overridepublickeypasswod: overidepublickeypassword, editDoneBlock:
         {
             do
             {

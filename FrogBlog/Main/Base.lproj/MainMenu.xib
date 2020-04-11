@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -104,6 +104,12 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="newBlogAction:" target="Voe-Tx-rLC" id="7m4-Or-hIP"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="New Blog From Copy" id="lT9-uL-Cnh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="newBlogFromCopyAction:" target="Voe-Tx-rLC" id="sHf-kl-266"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -737,11 +743,11 @@ CA
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="fTk-oz-SJr" userLabel="Outline View">
                                 <rect key="frame" x="0.0" y="0.0" width="401" height="804"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="tAj-UT-lVb">
+                                <clipView key="contentView" id="tAj-UT-lVb">
                                     <rect key="frame" x="1" y="1" width="399" height="802"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView focusRingType="none" verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="m5V-LP-fVl" id="8MS-2L-u9M">
+                                        <outlineView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="m5V-LP-fVl" id="8MS-2L-u9M">
                                             <rect key="frame" x="0.0" y="0.0" width="399" height="802"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -750,7 +756,6 @@ CA
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="396" minWidth="40" maxWidth="1000" id="m5V-LP-fVl">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Blog">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -804,13 +809,13 @@ CA
                                         <font key="font" metaFont="system"/>
                                         <tabViewItems>
                                             <tabViewItem label="Article" identifier="" id="4kX-nu-NvI">
-                                                <view key="view" ambiguous="YES" id="gUP-1n-ceF">
+                                                <view key="view" id="gUP-1n-ceF">
                                                     <rect key="frame" x="10" y="33" width="535" height="774"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <box ambiguous="YES" misplaced="YES" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EeQ-Zp-5nm">
+                                                        <box misplaced="YES" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EeQ-Zp-5nm">
                                                             <rect key="frame" x="6" y="645" width="408" height="124"/>
-                                                            <view key="contentView" ambiguous="YES" id="rMd-cP-nhg">
+                                                            <view key="contentView" id="rMd-cP-nhg">
                                                                 <rect key="frame" x="3" y="3" width="402" height="118"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
@@ -874,11 +879,11 @@ CA
                                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-Ii-WHv">
                                                             <rect key="frame" x="10" y="8" width="515" height="617"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                                            <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="rUf-XJ-9Is">
+                                                            <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="rUf-XJ-9Is">
                                                                 <rect key="frame" x="1" y="1" width="498" height="615"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" continuousSpellChecking="YES" allowsUndo="YES" id="WU8-N4-f6c">
+                                                                    <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" continuousSpellChecking="YES" allowsUndo="YES" id="WU8-N4-f6c">
                                                                         <rect key="frame" x="0.0" y="0.0" width="498" height="615"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -943,7 +948,7 @@ CA
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="cce-pC-zCy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="480" height="755"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" allowsUndo="YES" spellingCorrection="YES" id="sRM-kC-Ted">
                                                                         <rect key="frame" x="0.0" y="0.0" width="480" height="755"/>
@@ -978,7 +983,7 @@ CA
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="mcS-if-gWP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="480" height="755"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" allowsUndo="YES" id="2G2-El-xdR">
                                                                         <rect key="frame" x="0.0" y="0.0" width="480" height="755"/>

@@ -28,7 +28,7 @@ class ServerSettingsPanel: NSWindowController
     
     var theblog:Blog!
     var theappwindow:NSWindow!
-   
+    var overridepublickeypassword:String?
     
     convenience init(blog: Blog,window:NSWindow)
     {
@@ -47,6 +47,12 @@ class ServerSettingsPanel: NSWindowController
     }
     
     
+    func setPublicKeyPassword(key:String)
+    {
+        overridepublickeypassword = key
+    }
+    
+    
     func UIFromBlog(blog:Blog)
     {
         nicknameTextfield.stringValue        = blog.nickname
@@ -60,7 +66,14 @@ class ServerSettingsPanel: NSWindowController
         publicKeyPathTextfield.stringValue   = blog.publickeypath
         privateKeyPathTextField.stringValue  = blog.privatekeypath
         
-        keyPasswordTextfield.stringValue = Keys.getFromKeychain(name:blog.makekey()) ?? ""
+        if overridepublickeypassword != nil
+        {
+            keyPasswordTextfield.stringValue = overridepublickeypassword ?? "XXX"
+        }
+        else
+        {
+            keyPasswordTextfield.stringValue = Keys.getFromKeychain(name:blog.makekey()) ?? ""
+        }
     }
     
     
@@ -117,6 +130,19 @@ class ServerSettingsPanel: NSWindowController
         theblog.publickeypath = NSString(string:theblog.publickeypath).expandingTildeInPath
         theblog.privatekeypath = NSString(string:theblog.privatekeypath).expandingTildeInPath
       
+        let straddress : NSString = theblog.address as NSString
+        let strremote  : NSString = theblog.remoteroot as NSString
+              
+        if (straddress.lastPathComponent != strremote.lastPathComponent)
+        {
+            Alert.showAlertInWindow(window: self.window!, message: "Blog Address and Remote Folder must end in the same name:",
+                                    info: "\"\(straddress.lastPathComponent)\" is not equal to \"\(strremote.lastPathComponent)\"", ok: {}, cancel: {})
+            return;
+        }
+        //
+        //
+        //
+        
         
         //
         // Store key password in Keychain
