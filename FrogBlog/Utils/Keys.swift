@@ -23,4 +23,8 @@ class Keys
         KeychainSwift().set(value, forKey: name)
     }
 
+    static func deleteKey(name:String)
+    {
+        KeychainSwift().delete(name)
+    }
 }

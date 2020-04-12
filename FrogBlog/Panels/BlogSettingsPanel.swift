@@ -124,7 +124,7 @@ class ServerSettingsPanel: NSWindowController
         theblog.privatekeypath = privateKeyPathTextField.stringValue
         
         //
-        // validate!
+        // validate --------------
         //
         theblog.nickname = theblog.nickname.replacingOccurrences(of: " ", with: "")
         theblog.publickeypath = NSString(string:theblog.publickeypath).expandingTildeInPath
@@ -132,7 +132,6 @@ class ServerSettingsPanel: NSWindowController
       
         let straddress : NSString = theblog.address as NSString
         let strremote  : NSString = theblog.remoteroot as NSString
-              
         if (straddress.lastPathComponent != strremote.lastPathComponent)
         {
             Alert.showAlertInWindow(window: self.window!, message: "Blog Address and Remote Folder must end in the same name:",
@@ -140,7 +139,7 @@ class ServerSettingsPanel: NSWindowController
             return;
         }
         //
-        //
+        // validate --------------
         //
         
         

@@ -163,7 +163,7 @@ class AppDelegate: NSObject,
     @IBAction func deleteArticleAction(_ sender: Any) { deletearticle()             }
     @IBAction func importBlogAction(_ sender: Any)    { importblog()                }
     @IBAction func exportBlogAction(_ sender: Any)    { exportblog()                }
-    @IBAction func newBlogAction(_ sender: Any)       { newblog(overidepublickeypassword: nil,newblog:Blog())     }
+    @IBAction func newBlogAction(_ sender: Any)       { makeNewBlog(overidepublickeypassword: nil,newblog:Blog())     }
     @IBAction func insertImageAction(_ sender: Any)   { insertImage()               }
     @IBAction func newArticleAction(_ sender: Any)    { newarticle()                }
     @IBAction func publishAllAction(_ sender: Any)    { publishAllArticles()        }
@@ -171,6 +171,11 @@ class AppDelegate: NSObject,
         
         
        
+    
+    
+    //
+    // Methods
+    //
     
     func newBlogFromCopy()
     {
@@ -196,14 +201,10 @@ class AppDelegate: NSObject,
         
         let publickeypassword = Keys.getFromKeychain(name:model.currentBlog.makekey())
             
-        self.newblog(overidepublickeypassword: publickeypassword, newblog: newblog)
-        
+        makeNewBlog(overidepublickeypassword: publickeypassword, newblog: newblog)
     }
     
     
-    //
-    // Methods
-    //
     
     func tohtml()
     {
@@ -730,7 +731,7 @@ class AppDelegate: NSObject,
                 let blog = try Blog.importFromFile(importfile: filename)
                 if blog != nil
                 {
-                    self.newblog(overidepublickeypassword: nil, newblog:blog!)
+                    self.makeNewBlog(overidepublickeypassword: nil, newblog:blog!)
                     
                     if let newblog = self.model.currentBlog
                     {
@@ -836,7 +837,7 @@ class AppDelegate: NSObject,
     }
    
     
-    func newblog(overidepublickeypassword:String?, newblog:Blog)
+    func makeNewBlog(overidepublickeypassword:String?, newblog:Blog)
     {
         model.addABlog(blog: newblog)
         model.currentBlog = newblog

@@ -77,6 +77,20 @@ class Blog : Record,Codable
     }
     
     
+    //
+    // We changed the key name to use the UUID instead of the nickname.
+    // This func will update any keychains still using the old name.
+    //
+    func updatekey()
+    {
+        if let oldkey = Keys.getFromKeychain(name: makeOLDkey())
+        {
+            Keys.storeInKeychain(name: makekey(), value: oldkey)
+            Keys.deleteKey(name: makeOLDkey())
+        }
+    }
+    
+    
     required init(row: Row)
     {
         uuid           = row[CodingKeys.uuid.rawValue]
@@ -94,6 +108,8 @@ class Blog : Record,Codable
         articles = Array()
         
         super.init()
+        
+        updatekey();
     }
       
     
@@ -119,9 +135,14 @@ class Blog : Record,Codable
     }
 
 
-    func makekey() -> String
+    func makeOLDkey() -> String
     {
         return String.init(format: "%@-%@-%@","net.FrogBlog",nickname,"keypassword")
+    }
+    
+    func makekey() -> String
+    {
+        return String.init(format: "%@-%@-%@","net.FrogBlog",uuid.uuidString,"keypassword")
     }
       
     
