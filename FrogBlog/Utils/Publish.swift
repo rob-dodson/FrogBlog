@@ -64,19 +64,22 @@ class Publish
         let articleauthor = article.author
 
         let articledate = article.formatArticleDate()
-
+        
+        
+        let articlenameonserver = article.makeArticleNameOnServer().addingPercentEncoding(withAllowedCharacters:.alphanumerics)
+        
         let articlehtml = """
         <div id=\"article\">
-        <span = class=\"articletitle\">\(articletitle)</span><br />
+        <span = class=\"articletitle\">\(articletitle)</span><a class=\"chain\" href="\(blog.address)?article=\(articlenameonserver!)">&#9741;</a>
+        <br />
         <span = class=\"articleauthor\">\(articleauthor)</span> - <span = class=\"articledate\">\(articledate)</span><br />
         \(articletext )
         </div>
         """
 
-        let htmldata = Data(articlehtml.utf8)
-
-
         let path = article.makePathOnServer()
+        let htmldata = Data(articlehtml.utf8)
+       
         let result = ftp.writeContents(htmldata,toFileAtPath:path)
         if result == false
         {

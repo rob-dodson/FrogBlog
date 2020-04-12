@@ -101,6 +101,11 @@ class Article : Record,Codable
     }
 
     
+    func makeArticleNameOnServer() -> String
+    {
+        return String(format: "%@-%@",uuid.uuidString,formatArticleDate())
+    }
+    
     func makePathOnServer() -> String
     {
         return String(format: "%@/articles/%@-%@",blog.remoteroot,uuid.uuidString,formatArticleDate())

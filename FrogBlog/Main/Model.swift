@@ -206,7 +206,7 @@ class Model
     
     
     //
-    // for now we always send the sample files for indedx.html and blogengine.php
+    // for now we always send the sample file for blogengine.php
     //
     func filterBlogSupportFiles(blog:Blog) throws
     {

@@ -12,7 +12,13 @@
         $page = $_GET['page'];
     }
 
-
+    if (isset($_GET['article']))
+    {
+        $article = $_GET['article'];
+        readfile("articles/$article");
+        return;
+    }
+    
     // 0628531C-BC0A-405F-A029-E54EC6AEE334-2019-01-03 14:38:55-08:00
     function cmp($a, $b)
     {
