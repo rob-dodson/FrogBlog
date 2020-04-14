@@ -562,6 +562,7 @@ class AppDelegate: NSObject,
                 guard let newdate = dateFormatter.date(from:dateText.stringValue) else
                 {
                     errmsg(msg: "Bad date")
+                    dateText.stringValue = model.currentArticle.formatArticleDate()
                     return
                 }
                  
