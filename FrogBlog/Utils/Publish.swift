@@ -188,6 +188,7 @@ class Publish
         try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/\(File.STYLESCSS)", data: Data(blog.css.filteredtext.utf8))
         try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/\(File.INDEXHTML)", data: Data(blog.html.filteredtext.utf8))
         try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/\(File.BLOGENGINE)", data: Data(blog.engine.filteredtext.utf8))
+        try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/rss.xml", data: Data(blog.exportRSS().utf8))
     }
     
 

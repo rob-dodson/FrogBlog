@@ -34,6 +34,7 @@
 		AE5200FD23AFF53D00F3D522 /* MarkdownHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = AE5200FC23AFF53D00F3D522 /* MarkdownHelp.txt */; };
 		AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5CCECC23E24BFB00A19E0E /* WebKit.framework */; };
 		AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CCECE23E26E1800A19E0E /* Publish.swift */; };
+		AE5FE56C24478D1B0046B668 /* HTMLString in Frameworks */ = {isa = PBXBuildFile; productRef = AE5FE56B24478D1B0046B668 /* HTMLString */; };
 		AEA07E7523CD20D1009E07A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07E7423CD20D1009E07A0 /* Alert.swift */; };
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
 		AECDBE8623CD3DFE0014B73F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDBE8523CD3DFE0014B73F /* Article.swift */; };
@@ -98,6 +99,7 @@
 				4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */,
 				4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */,
 				7867BB1AE8B693246B81CA9B /* Pods_FrogBlog.framework in Frameworks */,
+				AE5FE56C24478D1B0046B668 /* HTMLString in Frameworks */,
 				4A83D39C23D27F710011049C /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +242,7 @@
 				4A2585C923CBF43F00EC176F /* KeychainSwift */,
 				4A2585DB23CCD7CD00EC176F /* Ink */,
 				4A83D39B23D27F710011049C /* GRDB */,
+				AE5FE56B24478D1B0046B668 /* HTMLString */,
 			);
 			productName = FrogBlog;
 			productReference = AE5200CD23AEFB0100F3D522 /* FrogBlog.app */;
@@ -273,6 +276,7 @@
 				4A2585C823CBF43F00EC176F /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */,
 				4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				AE5FE56A24478D1B0046B668 /* XCRemoteSwiftPackageReference "HTMLString" */,
 			);
 			productRefGroup = AE5200CE23AEFB0100F3D522 /* Products */;
 			projectDirPath = "";
@@ -531,7 +535,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = net.frogradio.frogblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = FrogBlogDeveloper;
@@ -557,7 +561,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = net.frogradio.frogblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = FrogBlogDeveloper;
@@ -613,6 +617,14 @@
 				minimumVersion = 4.9.0;
 			};
 		};
+		AE5FE56A24478D1B0046B668 /* XCRemoteSwiftPackageReference "HTMLString" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexaubry/HTMLString";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -630,6 +642,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
+		};
+		AE5FE56B24478D1B0046B668 /* HTMLString */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE5FE56A24478D1B0046B668 /* XCRemoteSwiftPackageReference "HTMLString" */;
+			productName = HTMLString;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

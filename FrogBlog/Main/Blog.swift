@@ -10,6 +10,8 @@ import Foundation
 import KeychainSwift
 
 import GRDB
+import Ink
+import HTMLString
 
 
 class Blog : Record,Codable
@@ -245,6 +247,51 @@ class Blog : Record,Codable
         {
             Utils.writeDebugMsgToFile(msg:"Blog: write to file error")
         }
+    }
+    
+    
+    func exportRSS() -> String
+    {
+        var rss = """
+        <rss version="2.0">
+        <channel>
+        <link>\(address)</link>
+        <title>\(title)</title>
+        <description>\(subtitle)</description>
+        <language>en</language>
+        <pubDate>\(Date().description(with: .current))</pubDate>
+        
+        """
+
+        let parser = MarkdownParser()
+        
+        //
+        // uses HTMLString.addingUnicodeEntities to encode the HTML in the article
+        //
+        for article in articles
+        {
+            let articlerss = """
+            <item>
+                <title>\(article.title)</title>
+                <link>\(article.makePathOnServer())</link>
+                <guid>\(uuid)</guid>
+                <pubDate>\(article.formatArticleDate())</pubDate>
+                <description>
+                \(parser.html(from: article.markdowntext).addingUnicodeEntities)
+                </description>
+                
+            </item>
+            
+            """
+            
+            rss.append(articlerss)
+        }
+        
+        rss.append("</channel>\n")
+        rss.append("</rss>\n")
+        
+        
+        return rss
     }
 }
 
