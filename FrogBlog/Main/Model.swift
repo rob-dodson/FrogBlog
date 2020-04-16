@@ -237,6 +237,7 @@ class Model
             
             try self.db.updateFile(file:blog.html)
             blog.html.changed.needsSaving = false
+            blog.html.changed.needsPublishing = true
         }
         
         if blog.css == nil
@@ -250,6 +251,7 @@ class Model
             
             try self.db.updateFile(file:blog.css)
             blog.css.changed.needsSaving = false
+            blog.css.changed.needsPublishing = true
         }
         
         
@@ -262,8 +264,7 @@ class Model
 
             blog.engine = File(bloguuid: blog.uuid, filename: File.BLOGENGINE, filetext: enginetext)
             
-           // try self.db.updateFile(file:blog.engine)
-          //  blog.engine.changed.needsSaving = false
+            blog.engine.changed.needsPublishing = true
         }
     }
     

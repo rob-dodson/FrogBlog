@@ -30,7 +30,7 @@ class Publish
         {
            throw PublishError(msg: "sendFile failed to write file", info: path, blog: blog.nickname)
         }
-
+        
         Utils.writeDebugMsgToFile(msg:"sendFile done: \(path)")
     }
     
