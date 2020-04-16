@@ -65,7 +65,7 @@
           }
           else
           {
-             print '<a class="noprevious">&laquo;Previous</a>';
+             //print '<a class="noprevious">&laquo;Previous</a>';
           }
           
           if ($page < $pages)
@@ -74,7 +74,7 @@
           }
           else
           {
-             print '<a class = "nonext">Next&raquo;</a>';
+             //print '<a class = "nonext">Next&raquo;</a>';
           }
           print '</div>';
           print "<br />\n";
