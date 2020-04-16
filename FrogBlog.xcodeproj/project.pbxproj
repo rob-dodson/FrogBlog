@@ -36,6 +36,7 @@
 		AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CCECE23E26E1800A19E0E /* Publish.swift */; };
 		AE5FE56C24478D1B0046B668 /* HTMLString in Frameworks */ = {isa = PBXBuildFile; productRef = AE5FE56B24478D1B0046B668 /* HTMLString */; };
 		AEA07E7523CD20D1009E07A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07E7423CD20D1009E07A0 /* Alert.swift */; };
+		AEBDC01E2448C12300E4F8A5 /* Changed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDC01D2448C12300E4F8A5 /* Changed.swift */; };
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
 		AECDBE8623CD3DFE0014B73F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDBE8523CD3DFE0014B73F /* Article.swift */; };
 		AEE84CAC23D4E72A009E20DA /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE84CAB23D4E72A009E20DA /* File.swift */; };
@@ -84,6 +85,7 @@
 		AE5CCECC23E24BFB00A19E0E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AE5CCECE23E26E1800A19E0E /* Publish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publish.swift; sourceTree = "<group>"; };
 		AEA07E7423CD20D1009E07A0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		AEBDC01D2448C12300E4F8A5 /* Changed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changed.swift; sourceTree = "<group>"; };
 		AECD48E323CFB3DC00A9F503 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		AECDBE8523CD3DFE0014B73F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		AEE84CAB23D4E72A009E20DA /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				AEA07E7423CD20D1009E07A0 /* Alert.swift */,
 				AECD48E323CFB3DC00A9F503 /* Keys.swift */,
 				AE5CCECE23E26E1800A19E0E /* Publish.swift */,
+				AEBDC01D2448C12300E4F8A5 /* Changed.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */,
 				AE0059DD23C7682F00CD0DFB /* Blog.swift in Sources */,
 				AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */,
+				AEBDC01E2448C12300E4F8A5 /* Changed.swift in Sources */,
 				4A4E333723D92539009EC347 /* Utils.swift in Sources */,
 				AE5200D123AEFB0100F3D522 /* AppDelegate.swift in Sources */,
 				4A83D39923D26BB30011049C /* SqliteDB.swift in Sources */,

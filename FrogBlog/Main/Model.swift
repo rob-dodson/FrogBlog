@@ -139,6 +139,7 @@ class Model
     func saveFile(file:File) throws
     {
         try db.updateFile(file:file)
+        file.changed.needsSaving = false
     }
     
     
@@ -235,6 +236,7 @@ class Model
             blog.html = File(bloguuid: blog.uuid, filename: File.INDEXHTML, filetext: indexhtmltext)
             
             try self.db.updateFile(file:blog.html)
+            blog.html.changed.needsSaving = false
         }
         
         if blog.css == nil
@@ -247,6 +249,7 @@ class Model
             blog.css = File(bloguuid: blog.uuid, filename: File.STYLESCSS, filetext: csstext)
             
             try self.db.updateFile(file:blog.css)
+            blog.css.changed.needsSaving = false
         }
         
         
@@ -259,7 +262,8 @@ class Model
 
             blog.engine = File(bloguuid: blog.uuid, filename: File.BLOGENGINE, filetext: enginetext)
             
-            try self.db.updateFile(file:blog.engine)
+           // try self.db.updateFile(file:blog.engine)
+          //  blog.engine.changed.needsSaving = false
         }
     }
     
@@ -268,9 +272,13 @@ class Model
     {
         do
         {
-            try saveFile(file:blog.css)
-            try saveFile(file:blog.html)
-            try saveFile(file:blog.engine)
+            if blog.css.changed.needsSaving { try saveFile(file:blog.css)       }
+            if blog.html.changed.needsSaving { try saveFile(file:blog.html)     }
+            if blog.engine.changed.needsSaving { try saveFile(file:blog.engine) }
+            
+            blog.css.changed.needsSaving = false
+            blog.html.changed.needsSaving = false
+            blog.engine.changed.needsSaving = false
         }
         catch
         {

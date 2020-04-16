@@ -119,16 +119,16 @@ class AppDelegate: NSObject,
         //
         NotificationCenter.default.addObserver(
                self,
-               selector: #selector(self.controlTextDidEndEditing),
+               selector: #selector(self.textDidEndEditingNotification),
                name: NSControl.textDidEndEditingNotification,
                object: nil)
 
         NotificationCenter.default.addObserver(
-                      self,
-                      selector: #selector(self.controlTextDidEndEditing),
-                      name: NSText.didEndEditingNotification,
-                      object: nil)
-
+            self,
+            selector: #selector(self.didChangeNotification),
+            name: NSText.didChangeNotification,
+            object: nil)
+        
         
         //
         // init the save article timer
@@ -140,10 +140,10 @@ class AppDelegate: NSObject,
             {
                 return
             }
-               
-            self.articleFromUI()
-            self.saveArticle(article:self.model.currentArticle)
+            
+            self.saveChanged()
         })
+        
         
         //
         // Load up the outlineview
@@ -157,7 +157,7 @@ class AppDelegate: NSObject,
     //
     @IBAction func publishButtonAction(_ sender: Any) { publish()                   }
     @IBAction func toHTMLButtonAction(_ sender: Any)  { tohtml()                    }
-    @IBAction func blogSettingsAction(_ sender: Any)  { editBlog(overridepublickeypasswod: nil,editDoneBlock: {}) }
+    @IBAction func blogSettingsAction(_ sender: Any)  { editBlog(blog:model.currentBlog,overridepublickeypasswod: nil,editDoneBlock: {}) }
     @IBAction func viewInBrowserAction(_ sender: Any) { viewinbrowser()             }
     @IBAction func deleteBlogAction(_ sender: Any)    { deleteblog()                }
     @IBAction func deleteArticleAction(_ sender: Any) { deletearticle()             }
@@ -189,6 +189,7 @@ class AppDelegate: NSObject,
         
         newblog.nickname = "NEWBLOG_NICKNAME"
         newblog.uuid = UUID()
+        newblog.articles = Array()
         
         var nsurl : NSURL = NSURL(string:newblog.address)!
         nsurl = nsurl.deletingLastPathComponent! as NSURL
@@ -200,7 +201,7 @@ class AppDelegate: NSObject,
         newblog.remoteroot.append("/NEWBLOG")
         
         let publickeypassword = Keys.getFromKeychain(name:model.currentBlog.makekey())
-            
+        
         makeNewBlog(overidepublickeypassword: publickeypassword, newblog: newblog)
     }
     
@@ -212,7 +213,8 @@ class AppDelegate: NSObject,
         {
             return
         }
-
+        
+        saveChanged()
         dowebpreview()
     }
     
@@ -224,6 +226,7 @@ class AppDelegate: NSObject,
             return
         }
        
+        saveChanged()
         let blog = model.currentBlog!
         
         Alert.showAlertInWindow(window: self.window,
@@ -267,24 +270,11 @@ class AppDelegate: NSObject,
           return
         }
 
+        saveChanged()
+        
         let blog = model.currentBlog!
         let article = model.currentArticle!
 
-       do
-       {
-            articleFromUI()
-            supportFilesFromUI()
-        
-            saveArticle(article:article)
-            try model.saveSupportFiles(blog:blog)
-            try model.saveBlog(blog:blog)
-       }
-       catch
-       {
-           errmsg(msg:"Blog save error \(error), won't publish.")
-           return
-       }
-       
     
        
        let alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
@@ -418,14 +408,16 @@ class AppDelegate: NSObject,
    
     func clearUI()
     {
-       articleTitle.stringValue  = ""
-       articleAuthor.stringValue = ""
-       dateText.stringValue      = ""
-       markdownTextView.string   = ""
-       
-       articleTitle.isEnabled      = false
-       articleAuthor.isEnabled     = false
-       markdownTextView.isEditable = false
+        articleTitle.stringValue  = ""
+        articleAuthor.stringValue = ""
+        dateText.stringValue      = ""
+        markdownTextView.string   = ""
+
+        articleTitle.isEnabled      = false
+        articleAuthor.isEnabled     = false
+        markdownTextView.isEditable = false
+
+        webView.loadHTMLString("", baseURL: nil)
     }
    
  
@@ -496,15 +488,8 @@ class AppDelegate: NSObject,
     }
     
     
-    func editBlog(overridepublickeypasswod:String?,editDoneBlock: @escaping () -> Void)
+    func editBlog(blog:Blog,overridepublickeypasswod:String?,editDoneBlock: @escaping () -> Void)
     {
-        if isBlogSelected() == false
-        {
-            return
-        }
-        
-        let blog = model.currentBlog!
-        
         //
         // Remember the Panel handle blogsettingspanel must be global!
         // Otherwise it goes out of scope and does not work.
@@ -518,8 +503,7 @@ class AppDelegate: NSObject,
         blogsettingspanel?.show(doneBlock:
             { (returnedblog) in
                 
-                self.model.currentBlog = returnedblog
-                self.setTitle();
+                self.setCurrentBlog(blog: returnedblog)
                 do
                 {
                     try self.model.saveBlog(blog: self.model.currentBlog)
@@ -543,10 +527,51 @@ class AppDelegate: NSObject,
     }
     
     
-    func controlTextDidEndEditing(_ obj: Notification)
+    func saveChanged()
     {
-        if model.currentArticle == nil { return }
-
+        if model.currentBlog == nil
+        {
+            return
+        }
+        
+        if let article = model.currentArticle
+        {
+            if model.currentArticle == nil
+            {
+                return
+            }
+            
+            articleFromUI()
+            
+            if article.changed.needsSaving
+            {
+                saveArticle(article: article)
+            }
+        }
+        
+        if model.currentBlog.html.changed.needsSaving || model.currentBlog.css.changed.needsSaving
+        {
+            supportFilesFromUI()
+            
+            do
+            {
+                try model.saveSupportFiles(blog: model.currentBlog)
+            }
+            catch
+            {
+                errmsg(msg:"Error saving support files: \(error)")
+            }
+        }
+    }
+    
+    
+    @objc func textDidEndEditingNotification(_ obj: Notification)
+    {
+        if model.currentBlog == nil || model.currentArticle == nil
+        {
+            return
+        }
+        
         if obj.object is NSTextField
         {
             let control = obj.object as! NSTextField
@@ -554,85 +579,86 @@ class AppDelegate: NSObject,
             if control == articleTitle || control == articleAuthor
             {
                 articleFromUI()
-                saveArticle(article:self.model.currentArticle)
+                model.currentArticle.changed.changed()
             }
-            else if control == dateText // User can override date by manually editing.
+            else if control == dateText
             {
-                let dateFormatter = Utils.getDateFormatter()
-                guard let newdate = dateFormatter.date(from:dateText.stringValue) else
-                {
-                    errmsg(msg: "Bad date")
-                    dateText.stringValue = model.currentArticle.formatArticleDate()
-                    return
-                }
-                 
-                if model.currentArticle.published == true
-                {
-                    let olduuid = self.model.currentArticle.uuid
-                    let path = self.model.currentArticle.makePathOnServer()
-                    
-                    do
-                    {
-                        try self.model.deleteArticleByUUID(uuid:olduuid)
-                    }
-                    catch
-                    {
-                        Utils.writeDebugMsgToFile(msg:"Error deleting old dated article")
-                    }
-                    
-                    
-                    DispatchQueue.global(qos: .background).async
-                    {
-                        do
-                        {
-                            Utils.writeDebugMsgToFile(msg:"Deleting article because date changed")
-                            try Publish().deleteArticleFromServerByPath(blog: self.model.currentBlog, path:path)
-                        }
-                        catch
-                        {
-                            Utils.writeDebugMsgToFile(msg:"error deleting article with old date from server")
-                        }
-                    }
-                }
-                
-                model.currentArticle.publisheddate = newdate
-                model.currentArticle.userdate = true
-                dateLabel.stringValue = "User Date"
-                dateText.stringValue = model.currentArticle.formatArticleDate()
-                saveArticle(article:self.model.currentArticle)
-                
-                errmsg(msg: "You changed the article date, don't forget to publish it again.")
+                manageDateChange()
             }
+            
+             updateOutline(blog:model.currentBlog)
         }
-        else if obj.object is NSTextView
+        
+       
+    }
+    
+    
+    @objc func didChangeNotification(_ obj: Notification)
+    {
+        if obj.object is NSTextView
         {
             let control = obj.object as! NSTextView
-
+            
             if control == markdownTextView
             {
-                articleFromUI()
-                saveArticle(article:self.model.currentArticle)
+                model.currentArticle.changed.changed()
             }
-            else if control == cssTextView || control == htmlTextView
+            else if control == cssTextView
             {
-                supportFilesFromUI()
-                
+                model.currentBlog.css.changed.changed()
+            }
+            else if control == htmlTextView
+            {
+                model.currentBlog.html.changed.changed()
+            }
+        }
+    }
+    
+
+    func manageDateChange()
+    {
+        let dateFormatter = Utils.getDateFormatter()
+        guard let newdate = dateFormatter.date(from:dateText.stringValue) else
+        {
+            errmsg(msg: "Bad date")
+            dateText.stringValue = model.currentArticle.formatArticleDate()
+            return
+        }
+         
+        if model.currentArticle.published == true
+        {
+            let olduuid = self.model.currentArticle.uuid
+            let path = self.model.currentArticle.makePathOnServer()
+            
+            do
+            {
+                try self.model.deleteArticleByUUID(uuid:olduuid)
+            }
+            catch
+            {
+                Utils.writeDebugMsgToFile(msg:"Error deleting old dated article")
+            }
+            
+            
+            DispatchQueue.global(qos: .background).async
+            {
                 do
                 {
-                    try self.model.saveSupportFiles(blog:model.currentBlog)
-                }
-                catch let err as Model.ModelError
-                {
-                    errmsg(msg:"Error saving support files: \(err.localizedDescription)")
+                    Utils.writeDebugMsgToFile(msg:"Deleting article because date changed")
+                    try Publish().deleteArticleFromServerByPath(blog: self.model.currentBlog, path:path)
                 }
                 catch
                 {
-                    errmsg(msg: "Error saving support files: \(error)")
+                    Utils.writeDebugMsgToFile(msg:"error deleting article with old date from server")
                 }
             }
         }
-
-        updateOutline(blog:model.currentBlog)
+        
+        model.currentArticle.changed.changed()
+        model.currentArticle.publisheddate = newdate
+        model.currentArticle.userdate = true
+        dateLabel.stringValue = "User Date"
+        dateText.stringValue = model.currentArticle.formatArticleDate()
     }
        
     
@@ -778,6 +804,7 @@ class AppDelegate: NSObject,
        {
            return
        }
+        
        
        Utils.savefile(title: "Export Blog", folders: true, startfolder: "~/Desktop")
        { (path) in
@@ -840,24 +867,25 @@ class AppDelegate: NSObject,
     
     func makeNewBlog(overidepublickeypassword:String?, newblog:Blog)
     {
-        model.addABlog(blog: newblog)
-        model.currentBlog = newblog
-        
-        editBlog(overridepublickeypasswod: overidepublickeypassword, editDoneBlock:
+        do
         {
-            do
-            {
-                try self.model.getSupportFilesFromBundle(blog: newblog)
-                try self.model.saveBlog(blog: newblog)
-            }
-            catch
-            {
-                Utils.writeDebugMsgToFile(msg:"newblog: Error saving files blog files to database : \(error)")
-                return
-            }
-            
-            self.model.currentBlog = newblog
-            self.updateOutline(blog:nil)
+            try self.model.getSupportFilesFromBundle(blog: newblog)
+        }
+        catch
+        {
+            self.errmsg(msg: "Error getting support files: \(error)")
+            return
+        }
+        
+        
+        editBlog(blog:newblog,
+                 overridepublickeypasswod: overidepublickeypassword,
+                 editDoneBlock:
+        {
+            self.model.addABlog(blog: newblog)
+            self.setCurrentBlog(blog: newblog)
+            self.saveChanged()
+            self.updateOutline(blog:self.model.currentBlog)
         })
     }
     
@@ -990,14 +1018,11 @@ class AppDelegate: NSObject,
 
     func editArticle(article:Article)
     {
-        model.currentBlog = article.blog
+        setCurrentBlog(blog: article.blog)
         
         articleTitle.isEnabled = true
         articleAuthor.isEnabled = true
         markdownTextView.isEditable = true
-        
-        cssTextView.string = article.blog.css.filetext
-        htmlTextView.string = article.blog.html.filetext
         
         model.currentArticle = article
         articleTitle.stringValue = article.title
@@ -1062,10 +1087,20 @@ class AppDelegate: NSObject,
     
     func applicationWillTerminate(_ aNotification: Notification)
     {
-
+        saveChanged()
     }
 
+    
+    func setCurrentBlog(blog:Blog)
+    {
+        model.currentBlog = blog
+        model.currentArticle = nil
+        cssTextView.string = model.currentBlog.css.filetext
+        htmlTextView.string = model.currentBlog.html.filetext
+        self.setTitle()
+    }
 
+    
     //
     // OutlineView data source ----------
     //
@@ -1193,16 +1228,21 @@ class AppDelegate: NSObject,
         return view
     }
 
+    
     func outlineViewSelectionDidChange(_ notification: Notification)
     {
         let item = outlineView.item(atRow: outlineView.selectedRow)
-        
+
         if item is Blog
         {
-            model.currentBlog = (item as? Blog)!
+            saveChanged()
+            clearUI()
+            
+            setCurrentBlog(blog: (item as? Blog)!)
         }
         else if item is Article
         {
+            saveChanged()
             editArticle(article:(item as? Article)!)
         }
         else if item is Doc
@@ -1210,8 +1250,8 @@ class AppDelegate: NSObject,
             popUpWindow(doc:(item as? Doc)!)
         }
         
+        
         updateOutline(blog: nil)
-        setTitle()
     }
     //
     // NSOutlineViewDelegate ----------

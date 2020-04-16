@@ -24,7 +24,8 @@ class Article : Record,Codable
     var filename       : String!
     var blog           : Blog!
     var userdate       : Bool = false
-   
+    var changed        : Changed = Changed()
+    
     
     enum CodingKeys: String,CodingKey
     {
@@ -77,6 +78,8 @@ class Article : Record,Codable
         publisheddate = row[CodingKeys.publisheddate.rawValue]
         published     = row[CodingKeys.published.rawValue]
         
+        changed.needsPublishing = published
+        
         images = Array()
         
         super.init()
@@ -98,6 +101,7 @@ class Article : Record,Codable
     func addImage(newimage:Image)
     {
         images.append(newimage)
+        changed.changed()
     }
 
     
@@ -126,6 +130,7 @@ class Article : Record,Codable
             publisheddate = Date()
         }
         
-        published = true
+        changed.needsPublishing = false // runtime only flag
+        published = true   //stored in db
     }
 }

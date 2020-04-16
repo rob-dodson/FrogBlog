@@ -22,6 +22,8 @@ class File : Record,Codable
     var filetext : String
     
     var filteredtext : String!
+    var changed : Changed = Changed()
+    
     
     enum CodingKeys: String,CodingKey
     {
@@ -48,6 +50,7 @@ class File : Record,Codable
         super.init()
     }
     
+    
     required init(row: Row)
     {
         uuid     = row[CodingKeys.uuid.rawValue]
@@ -57,7 +60,8 @@ class File : Record,Codable
        
         super.init()
     }
-       
+    
+    
     override func encode(to container: inout PersistenceContainer)
     {
         container[CodingKeys.uuid.rawValue]     = uuid
