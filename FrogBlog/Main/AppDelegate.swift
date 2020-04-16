@@ -946,10 +946,10 @@ class AppDelegate: NSObject,
             self.markdownTextView.string.append(markdownimagetext)
             
             article.addImage(newimage: image)
-        
+            article.changed.needsPublishing = true
+            
             self.articleFromUI()
             self.saveArticle(article:article)
-           
        })
    }
     
@@ -988,6 +988,7 @@ class AppDelegate: NSObject,
         editArticle(article: article)
         model.currentBlog.addArticle(newarticle: article)
         model.currentArticle = article
+        article.changed.changed()
         
         do
         {

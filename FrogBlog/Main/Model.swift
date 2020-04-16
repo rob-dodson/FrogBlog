@@ -206,21 +206,20 @@ class Model
     }
     
     
-    //
-    // for now we always send the sample file for blogengine.php
-    //
+    
     func filterBlogSupportFiles(blog:Blog) throws
     {
         blog.html.filteredtext = Utils.filterHtmlText(blog: blog, text:  blog.html.filetext)           
-
+        blog.css.filteredtext = blog.css.filetext // nothing to fiter in css file
+        
+        //
+        // for now we always send the sample file for blogengine.php
+        //
         let enginefilteredtext = try self.getSampleFile(blog: blog, filename: File.BLOGENGINE)
         { (filetext) -> String in
             return Utils.filterHtmlText(blog: blog, text: filetext)
         }
         blog.engine.filteredtext = enginefilteredtext
-
-
-        blog.css.filteredtext = blog.css.filetext // nothing to fiter in css file
     }
     
     
