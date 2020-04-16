@@ -269,8 +269,10 @@ class AppDelegate: NSObject,
         {
           return
         }
-
+        
+        articleFromUI()
         saveChanged()
+        
         
         let blog = model.currentBlog!
         let article = model.currentArticle!
@@ -282,9 +284,9 @@ class AppDelegate: NSObject,
        do
        {
             try model.filterBlogSupportFiles(blog:blog)
+            try Publish().sendArticleAndSupportFiles(blog: blog, article: article)
+        
             markCurrentArticlePublished()
-
-           try Publish().sendArticleAndSupportFiles(blog: blog, article: article)
            
            Alert.showAlertInWindow(window: self.window, message: "Article published", info: article.title, ok: {}, cancel:{})
        }
@@ -393,9 +395,11 @@ class AppDelegate: NSObject,
 
     func articleFromUI()
     {
-       model.currentArticle.title = articleTitle.stringValue
-       model.currentArticle.author = articleAuthor.stringValue
-       model.currentArticle.markdowntext = markdownTextView.string
+        model.currentArticle.title = articleTitle.stringValue
+        model.currentArticle.author = articleAuthor.stringValue
+        model.currentArticle.markdowntext = markdownTextView.string
+        
+        updateOutline(blog: nil) // Title of article might need updating in outlineview
     }
     
     
