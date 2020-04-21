@@ -87,7 +87,8 @@ class Publish
         }
         
         article.markAsPublished()
-        Utils.writeDebugMsgToFile(msg:"sendCurrentArticle done")
+        
+        Utils.writeDebugMsgToFile(msg:"sendCurrentArticle done: \(article.title)")
     }
     
     
