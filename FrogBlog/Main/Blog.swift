@@ -252,8 +252,7 @@ class Blog : Record,Codable
     
     func exportRSS() -> String
     {
-        
-        
+       
         var rss = """
         <rss version="2.0">
         <channel>
@@ -272,6 +271,9 @@ class Blog : Record,Codable
         //
         for article in articles
         {
+            var markdown = article.markdowntext.replacingOccurrences(of: "“", with: "&#8220;")   // replace curly quotes with straight quotes
+            markdown = markdown.replacingOccurrences(of: "”", with: "&#8221;")
+            
             let articlerss = """
             <item>
                 <title>\(article.title)</title>
@@ -279,7 +281,7 @@ class Blog : Record,Codable
                 <guid>\(uuid)</guid>
                 <pubDate>\(article.formatArticleDate())</pubDate>
                 <description>
-                \(parser.html(from: article.markdowntext).addingUnicodeEntities)
+                \(parser.html(from: markdown).addingUnicodeEntities)
                 </description>
                 
             </item>
