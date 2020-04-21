@@ -216,13 +216,15 @@ class Publish
             
             for article in blog.articles
             {
-                do
+                let path = article.makePathOnServer()
+                let result = sftp.removeFile(atPath: path)
+                if result == false
                 {
-                    try self.deleteArticleFromServer(blog: blog, article: article)
+                    Utils.writeDebugMsgToFile(msg: "sendAllArticles: Error deleting article from server: \(article.title)")
                 }
-                catch
+                else
                 {
-                    Utils.writeDebugMsgToFile(msg: "sendAllArticles: Error deleting article from server")
+                    Utils.writeDebugMsgToFile(msg:"sendAllArticles: deleted article \(article.title) from sever")
                 }
             }
             
