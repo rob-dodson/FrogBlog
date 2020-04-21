@@ -214,6 +214,18 @@ class Publish
         try publishTask(blog: blog)
         { (blog:Blog, sftp:NMSFTP, session:NMSSHSession) in
             
+            for article in blog.articles
+            {
+                do
+                {
+                    try self.deleteArticleFromServer(blog: blog, article: article)
+                }
+                catch
+                {
+                    Utils.writeDebugMsgToFile(msg: "sendAllArticles: Error deleting article from server")
+                }
+            }
+            
             try self.sendSupportFiles(blog: blog, ftp: sftp)
             
             for article in blog.articles
