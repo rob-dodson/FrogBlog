@@ -399,6 +399,10 @@ class AppDelegate: NSObject,
         model.currentArticle.author = articleAuthor.stringValue
         model.currentArticle.markdowntext = markdownTextView.string
         
+        model.currentArticle.markdowntext = model.currentArticle.markdowntext.replacingOccurrences(of: "“", with: "\"")   // replace curly quotes with straight quotes
+        model.currentArticle.markdowntext = model.currentArticle.markdowntext.replacingOccurrences(of: "”", with: "\"")
+        
+        
         updateOutline(blog: nil) // Title of article might need updating in outlineview
     }
     
