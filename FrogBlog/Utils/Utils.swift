@@ -180,7 +180,7 @@ class Utils
         }
         catch
         {
-            Utils.writeDebugMsgToFile(msg:"write to debug file failed: \(error)")
+            NSLog("write to debug file failed. error: \(error) - msg: \(msg)")
         }
     }
 
