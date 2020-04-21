@@ -125,11 +125,6 @@ class Article : Record,Codable
     
     func markAsPublished()
     {
-        if published == false && userdate == false
-        {
-            publisheddate = Date()
-        }
-        
         changed.needsPublishing = false // runtime only flag
         published = true   //stored in db
     }

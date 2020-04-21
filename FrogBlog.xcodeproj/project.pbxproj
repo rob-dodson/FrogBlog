@@ -39,7 +39,6 @@
 		AEBDC01E2448C12300E4F8A5 /* Changed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDC01D2448C12300E4F8A5 /* Changed.swift */; };
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
 		AECDBE8623CD3DFE0014B73F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDBE8523CD3DFE0014B73F /* Article.swift */; };
-		AED01367244F6B05008208AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AED01366244F6B04008208AA /* README.md */; };
 		AEE84CAC23D4E72A009E20DA /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE84CAB23D4E72A009E20DA /* File.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,7 +88,6 @@
 		AEBDC01D2448C12300E4F8A5 /* Changed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changed.swift; sourceTree = "<group>"; };
 		AECD48E323CFB3DC00A9F503 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		AECDBE8523CD3DFE0014B73F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		AED01366244F6B04008208AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = FrogBlog/README.md; sourceTree = SOURCE_ROOT; };
 		AEE84CAB23D4E72A009E20DA /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -141,7 +139,6 @@
 		AE5200CF23AEFB0100F3D522 /* FrogBlog */ = {
 			isa = PBXGroup;
 			children = (
-				AED01366244F6B04008208AA /* README.md */,
 				AEA07E7B23CD2298009E07A0 /* Main */,
 				AEA07E7923CD224A009E07A0 /* Supporting Files */,
 				AEA07E7A23CD2261009E07A0 /* Sample Files */,
@@ -307,7 +304,6 @@
 				4A0C7A9023F3388B00890FD9 /* blogengine.php in Resources */,
 				AE5200FD23AFF53D00F3D522 /* MarkdownHelp.txt in Resources */,
 				AE10EC5A23DBA0C2003483BF /* BrowserWindow.xib in Resources */,
-				AED01367244F6B05008208AA /* README.md in Resources */,
 				AE5200D923AEFB0300F3D522 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

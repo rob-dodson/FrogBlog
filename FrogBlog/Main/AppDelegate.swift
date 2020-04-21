@@ -271,24 +271,27 @@ class AppDelegate: NSObject,
         }
         
         articleFromUI()
-        saveChanged()
-        
         
         let blog = model.currentBlog!
         let article = model.currentArticle!
-
-    
+        
+        if article.published == false
+        {
+            article.publisheddate = Date()
+            dateText.stringValue = article.formatArticleDate()
+        }
+        
        
-       let alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
+        
+        let alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
         
        do
        {
             try model.filterBlogSupportFiles(blog:blog)
             try Publish().sendArticleAndSupportFiles(blog: blog, article: article)
-        
             markCurrentArticlePublished()
-           
-           Alert.showAlertInWindow(window: self.window, message: "Article published", info: article.title, ok: {}, cancel:{})
+        
+            Alert.showAlertInWindow(window: self.window, message: "Article published", info: article.title, ok: {}, cancel:{})
        }
        catch let err as Publish.PublishError
        {
@@ -298,9 +301,12 @@ class AppDelegate: NSObject,
        {
            errmsg(msg:"Error publishing: \(error)")
        }
+        
        alert.window.sheetParent!.endSheet(alert.window, returnCode: .cancel)
-       
-       
+      
+       saveChanged()
+       setTitle()
+        
        DispatchQueue.global(qos: .background).async
        {
            self.deleteUnusedImages(article:article)
@@ -527,7 +533,28 @@ class AppDelegate: NSObject,
     {
         if model.currentBlog != nil
         {
-            self.window.title = String.init(format: "FrogBlog - %@", model.currentBlog.nickname)
+            if model.currentArticle != nil
+            {
+                if model.currentArticle.changed.needsPublishing == true
+                {
+                    self.window.title = String.init(format: "FrogBlog - %@ ✖︎", model.currentBlog.nickname)
+                }
+                else
+                {
+                    if model.currentArticle.changed.needsPublishing == false && model.currentArticle.published == true
+                    {
+                        self.window.title = String.init(format: "FrogBlog - %@ ✓", model.currentBlog.nickname)
+                    }
+                    else
+                    {
+                        self.window.title = String.init(format: "FrogBlog - %@", model.currentBlog.nickname)
+                    }
+                }
+            }
+            else
+            {
+                self.window.title = String.init(format: "FrogBlog - %@", model.currentBlog.nickname)
+            }
         }
     }
     
@@ -584,7 +611,7 @@ class AppDelegate: NSObject,
             if control == articleTitle || control == articleAuthor
             {
                 articleFromUI()
-                model.currentArticle.changed.changed()
+                markArticleNeedsPublishing()
             }
             else if control == dateText
             {
@@ -606,7 +633,7 @@ class AppDelegate: NSObject,
             
             if control == markdownTextView
             {
-                model.currentArticle.changed.changed()
+                markArticleNeedsPublishing()
             }
             else if control == cssTextView
             {
@@ -619,7 +646,14 @@ class AppDelegate: NSObject,
         }
     }
     
+    
+    func markArticleNeedsPublishing()
+    {
+        model.currentArticle.changed.changed()
+        setTitle()
+    }
 
+    
     func manageDateChange()
     {
         let dateFormatter = Utils.getDateFormatter()
@@ -629,41 +663,56 @@ class AppDelegate: NSObject,
             dateText.stringValue = model.currentArticle.formatArticleDate()
             return
         }
-         
-        if model.currentArticle.published == true
+        
+        if Int(newdate.timeIntervalSince1970) == Int(model.currentArticle.publisheddate.timeIntervalSince1970)
         {
-            let olduuid = self.model.currentArticle.uuid
-            let path = self.model.currentArticle.makePathOnServer()
-            
-            do
-            {
-                try self.model.deleteArticleByUUID(uuid:olduuid)
-            }
-            catch
-            {
-                Utils.writeDebugMsgToFile(msg:"Error deleting old dated article")
-            }
-            
-            
-            DispatchQueue.global(qos: .background).async
-            {
-                do
-                {
-                    Utils.writeDebugMsgToFile(msg:"Deleting article because date changed")
-                    try Publish().deleteArticleFromServerByPath(blog: self.model.currentBlog, path:path)
-                }
-                catch
-                {
-                    Utils.writeDebugMsgToFile(msg:"error deleting article with old date from server")
-                }
-            }
+            return
         }
         
-        model.currentArticle.changed.changed()
-        model.currentArticle.publisheddate = newdate
-        model.currentArticle.userdate = true
-        dateLabel.stringValue = "User Date"
-        dateText.stringValue = model.currentArticle.formatArticleDate()
+        
+        if model.currentArticle.published == true
+        {
+            Alert.showAlertInWindow(window: window, message: "You have changed the article date. Do you want to keep new date and republish?",
+                                    info: "",
+                                    ok: {
+                                        
+                                                   let olduuid = self.model.currentArticle.uuid
+                                                   let path = self.model.currentArticle.makePathOnServer()
+                                                   
+                                                   do
+                                                   {
+                                                       try self.model.deleteArticleByUUID(uuid:olduuid)
+                                                   }
+                                                   catch
+                                                   {
+                                                       Utils.writeDebugMsgToFile(msg:"Error deleting old dated article")
+                                                   }
+                                                   
+                                                   
+                                                   do
+                                                   {
+                                                       Utils.writeDebugMsgToFile(msg:"Deleting article because date changed")
+                                                       try Publish().deleteArticleFromServerByPath(blog: self.model.currentBlog, path:path)
+                                                   }
+                                                   catch
+                                                   {
+                                                       Utils.writeDebugMsgToFile(msg:"error deleting article with old date from server")
+                                                   }
+                                                   
+                                                   self.markArticleNeedsPublishing()
+                                                   self.model.currentArticle.publisheddate = newdate
+                                                   self.model.currentArticle.userdate = true
+                                                   self.dateLabel.stringValue = "User Date"
+                                                   self.dateText.stringValue = self.model.currentArticle.formatArticleDate()
+                                        
+                                                   self.publish();
+                                        
+            },
+                                    cancel: {
+                                        self.dateText.stringValue = self.model.currentArticle.formatArticleDate()
+                                        return
+            });
+        }
     }
        
     
@@ -989,7 +1038,7 @@ class AppDelegate: NSObject,
         editArticle(article: article)
         model.currentBlog.addArticle(newarticle: article)
         model.currentArticle = article
-        article.changed.changed()
+        markArticleNeedsPublishing()
         
         do
         {
@@ -1025,6 +1074,8 @@ class AppDelegate: NSObject,
     func editArticle(article:Article)
     {
         setCurrentBlog(blog: article.blog)
+        
+        setTitle();
         
         articleTitle.isEnabled = true
         articleAuthor.isEnabled = true
