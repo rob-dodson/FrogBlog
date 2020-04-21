@@ -28,4 +28,3 @@ Todo:
 * Some kind of syncing 
 	- Investigate using GRDB json export/import to/from the web server
 * Support password login to server
-* Separate local db delete items from server delete of same so we can handle errors separately
