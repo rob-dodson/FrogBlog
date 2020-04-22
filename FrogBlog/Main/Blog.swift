@@ -253,6 +253,9 @@ class Blog : Record,Codable
     {
         let pubdate =  Utils.getRSSDateString(date:Date())
         
+        //
+        // The header info
+        //
         var rss = """
         <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
         <channel>
@@ -275,8 +278,8 @@ class Blog : Record,Codable
             var html = parser.html(from: article.markdowntext)
             
             //
-            // RSS require these five characters be replaced
-            // with the symbolic name.
+            // RSS requires these five characters be replaced
+            // with the symbolic names.
             //
             html = html.replacingOccurrences(of:"\"", with:"&quot;") // double quote
             html = html.replacingOccurrences(of:"&",  with:"&amp;")  // ampersand
@@ -285,6 +288,9 @@ class Blog : Record,Codable
             html = html.replacingOccurrences(of:">",  with:"&gt;")   // greater than
             
             
+            //
+            // the article info
+            //
             let articlerss = """
             <item>
                 <title>\(article.title)</title>
@@ -303,7 +309,6 @@ class Blog : Record,Codable
         
         rss.append("</channel>\n")
         rss.append("</rss>\n")
-        
         
         return rss
     }
