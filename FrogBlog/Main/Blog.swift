@@ -269,12 +269,20 @@ class Blog : Record,Codable
         
         for article in articles
         {
+            //
+            // convert markdown to html
+            //
             var html = parser.html(from: article.markdowntext)
-            html = html.replacingOccurrences(of:"\"", with:"&quot;")
-            html = html.replacingOccurrences(of:"&", with:"&amp;")
-            html = html.replacingOccurrences(of:"\'", with:"&apos;")
-            html = html.replacingOccurrences(of:"<", with:"&lt;")
-            html = html.replacingOccurrences(of:">", with:"&gt;")
+            
+            //
+            // RSS require these five characters be replaced
+            // with the symbolic name.
+            //
+            html = html.replacingOccurrences(of:"\"", with:"&quot;") // double quote
+            html = html.replacingOccurrences(of:"&",  with:"&amp;")  // ampersand
+            html = html.replacingOccurrences(of:"\'", with:"&apos;") // single quote
+            html = html.replacingOccurrences(of:"<",  with:"&lt;")   // less than
+            html = html.replacingOccurrences(of:">",  with:"&gt;")   // greater than
             
             
             let articlerss = """
