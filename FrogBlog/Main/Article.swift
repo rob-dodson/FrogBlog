@@ -118,15 +118,12 @@ class Article : Record,Codable
     
     func formatArticleDate() -> String
     {
-        let DateFormatter = Utils.getDateFormatter()
-        return DateFormatter.string(from: publisheddate)
+        return Utils.getISO8601DateString(date: publisheddate)
     }
-     
     
     func formatRSSDate() -> String
     {
-        let DateFormatter = Utils.getRSSDateFormatter()
-        return DateFormatter.string(from: publisheddate)
+        return Utils.getRSSDateString(date: publisheddate)
     }
     
     func markAsPublished()

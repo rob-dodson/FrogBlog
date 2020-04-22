@@ -135,23 +135,34 @@ class Utils
         return nil
     }
     
-    static func getRSSDateFormatter() -> DateFormatter
+
+    static func getRSSDateString(date:Date) -> String
     {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss zzz"
         dateFormatter.timeZone = TimeZone.current
            
-        return dateFormatter
+		return dateFormatter.string(from:date)
     }
     
-    static func getDateFormatter() -> ISO8601DateFormatter
+
+	 static func getYearString() -> String
+	 {
+       let dateFormatter = DateFormatter()
+       dateFormatter.dateFormat = "yyyy"
+       return dateFormatter.string(from: Date())
+	}
+
+
+    static func getISO8601DateString(date:Date) -> String
     {
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = [.withFullDate,.withFullTime,.withSpaceBetweenDateAndTime]
         dateFormatter.timeZone = TimeZone.current
         
-        return dateFormatter
+		return dateFormatter.string(from:date)
     }
+
 
     static func writeDebugMsgToFile(msg:String)
     {

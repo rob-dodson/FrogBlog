@@ -432,18 +432,6 @@ class AppDelegate: NSObject,
     }
    
  
-   func formatDateSmall(date:Date) -> String
-   {
-       let RFC3339DateFormatter = DateFormatter()
-       RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
-       RFC3339DateFormatter.dateFormat = "mm/dd/yy-hh:mm:ss"
-       let thedatestring = RFC3339DateFormatter.string(from: date)
-
-       return thedatestring
-   }
- 
-       
-    
     func getpreviewhtmltext() -> String
     {
        previewTabView.selectTabViewItem(at: 0)
@@ -455,11 +443,7 @@ class AppDelegate: NSObject,
 
 
        let css = cssTextView.string
-       
-        let RFC3339DateFormatter = DateFormatter()
-        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        RFC3339DateFormatter.dateFormat = "yyyy"
-        let year = RFC3339DateFormatter.string(from: Date())
+       let year = Utils.getYearString()
 
        let header = """
        <html>
@@ -656,7 +640,7 @@ class AppDelegate: NSObject,
     
     func manageDateChange()
     {
-        let dateFormatter = Utils.getDateFormatter()
+		let dateFormatter = ISO8601DateFormatter()
         guard let newdate = dateFormatter.date(from:dateText.stringValue) else
         {
             errmsg(msg: "Bad date")

@@ -251,8 +251,7 @@ class Blog : Record,Codable
     
     func exportRSS() -> String
     {
-        let DateFormatter = Utils.getRSSDateFormatter()
-        let pubdate =  DateFormatter.string(from: Date())
+        let pubdate =  Utils.getRSSDateString(date:Date())
         
         var rss = """
         <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
