@@ -135,6 +135,14 @@ class Utils
         return nil
     }
     
+    static func getRSSDateFormatter() -> DateFormatter
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss zzz"
+        dateFormatter.timeZone = TimeZone.current
+           
+        return dateFormatter
+    }
     
     static func getDateFormatter() -> ISO8601DateFormatter
     {

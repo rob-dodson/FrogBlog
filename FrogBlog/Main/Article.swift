@@ -123,6 +123,12 @@ class Article : Record,Codable
     }
      
     
+    func formatRSSDate() -> String
+    {
+        let DateFormatter = Utils.getRSSDateFormatter()
+        return DateFormatter.string(from: publisheddate)
+    }
+    
     func markAsPublished()
     {
         changed.needsPublishing = false // runtime only flag

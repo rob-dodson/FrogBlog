@@ -252,15 +252,18 @@ class Blog : Record,Codable
     
     func exportRSS() -> String
     {
-       
+        let DateFormatter = Utils.getRSSDateFormatter()
+        let pubdate =  DateFormatter.string(from: Date())
+        
         var rss = """
-        <rss version="2.0">
+        <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
         <channel>
         <link>\(address)</link>
+        <atom:link href="\(address)/rss.xml" rel="self" type="application/rss+xml" />
         <title>\(title)</title>
         <description>\(subtitle)</description>
         <language>en</language>
-        <pubDate>\(Date().description(with: .current))</pubDate>
+        <pubDate>\(pubdate)</pubDate>
         
         """
 
@@ -271,15 +274,17 @@ class Blog : Record,Codable
         //
         for article in articles
         {
-            var markdown = article.markdowntext.replacingOccurrences(of: "“", with: "&#8220;")   // replace curly quotes with straight quotes
-            markdown = markdown.replacingOccurrences(of: "”", with: "&#8221;")
             
+            var markdown = article.markdowntext.replacingOccurrences(of: "“", with: "&#8220;")   // replace left curly quote with html code
+            markdown = markdown.replacingOccurrences(of: "”", with: "&#8221;") // replace left curly quote with html code
+            markdown = markdown.replacingOccurrences(of: "…", with: "&#8230;") // ellipsis
+        
             let articlerss = """
             <item>
                 <title>\(article.title)</title>
-                <link>\(article.makePathOnServer())</link>
-                <guid>\(uuid)</guid>
-                <pubDate>\(article.formatArticleDate())</pubDate>
+                <link>\(address)/articles/\(article.makeArticleNameOnServer().replacingOccurrences(of: " ", with: "%20"))</link>
+                <guid isPermaLink="false">\(article.uuid)</guid>
+                <pubDate>\(article.formatRSSDate())</pubDate>
                 <description>
                 \(parser.html(from: markdown).addingUnicodeEntities)
                 </description>
