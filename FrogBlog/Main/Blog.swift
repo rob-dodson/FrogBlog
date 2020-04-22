@@ -11,7 +11,6 @@ import KeychainSwift
 
 import GRDB
 import Ink
-import HTMLString
 
 
 class Blog : Record,Codable
@@ -269,16 +268,16 @@ class Blog : Record,Codable
 
         let parser = MarkdownParser()
         
-        //
-        // uses HTMLString.addingUnicodeEntities to encode the HTML in the article
-        //
         for article in articles
         {
+            var html = parser.html(from: article.markdowntext)
+            html = html.replacingOccurrences(of:"\"", with:"&quot;")
+            html = html.replacingOccurrences(of:"&", with:"&amp;")
+            html = html.replacingOccurrences(of:"\'", with:"&apos;")
+            html = html.replacingOccurrences(of:"<", with:"&lt;")
+            html = html.replacingOccurrences(of:">", with:"&gt;")
             
-            var markdown = article.markdowntext.replacingOccurrences(of: "“", with: "&#8220;")   // replace left curly quote with html code
-            markdown = markdown.replacingOccurrences(of: "”", with: "&#8221;") // replace left curly quote with html code
-            markdown = markdown.replacingOccurrences(of: "…", with: "&#8230;") // ellipsis
-        
+            
             let articlerss = """
             <item>
                 <title>\(article.title)</title>
@@ -286,9 +285,8 @@ class Blog : Record,Codable
                 <guid isPermaLink="false">\(article.uuid)</guid>
                 <pubDate>\(article.formatRSSDate())</pubDate>
                 <description>
-                \(parser.html(from: markdown).addingUnicodeEntities)
+                \(html)
                 </description>
-                
             </item>
             
             """
