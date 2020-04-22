@@ -5,6 +5,8 @@
 //  Created by Robert Dodson on 1/26/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//  An image object. An article has an array of these.
+//
 
 import Foundation
 import Cocoa
@@ -44,7 +46,7 @@ class Image : Record,Codable
         super.init()
     }
     
-    
+
     required init(row: Row)
     {
         uuid        = row[CodingKeys.uuid.rawValue]

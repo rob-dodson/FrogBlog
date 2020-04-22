@@ -5,6 +5,9 @@
 //  Created by Robert Dodson on 1/17/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//  An interface the GRDB sqllite package. All I/O to the
+//  database goes through here.
+//
 
 import Foundation
 
@@ -176,8 +179,6 @@ class SqliteDB
             return articles[0]
        }
     }
-
-
     
     
     func loadFile(blog:Blog,filename:String) throws

@@ -5,6 +5,8 @@
 //  Created by Robert Dodson on 1/24/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//  Used to hold the help files.
+//
 
 import Foundation
 

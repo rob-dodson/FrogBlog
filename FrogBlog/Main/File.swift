@@ -5,6 +5,8 @@
 //  Created by Robert Dodson on 1/19/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//  Represents a File, used for the sample html and css files.
+//
 
 import Foundation
 

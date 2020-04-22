@@ -5,6 +5,9 @@
 //  Created by Robert Dodson on 1/9/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//  Contains everything about a single blog, including all server login info, and
+//  an array of Articles.
+//
 
 import Foundation
 import KeychainSwift

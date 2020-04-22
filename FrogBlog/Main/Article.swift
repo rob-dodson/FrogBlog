@@ -5,6 +5,8 @@
 //  Created by Robert Dodson on 1/13/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//  All data for an article, including an array of Images.
+//
 
 import Foundation
 
@@ -39,12 +41,11 @@ class Article : Record,Codable
         case images
     }
     
+    
     override class var databaseTableName: String
     {
         return SqliteDB.ARTICLE
     }
-   
-   
 
     
     init(blog:Blog,
@@ -121,10 +122,12 @@ class Article : Record,Codable
         return Utils.getISO8601DateString(date: publisheddate)
     }
     
+    
     func formatRSSDate() -> String
     {
         return Utils.getRSSDateString(date: publisheddate)
     }
+    
     
     func markAsPublished()
     {

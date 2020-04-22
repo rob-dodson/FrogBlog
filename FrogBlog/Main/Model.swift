@@ -5,6 +5,10 @@
 //  Created by Robert Dodson on 2/7/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//  Hold all the Blog and Article data. Maintains
+//  handles to the current blog and current article.
+//  Also is the interace to the database layer.
+//
 
 import Foundation
 
@@ -23,10 +27,6 @@ class Model
         let msg  : String
     }
     
-    
-    init()
-    {
-    }
     
     func loadBlogsAndDocs() throws
     {
@@ -72,7 +72,6 @@ class Model
     //
     // Delete an article.
     // Delete the images that it uses and delete it from its blog's list of articles.
-   
     //
     func deleteArticle(article:Article) throws
     {
@@ -306,7 +305,5 @@ class Model
 
        return filetext
     }
-   
-    
     
 }
