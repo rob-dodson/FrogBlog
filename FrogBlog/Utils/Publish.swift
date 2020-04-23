@@ -5,12 +5,15 @@
 //  Created by Robert Dodson on 1/26/20.
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
+//	This class handles sending files to the web blog server.
+//	It can also delete files there.
+//
 
 import Foundation
 import Cocoa
 
-import NMSSH
-import Ink
+import NMSSH  // sftp code
+import Ink    // markdown support
 
 
 class Publish
@@ -33,7 +36,6 @@ class Publish
         
         Utils.writeDebugMsgToFile(msg:"sendFile done: \(path)")
     }
-    
    
 
     func sendArticleImages(blog:Blog, article:Article, images:[Image], ftp:NMSFTP) throws
@@ -298,7 +300,6 @@ class Publish
         
         Utils.writeDebugMsgToFile(msg:"publishTask: done")
     }
-    
     
 }
 

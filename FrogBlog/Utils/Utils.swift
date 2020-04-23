@@ -6,17 +6,9 @@
 //  Copyright © 2020 Robert Dodson. All rights reserved.
 //
 
-import Foundation
-
-//
-//  Utils.swift
-//  FrogBlog
-//
-//  Created by Robert Dodson on 1/21/20.
-//  Copyright © 2020 Robert Dodson. All rights reserved.
-//
 import Cocoa
 import Foundation
+
 
 class Utils
 {
@@ -30,7 +22,7 @@ class Utils
         filepanel.prompt = "Export"
         filepanel.showsHiddenFiles = false
         filepanel.directoryURL = URL.init(string:startfolder)
-        filepanel.canCreateDirectories = true;
+        filepanel.canCreateDirectories = true
 
         filepanel.begin
         { (retval) in
@@ -52,7 +44,7 @@ class Utils
         filepanel.prompt = "Use"
         filepanel.showsHiddenFiles = false
         filepanel.directoryURL = URL.init(string:startfolder)
-        filepanel.canCreateDirectories = true;
+        filepanel.canCreateDirectories = true
 
         filepanel.begin
         { (retval) in
@@ -136,6 +128,14 @@ class Utils
     }
     
 
+	static func getYearString() -> String
+	{
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy"
+		return dateFormatter.string(from: Date())
+	}
+
+
     static func getRSSDateString(date:Date) -> String
     {
         let dateFormatter = DateFormatter()
@@ -144,14 +144,6 @@ class Utils
            
 		return dateFormatter.string(from:date)
     }
-    
-
-	 static func getYearString() -> String
-	 {
-       let dateFormatter = DateFormatter()
-       dateFormatter.dateFormat = "yyyy"
-       return dateFormatter.string(from: Date())
-	}
 
 
     static func getISO8601DateString(date:Date) -> String
@@ -174,11 +166,9 @@ class Utils
     {
        NSLog("debug: \(msg)")
         
-        do
-        {
-           //let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-            
-            let fileName = "/tmp/FrogBlogDebug.txt"
+       do
+       {
+			let fileName = "/tmp/FrogBlogDebug.txt"
             let logmsg = "\(Date().description): \(msg)"
             
             if rewindfile == true
@@ -202,5 +192,5 @@ class Utils
             NSLog("write to debug file failed. error: \(error) - msg: \(msg)")
         }
     }
-
 }
+

@@ -10,10 +10,9 @@
 //
 
 import Foundation
-import KeychainSwift
 
-import GRDB
-import Ink
+import GRDB     // Sqlite database interface
+import Ink      // markdown to html processing
 
 
 class Blog : Record,Codable
@@ -252,6 +251,9 @@ class Blog : Record,Codable
     }
     
     
+	// 
+	// Export and RSS feed text file in XML format.
+	//
     func exportRSS() -> String
     {
         let pubdate =  Utils.getRSSDateString(date:Date())
