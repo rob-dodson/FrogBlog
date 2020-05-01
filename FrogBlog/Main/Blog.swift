@@ -292,6 +292,7 @@ class Blog : Record,Codable
             html = html.replacingOccurrences(of:"<",  with:"&lt;")   // less than
             html = html.replacingOccurrences(of:">",  with:"&gt;")   // greater than
             
+            let articlenameonserver = article.makeArticleNameOnServer().addingPercentEncoding(withAllowedCharacters:.alphanumerics)
             
             //
             // the article info
@@ -299,7 +300,7 @@ class Blog : Record,Codable
             let articlerss = """
             <item>
                 <title>\(article.title)</title>
-                <link>\(address)/articles/\(article.makeArticleNameOnServer().replacingOccurrences(of: " ", with: "%20"))</link>
+                <link>\(address)/?article=\(articlenameonserver!)</link>
                 <guid isPermaLink="false">\(article.uuid)</guid>
                 <pubDate>\(article.formatRSSDate())</pubDate>
                 <description>

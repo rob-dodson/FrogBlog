@@ -86,8 +86,6 @@ class AppDelegate: NSObject,
         
         Utils.writeDebugMsgToFile(msg: "FrogBlog Starting Up", rewindfile: true)
         
-      
-        
         
         //
         // load blogs and etc
