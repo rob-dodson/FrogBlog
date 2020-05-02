@@ -60,12 +60,11 @@ class Model
         // Load doc files
         //
         docs = [Doc]()
-        let markdownhelp  = Doc(name: "Markdown Help", filename: "MarkdownHelp.txt")
-        let csscolorshelp = Doc(name: "CSS Colors", filename: "https://www.w3schools.com/cssref/css_colors.asp")
-        let frogbloghelp  = Doc(name: "FrogBlog Help", filename: "FrogBlogHelp.txt")
-        docs!.append(markdownhelp)
-        docs!.append(csscolorshelp)
-        docs!.append(frogbloghelp)
+        docs!.append(Doc(name: "Markdown Help", filename: "MarkdownHelp.txt"))
+        docs!.append(Doc(name: "CSS Colors", filename: "https://www.w3schools.com/cssref/css_colors.asp"))
+        docs!.append(Doc(name: "FrogBlog Help", filename: "FrogBlogHelp.txt"))
+        docs!.append(Doc(name: "Sample HTML File", filename: "index.html"))
+        docs!.append(Doc(name: "Sample CSS File", filename: "styles.css"))
     }
     
     
