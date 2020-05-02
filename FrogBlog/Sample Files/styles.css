@@ -23,7 +23,7 @@ a
 
 .title
 {
-    color:darkgreen;
+    color: darkgreen;
     font-size: 50px;
 }
 
@@ -34,7 +34,7 @@ a
 
 .subtitle
 {
-    color:gray;
+    color: gray;
     font-size: 20px;
     letter-spacing: 0.3em;
 }
@@ -46,7 +46,7 @@ a.chain
 
 .author
 {
-    color:darkgray;
+    color: darkgray;
     font-size: 25px;
 }
 

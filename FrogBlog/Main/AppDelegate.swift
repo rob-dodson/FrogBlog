@@ -268,7 +268,7 @@ class AppDelegate: NSObject,
           return
         }
         
-        articleFromUI()
+        saveChanged()
         
         let blog = model.currentBlog!
         let article = model.currentArticle!
@@ -278,8 +278,6 @@ class AppDelegate: NSObject,
             article.publisheddate = Date()
             dateText.stringValue = article.formatArticleDate()
         }
-        
-       
         
         let alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
         
