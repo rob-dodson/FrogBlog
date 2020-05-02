@@ -72,9 +72,9 @@ class Publish
         
         let articlehtml = """
         <div id=\"article\">
-        <span = class=\"articletitle\">\(articletitle)</span><a class=\"chain\" href="\(blog.address)?article=\(articlenameonserver!)">&#9741;</a>
+        <span class=\"articletitle\">\(articletitle)</span><a class=\"chain\" href="\(blog.address)?article=\(articlenameonserver!)">&#9741;</a>
         <br />
-        <span = class=\"articleauthor\">\(articleauthor)</span> - <span = class=\"articledate\">\(articledate)</span><br />
+        <span class=\"articleauthor\">\(articleauthor)</span> - <span  class=\"articledate\">\(articledate)</span><br />
         \(articletext )
         </div>
         """
