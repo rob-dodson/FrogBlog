@@ -268,7 +268,8 @@ class AppDelegate: NSObject,
           return
         }
         
-        saveChanged()
+        articleFromUI()
+        supportFilesFromUI()
         
         let blog = model.currentBlog!
         let article = model.currentArticle!
