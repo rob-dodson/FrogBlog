@@ -10,7 +10,7 @@ import Cocoa
 import WebKit
 
 import Ink
-
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject,
@@ -142,6 +142,11 @@ class AppDelegate: NSObject,
             self.saveChanged()
         })
         
+        
+        //
+        //
+        //
+        SUUpdater.shared()?.checkForUpdatesInBackground();
         
         //
         // Load up the outlineview
