@@ -26,9 +26,10 @@ class ServerSettingsPanel: NSWindowController
     @IBOutlet var showKeyButton: NSButton!
     @IBOutlet var unsecureKeyPasswordField: NSTextField!
     
-    var theblog:Blog!
-    var theappwindow:NSWindow!
+    var theblog : Blog!
+    var theappwindow : NSWindow!
     var overridepublickeypassword:String?
+    var htmlNeedsRepublish : Bool = false
     
     convenience init(blog: Blog,window:NSWindow)
     {
@@ -66,6 +67,7 @@ class ServerSettingsPanel: NSWindowController
         publicKeyPathTextfield.stringValue   = blog.publickeypath
         privateKeyPathTextField.stringValue  = blog.privatekeypath
         
+        
         if overridepublickeypassword != nil
         {
             keyPasswordTextfield.stringValue = overridepublickeypassword ?? "XXX"
@@ -79,6 +81,8 @@ class ServerSettingsPanel: NSWindowController
     
     func show(doneBlock: @escaping (Blog) -> Void)
     {
+        htmlNeedsRepublish = false
+        
         theappwindow.beginSheet(self.window!)
         { (returncode) in
             if returncode == NSApplication.ModalResponse.OK
@@ -87,6 +91,7 @@ class ServerSettingsPanel: NSWindowController
             }
         }
     }
+    
     
     
     @IBAction func showKeyAction(_ sender: Any)
@@ -112,6 +117,14 @@ class ServerSettingsPanel: NSWindowController
     
     @IBAction func saveButtonAction(_ sender: Any)
     {
+        if theblog.title != titleTextField.stringValue ||
+            theblog.subtitle != subTitleTextField.stringValue ||
+            theblog.author != authorTextField.stringValue
+        {
+            htmlNeedsRepublish = true
+        }
+        
+        
         theblog.nickname       = nicknameTextfield.stringValue
         theblog.title          = titleTextField.stringValue
         theblog.subtitle       = subTitleTextField.stringValue

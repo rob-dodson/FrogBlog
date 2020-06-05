@@ -497,6 +497,7 @@ class AppDelegate: NSObject,
         {
             blogsettingspanel?.setPublicKeyPassword(key: overridepublickeypasswod ?? "XXX")
         }
+        
         blogsettingspanel?.show(doneBlock:
             { (returnedblog) in
                 
@@ -511,7 +512,14 @@ class AppDelegate: NSObject,
                 }
                 editDoneBlock()
                 self.updateOutline(blog: nil)
+                
+                if self.blogsettingspanel!.htmlNeedsRepublish
+                {
+                    blog.html.changed.needsPublishing = true
+                    self.errmsg(msg:"You have changed blog settings that need to be republished.")
+                }
         })
+      
     }
     
     
