@@ -36,6 +36,7 @@ class AppDelegate: NSObject,
     @IBOutlet var articleTabView: NSTabView!
     @IBOutlet var previewTabView: NSTabView!
     
+    static let IMAGEDIR = "IMAGEDIR"
     
     var toplevel          : [Any]?
     var blogsettingspanel : ServerSettingsPanel?
@@ -447,7 +448,7 @@ class AppDelegate: NSObject,
 
         let parser = MarkdownParser()
         var html = parser.html(from: model.currentArticle.markdowntext)
-        html = html.replacingOccurrences(of:"IMAGEDIR",  with:"images")
+        html = html.replacingOccurrences(of:AppDelegate.IMAGEDIR,  with:"images")
 
         let articledate = model.currentArticle.formatArticleDate()
 
@@ -994,7 +995,7 @@ class AppDelegate: NSObject,
                }
            }
 
-            let markdownimagetext = "\n![\(image.name)](IMAGEDIR/\(image.name))\n" // IMAGEDIR is one thing for preview, another for published article
+        let markdownimagetext = "\n![\(image.name)](\(AppDelegate.IMAGEDIR)/\(image.name))\n" // IMAGEDIR is one thing for preview, another for published article
 
             self.markdownTextView.string.append(markdownimagetext)
             

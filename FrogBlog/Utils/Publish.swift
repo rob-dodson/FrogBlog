@@ -62,7 +62,7 @@ class Publish
         let parser = MarkdownParser()
 
         var articletext = parser.html(from: article.markdowntext)
-        articletext = articletext.replacingOccurrences(of:"IMAGEDIR",  with:"\(blog.address)/images")
+        articletext = articletext.replacingOccurrences(of:AppDelegate.IMAGEDIR, with:"\(blog.address)/images")
 
         let articletitle = article.title
         let articleauthor = article.author
