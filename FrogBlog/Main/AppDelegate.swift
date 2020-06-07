@@ -442,12 +442,14 @@ class AppDelegate: NSObject,
  
     func getpreviewhtmltext() -> String
     {
-       previewTabView.selectTabViewItem(at: 0)
-       articleFromUI()
-       
-       let parser = MarkdownParser()
-       let html = parser.html(from: model.currentArticle.markdowntext)
-       let articledate = model.currentArticle.formatArticleDate()
+        previewTabView.selectTabViewItem(at: 0)
+        articleFromUI()
+
+        let parser = MarkdownParser()
+        var html = parser.html(from: model.currentArticle.markdowntext)
+        html = html.replacingOccurrences(of:"IMAGEDIR",  with:"images")
+
+        let articledate = model.currentArticle.formatArticleDate()
 
 
        let css = cssTextView.string
@@ -991,8 +993,9 @@ class AppDelegate: NSObject,
                    return
                }
            }
-           
-            let markdownimagetext = "\n![\(image.name)](\(article.blog.address)/images/\(image.name))\n"
+
+            let markdownimagetext = "\n![\(image.name)](IMAGEDIR/\(image.name))\n" // IMAGEDIR is one thing for preview, another for published article
+
             self.markdownTextView.string.append(markdownimagetext)
             
             article.addImage(newimage: image)
