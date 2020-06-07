@@ -286,9 +286,9 @@ class Blog : Record,Codable
             // RSS requires these five characters be replaced
             // with the symbolic names.
             //
-            html = html.replacingOccurrences(of:"\"", with:"&quot;") // double quote
-            html = html.replacingOccurrences(of:"&",  with:"&amp;")  // ampersand
-            html = html.replacingOccurrences(of:"\'", with:"&apos;") // single quote
+            //html = html.replacingOccurrences(of:"\"", with:"&quot;") // double quote
+            //html = html.replacingOccurrences(of:"&",  with:"&amp;")  // ampersand
+            //html = html.replacingOccurrences(of:"\'", with:"&apos;") // single quote
             html = html.replacingOccurrences(of:"<",  with:"&lt;")   // less than
             html = html.replacingOccurrences(of:">",  with:"&gt;")   // greater than
             

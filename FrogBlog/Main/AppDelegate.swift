@@ -261,6 +261,7 @@ class AppDelegate: NSObject,
     }
     
     
+    
     func publish()
     {
         if isBlogSelected() == false
@@ -268,10 +269,11 @@ class AppDelegate: NSObject,
             return
         }
 
+        
         if isArticleSelected() == false
         {
           return
-        }
+      }
         
         articleFromUI()
         supportFilesFromUI()
