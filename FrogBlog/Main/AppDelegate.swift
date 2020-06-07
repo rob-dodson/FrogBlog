@@ -160,7 +160,6 @@ class AppDelegate: NSObject,
     //
     @IBAction func publishButtonAction(_ sender: Any) { publish()                   }
     @IBAction func toHTMLButtonAction(_ sender: Any)  { tohtml()                    }
-    @IBAction func blogSettingsAction(_ sender: Any)  { editBlog(blog:model.currentBlog,overridepublickeypasswod: nil,editDoneBlock: {}) }
     @IBAction func viewInBrowserAction(_ sender: Any) { viewinbrowser()             }
     @IBAction func deleteBlogAction(_ sender: Any)    { deleteblog()                }
     @IBAction func deleteArticleAction(_ sender: Any) { deletearticle()             }
@@ -171,7 +170,12 @@ class AppDelegate: NSObject,
     @IBAction func newArticleAction(_ sender: Any)    { newarticle()                }
     @IBAction func publishAllAction(_ sender: Any)    { publishAllArticles()        }
     @IBAction func newBlogFromCopyAction(_ sender: Any) { newBlogFromCopy()         }
-        
+    @IBAction func blogSettingsAction(_ sender: Any)
+    {
+        if isBlogSelected() == false { return }
+        editBlog(blog:model.currentBlog,overridepublickeypasswod: nil,editDoneBlock: {})
+    }
+
         
        
     
@@ -988,7 +992,7 @@ class AppDelegate: NSObject,
                }
            }
            
-            let markdownimagetext = "\n![\(image.name)](images/\(image.name))\n"
+            let markdownimagetext = "\n![\(image.name)](\(article.blog.address)/images/\(image.name))\n"
             self.markdownTextView.string.append(markdownimagetext)
             
             article.addImage(newimage: image)
