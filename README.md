@@ -28,3 +28,4 @@ Todo:
 * Some kind of syncing 
 	- Investigate using GRDB json export/import to/from the web server
 * Support password login to server
+* Preview of inserting image is currently broken. 
