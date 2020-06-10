@@ -8,7 +8,7 @@
 
 import Cocoa
 import PwGen
-
+import StringExtensions
 
 class ServerSettingsPanel: NSWindowController
 {
