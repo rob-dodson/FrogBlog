@@ -7,8 +7,6 @@
 //
 
 import Cocoa
-import PwGen
-//import StringExtensions
 
 class ServerSettingsPanel: NSWindowController
 {
@@ -192,7 +190,7 @@ class ServerSettingsPanel: NSWindowController
         {
             let info = ProcessInfo.processInfo
             let comment = String.init(format: "%@-%@", theblog.nickname,info.hostName)
-            let keypassword = try PwGen().ofSize(20).withoutCharacter(" ").generate()
+            let keypassword = String.generatePassword(size: 20)
             
             let keyfilename = nicknameTextfield.stringValue.trimmingCharacters(in: .whitespaces)
             var keyfile = String("~/.ssh/\(keyfilename)")

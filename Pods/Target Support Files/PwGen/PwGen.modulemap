@@ -1,6 +1,0 @@
-framework module PwGen {
-  umbrella header "PwGen-umbrella.h"
-
-  export *
-  module * { export * }
-}

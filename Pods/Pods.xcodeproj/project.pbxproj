@@ -16,164 +16,137 @@
 			dependencies = (
 			);
 			name = Sparkle;
+			productName = Sparkle;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0E9E158E0824D5779518DCE2E76791E6 /* NMSSHConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C152AE460A6A79861EB6C883BCFA4829 /* NMSSHConfig.m */; };
-		10C996FF303EBE102D7D2226BB860D40 /* NMSSHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F740156F9C58958939775E531D9AE2B1 /* NMSSHLogger.m */; };
-		182D72363EDCF0680F58DF0C8C075A82 /* NMSSH+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC7BDF567D87A44F273D9F9D4B1ACF5 /* NMSSH+Protected.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1AC853F8DF7509CCE42C475504140817 /* libssh2.h in Headers */ = {isa = PBXBuildFile; fileRef = EAC2357B2318A5AC85A44CDEBD49A5AB /* libssh2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D83544631A2CAEDBCD8E6DE125D0461 /* libssh2_sftp.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BB0459471A0E610D9071834CBBF92BF /* libssh2_sftp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2783C7518D88FE5CEF6917498019A810 /* NMSSHSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 442032870696003A95F55CB544F54641 /* NMSSHSession.m */; };
-		2B5F195AF09E7E2A8BDB7643713CAD22 /* NMSSHHostConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F4CAACF9B478590CEDA9455E9A848 /* NMSSHHostConfig.m */; };
-		35DA731F7764D525C9421B69AD204378 /* NMSSH.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F2371397EB87DD48E734A2C94B8CA1D /* NMSSH.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A71DC94174D702DD3A49FDA56EFEC3A /* NMSFTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E424946BE8DC4AF722DE9FB955 /* NMSFTP.m */; };
+		0E9E158E0824D5779518DCE2E76791E6 /* NMSSHConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F923FE5CC0D6A19F6431AA47B884B2E7 /* NMSSHConfig.m */; };
+		10C996FF303EBE102D7D2226BB860D40 /* NMSSHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 953C8403B7DF118B375204461951DA2D /* NMSSHLogger.m */; };
+		182D72363EDCF0680F58DF0C8C075A82 /* NMSSH+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A74D9913A6C54BA573046AA1E79CA0 /* NMSSH+Protected.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1AC853F8DF7509CCE42C475504140817 /* libssh2.h in Headers */ = {isa = PBXBuildFile; fileRef = 08751048E0F37C274DA7AFB3D225FBE0 /* libssh2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D83544631A2CAEDBCD8E6DE125D0461 /* libssh2_sftp.h in Headers */ = {isa = PBXBuildFile; fileRef = C9EE231301F8B43F57AC6EAC8C7E452D /* libssh2_sftp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2783C7518D88FE5CEF6917498019A810 /* NMSSHSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E388A256D67868293416B35A421066E /* NMSSHSession.m */; };
+		2B5F195AF09E7E2A8BDB7643713CAD22 /* NMSSHHostConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F59485C25CB2857D29FCE7EBAC103 /* NMSSHHostConfig.m */; };
+		35DA731F7764D525C9421B69AD204378 /* NMSSH.h in Headers */ = {isa = PBXBuildFile; fileRef = DBF8EA8632D2561B1829420116749E28 /* NMSSH.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36E56D031D277BCC514780C16FF77FA9 /* Pods-FrogBlog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A1EB3E1B1437DCF99789BCD12233 /* Pods-FrogBlog-dummy.m */; };
+		378CD758699093A38E0EC5D97CF6E77C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91129EC6AF2AB1F2A7AEC54319D12F62 /* Cocoa.framework */; };
+		3A71DC94174D702DD3A49FDA56EFEC3A /* NMSFTP.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3B902812FD3340E8F603A1ED20008B /* NMSFTP.m */; };
 		4AC408DDF58EFB16A879579C35C613E0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C6B2D25BEF4D6FB1C1A9F4FCEC8DB5 /* CFNetwork.framework */; };
-		512258C8B999C122B4C9D9E0576AF74D /* NMSSHChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = AE37C2398141C7404CEC05CF2C87ED4C /* NMSSHChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6449E7A9087922EEF1A75A6BEB34881A /* Pods-FrogBlog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E109CE327B7A828EA2E7921F61D8F79A /* Pods-FrogBlog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		680D1541A5287D88BCD07BBE781308A9 /* socket_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 561B0BFDCE3168364849AA6B50446AA4 /* socket_helper.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		6CBDFB478298728762519D38AEDA1FD6 /* NMSSHSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A1889B2D8F2EB5495EA90EB170307635 /* NMSSHSessionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		512258C8B999C122B4C9D9E0576AF74D /* NMSSHChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = E7B13633698A1E611C9D2C7D84DA5292 /* NMSSHChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DEE6AF97D80947D6E99BC8F99D0BECD /* Pods-FrogBlog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E109CE327B7A828EA2E7921F61D8F79A /* Pods-FrogBlog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		680D1541A5287D88BCD07BBE781308A9 /* socket_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = D4364A7C890333676519D1616DC5976E /* socket_helper.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6CBDFB478298728762519D38AEDA1FD6 /* NMSSHSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E1648430536C30C412E56ECF89815B /* NMSSHSessionDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		742F4E9444AD5A2DD3A4940FA0BCCBF1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91129EC6AF2AB1F2A7AEC54319D12F62 /* Cocoa.framework */; };
-		756387582C2EE0F67D8FACD1A63103E5 /* NMSFTPFile.h in Headers */ = {isa = PBXBuildFile; fileRef = A33CCD3BD5EB5CAEE4250C80B0D98816 /* NMSFTPFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A3685F8708C921F1A3CB639D7B2B0BA /* NMSFTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 732A3265B549D705F83474A4AF013C34 /* NMSFTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87C28909F68F127EC058AF4E595C7DE4 /* NMSFTPFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B18BFE7AB04B707F881A08B851AC5 /* NMSFTPFile.m */; };
-		8B53AEEE209F7028DCE601704E93C6E2 /* NMSSH-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 733772F177AD827DA45FE5D2C3B078F2 /* NMSSH-dummy.m */; };
-		8BB12D6A3E7E5957753CD0955EEA39A9 /* Pods-FrogBlog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A1EB3E1B1437DCF99789BCD12233 /* Pods-FrogBlog-dummy.m */; };
-		90AEF31A6DCB905ED5D4F244F034FB77 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91129EC6AF2AB1F2A7AEC54319D12F62 /* Cocoa.framework */; };
-		97A6F7ED611D8E2E8F8F05CD56FFC350 /* NMSSHChannelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C76F98EC99ABB51684C2A945923B2D10 /* NMSSHChannelDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B3C5DE220F7142494E755D1E89B0EF6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91129EC6AF2AB1F2A7AEC54319D12F62 /* Cocoa.framework */; };
-		A0F34B0D7CB08AE5B4257D4FFD0EF00E /* NMSSHChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D859045A16042E65790EB58D864EA20A /* NMSSHChannel.m */; };
-		B1CE44980306D3DB50D1475498396DC3 /* NMSSHLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE39863D885BF2380CA96EC55D5E51B /* NMSSHLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBD1A9220151A06C013B34DBE46A9499 /* PwGen-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C46662879A52635C2F55C0EA44F5218A /* PwGen-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDD00E9905E2D471033C92621A794FD0 /* libssh2_publickey.h in Headers */ = {isa = PBXBuildFile; fileRef = 167BD94556A62938AD4FD0460FDDDB8F /* libssh2_publickey.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7B5EF18DC1B10026A3D3586C73A2675 /* NMSSHSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EFFC5A3CCFB775BD7321E1C8D76F9A4 /* NMSSHSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CD1DD764BDD61B293BA4CDA3BAAC9BBD /* NMSSHConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E71E92CA8A1DA8203EB82B15C51214E9 /* NMSSHConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D03EB40D66217A12370CE150C3492085 /* PwGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A258F543EC1D09E3C9A47A27B3E7D /* PwGen.swift */; };
-		E1513AB09B9E851FE93D9DF26125320E /* PwGen-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39328D70DD94D0BBA5F0435FF9EB2C5F /* PwGen-dummy.m */; };
-		EE73AAC784C24DD85EBB5C01F2ED6EBC /* socket_helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C3EBFD2DBA8BA05F2D55B99DE0B06 /* socket_helper.m */; };
-		EFCF96C2ED43F2506D17EF509195D66C /* NMSSHHostConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = B5502B725C810E35FD237B08C17D0D30 /* NMSSHHostConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD67BC11B5B03A7E4F93763BAAD98122 /* NMSSH-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FF9B5E6E735C4865711AAEC510095C3 /* NMSSH-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		756387582C2EE0F67D8FACD1A63103E5 /* NMSFTPFile.h in Headers */ = {isa = PBXBuildFile; fileRef = C021F47562351D2285EFCE12D7A6DDC6 /* NMSFTPFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A3685F8708C921F1A3CB639D7B2B0BA /* NMSFTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 36F9E4567513F47E6B60DD7CEA9ED682 /* NMSFTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		87C28909F68F127EC058AF4E595C7DE4 /* NMSFTPFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C4903A8288980C6B30909AEAEAE0B0 /* NMSFTPFile.m */; };
+		8B53AEEE209F7028DCE601704E93C6E2 /* NMSSH-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE3BD803CBCD775F60EF4396D78B5A /* NMSSH-dummy.m */; };
+		97A6F7ED611D8E2E8F8F05CD56FFC350 /* NMSSHChannelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5E89681C09FF057F5F3203E8745227 /* NMSSHChannelDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0F34B0D7CB08AE5B4257D4FFD0EF00E /* NMSSHChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D22A8E6C65484AE586959BBB1D1B9B77 /* NMSSHChannel.m */; };
+		B1CE44980306D3DB50D1475498396DC3 /* NMSSHLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = F8BCB1EA24D36FBFE3CE10525DE4BFB7 /* NMSSHLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDD00E9905E2D471033C92621A794FD0 /* libssh2_publickey.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D00106CF6DDB746A1280C2BD1F37BEF /* libssh2_publickey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7B5EF18DC1B10026A3D3586C73A2675 /* NMSSHSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D50A3812F1CDD6D4C063BA30898FC5D7 /* NMSSHSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD1DD764BDD61B293BA4CDA3BAAC9BBD /* NMSSHConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A8004EF8AED76D82188650F8C947EAD /* NMSSHConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE73AAC784C24DD85EBB5C01F2ED6EBC /* socket_helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C32B61FCF093E384FDB7F8AED063CE /* socket_helper.m */; };
+		EFCF96C2ED43F2506D17EF509195D66C /* NMSSHHostConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 2274A651980645BDDAD886E20C43FA2C /* NMSSHHostConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD67BC11B5B03A7E4F93763BAAD98122 /* NMSSH-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C76CFE9C6685A7FDC1E5AF21BE6E7B2D /* NMSSH-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0789CA8F3337169F79B9F08FC90E5D05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ED77B4B88587C894E85C361023D67C53;
-			remoteInfo = Sparkle;
-		};
-		A48A7053CEAC8A28773E93104D1F9D8D /* PBXContainerItemProxy */ = {
+		59CAC25881D9D13E0BD3A2D549810C3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E36E3194AA9B06BC5873E083ED10B917;
 			remoteInfo = NMSSH;
 		};
-		DE140E9E2FEE4D0075F75A1605C8C87E /* PBXContainerItemProxy */ = {
+		7E11356DFC99864DE58E7C18379A2057 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 83012D2D3A4A07ABF5B0EBD43ADF7C2F;
-			remoteInfo = PwGen;
+			remoteGlobalIDString = ED77B4B88587C894E85C361023D67C53;
+			remoteInfo = Sparkle;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03DB9D6F8B2B9EC0B61D8AA8DBFBCFBE /* SPUDownloaderSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderSession.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderSession.h; sourceTree = "<group>"; };
-		06197E16B17ED55033180B726F36651B /* SUStandardVersionComparator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUStandardVersionComparator.h; path = Sparkle.framework/Versions/A/Headers/SUStandardVersionComparator.h; sourceTree = "<group>"; };
-		07CA6D6AF7D1F6CF68507D2DB6BA262C /* PwGen.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PwGen.modulemap; sourceTree = "<group>"; };
-		0C3F4CAACF9B478590CEDA9455E9A848 /* NMSSHHostConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHHostConfig.m; path = NMSSH/NMSSHHostConfig.m; sourceTree = "<group>"; };
-		167BD94556A62938AD4FD0460FDDDB8F /* libssh2_publickey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = libssh2_publickey.h; path = "NMSSH-OSX/Libraries/include/libssh2/libssh2_publickey.h"; sourceTree = "<group>"; };
-		16AEBF22D6021589241E28424A2F1BCE /* libssh2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libssh2.a; path = "NMSSH-OSX/Libraries/lib/libssh2.a"; sourceTree = "<group>"; };
-		1FE39863D885BF2380CA96EC55D5E51B /* NMSSHLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHLogger.h; path = NMSSH/Config/NMSSHLogger.h; sourceTree = "<group>"; };
+		0448662E4F8C6CAC7D8DF64B2EE445E8 /* Sparkle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sparkle.h; path = Sparkle.framework/Versions/A/Headers/Sparkle.h; sourceTree = "<group>"; };
+		04C32B61FCF093E384FDB7F8AED063CE /* socket_helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = socket_helper.m; path = NMSSH/Config/socket_helper.m; sourceTree = "<group>"; };
+		08751048E0F37C274DA7AFB3D225FBE0 /* libssh2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = libssh2.h; path = "NMSSH-OSX/Libraries/include/libssh2/libssh2.h"; sourceTree = "<group>"; };
+		09B7BB0FE186BF6B80C0D071998EFEF5 /* libcrypto.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libcrypto.a; path = "NMSSH-OSX/Libraries/lib/libcrypto.a"; sourceTree = "<group>"; };
+		1C60EA730EC4191B676122A748173A13 /* Sparkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.debug.xcconfig; sourceTree = "<group>"; };
+		1E388A256D67868293416B35A421066E /* NMSSHSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHSession.m; path = NMSSH/NMSSHSession.m; sourceTree = "<group>"; };
+		2274A651980645BDDAD886E20C43FA2C /* NMSSHHostConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHHostConfig.h; path = NMSSH/NMSSHHostConfig.h; sourceTree = "<group>"; };
 		22C6B2D25BEF4D6FB1C1A9F4FCEC8DB5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		23CF4A9BFC8830E972DE4CD4B9F50046 /* SUErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUErrors.h; path = Sparkle.framework/Versions/A/Headers/SUErrors.h; sourceTree = "<group>"; };
-		2443FD02A57304B5BE7D14AC23F5A7BB /* SPUURLRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUURLRequest.h; path = Sparkle.framework/Versions/A/Headers/SPUURLRequest.h; sourceTree = "<group>"; };
-		2808B403A79EC73884319EE9C5B21022 /* SPUDownloaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderDelegate.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderDelegate.h; sourceTree = "<group>"; };
-		2FC05B91B70B2247895C1525A7B0F214 /* SPUDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloader.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloader.h; sourceTree = "<group>"; };
-		38CDD53B70AE9C97FCE8687E600B2F7A /* Sparkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.release.xcconfig; sourceTree = "<group>"; };
-		39328D70DD94D0BBA5F0435FF9EB2C5F /* PwGen-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PwGen-dummy.m"; sourceTree = "<group>"; };
-		393BB075F8C22FD965D47FE65ED13D6F /* SUAppcastItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcastItem.h; path = Sparkle.framework/Versions/A/Headers/SUAppcastItem.h; sourceTree = "<group>"; };
-		3B9B18BFE7AB04B707F881A08B851AC5 /* NMSFTPFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSFTPFile.m; path = NMSSH/NMSFTPFile.m; sourceTree = "<group>"; };
-		3FF9B5E6E735C4865711AAEC510095C3 /* NMSSH-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NMSSH-umbrella.h"; sourceTree = "<group>"; };
-		42D188AFBD988D73501EACE473D8EFF7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		442032870696003A95F55CB544F54641 /* NMSSHSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHSession.m; path = NMSSH/NMSSHSession.m; sourceTree = "<group>"; };
-		47C5769E24397E271ECCA4581FF91649 /* PwGen-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PwGen-Info.plist"; sourceTree = "<group>"; };
-		493185E424946BE8DC4AF722DE9FB955 /* NMSFTP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSFTP.m; path = NMSSH/NMSFTP.m; sourceTree = "<group>"; };
-		4E532ED89D9F0DAD70124EE55328F8EF /* NMSSH-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NMSSH-prefix.pch"; sourceTree = "<group>"; };
-		4F0ACEBCE5049990C0851087899325E2 /* Sparkle-copy-dsyms.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Sparkle-copy-dsyms.sh"; sourceTree = "<group>"; };
-		4F2371397EB87DD48E734A2C94B8CA1D /* NMSSH.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSH.h; path = NMSSH/NMSSH.h; sourceTree = "<group>"; };
-		52E4B3DA2B23E4BF9A7718996471172C /* SUCodeSigningVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUCodeSigningVerifier.h; path = Sparkle.framework/Versions/A/Headers/SUCodeSigningVerifier.h; sourceTree = "<group>"; };
-		552A258F543EC1D09E3C9A47A27B3E7D /* PwGen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PwGen.swift; path = PwGen/Classes/PwGen.swift; sourceTree = "<group>"; };
-		561B0BFDCE3168364849AA6B50446AA4 /* socket_helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = socket_helper.h; path = NMSSH/Config/socket_helper.h; sourceTree = "<group>"; };
-		5B309E0A9CC97FEBAEDB302FA3DD696A /* SUVersionDisplayProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionDisplayProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionDisplayProtocol.h; sourceTree = "<group>"; };
-		6137B85A02B4D9BB6938DE141CA65207 /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionComparisonProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
-		66ABCFC859323837A023522E2466F70A /* NMSSH-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "NMSSH-Info.plist"; sourceTree = "<group>"; };
-		6D34373F2BDC08CAD949E1BC6650A993 /* Sparkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.debug.xcconfig; sourceTree = "<group>"; };
-		6E0BEE6E8CC1EEF10B5EDCD5BA1F3667 /* libcrypto.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libcrypto.a; path = "NMSSH-OSX/Libraries/lib/libcrypto.a"; sourceTree = "<group>"; };
-		6EEC77F51858349E93EF74E23C115C64 /* NMSSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NMSSH.framework; path = NMSSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EFFC5A3CCFB775BD7321E1C8D76F9A4 /* NMSSHSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHSession.h; path = NMSSH/NMSSHSession.h; sourceTree = "<group>"; };
-		732A3265B549D705F83474A4AF013C34 /* NMSFTP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSFTP.h; path = NMSSH/NMSFTP.h; sourceTree = "<group>"; };
-		733772F177AD827DA45FE5D2C3B078F2 /* NMSSH-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NMSSH-dummy.m"; sourceTree = "<group>"; };
+		33BE3BD803CBCD775F60EF4396D78B5A /* NMSSH-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NMSSH-dummy.m"; sourceTree = "<group>"; };
+		347E29E6CA7185808CCAFE42D068C8C1 /* NMSSH.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NMSSH.modulemap; sourceTree = "<group>"; };
+		36F9E4567513F47E6B60DD7CEA9ED682 /* NMSFTP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSFTP.h; path = NMSSH/NMSFTP.h; sourceTree = "<group>"; };
+		3BA78E031B29776E9BA39328B9695EBD /* libssl.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libssl.a; path = "NMSSH-OSX/Libraries/lib/libssl.a"; sourceTree = "<group>"; };
+		3D00106CF6DDB746A1280C2BD1F37BEF /* libssh2_publickey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = libssh2_publickey.h; path = "NMSSH-OSX/Libraries/include/libssh2/libssh2_publickey.h"; sourceTree = "<group>"; };
+		441CFE2E30D2D01444FDA4091339E963 /* SUCodeSigningVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUCodeSigningVerifier.h; path = Sparkle.framework/Versions/A/Headers/SUCodeSigningVerifier.h; sourceTree = "<group>"; };
+		46E0A64CA5C8BCA2B3EAA565986E9064 /* NMSSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMSSH.release.xcconfig; sourceTree = "<group>"; };
+		5000267DE67B864C1F3181C13C378D39 /* Sparkle-copy-dsyms.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Sparkle-copy-dsyms.sh"; sourceTree = "<group>"; };
+		5910CB6AFE83F6A7FA4B64FEFCDDE37B /* SUAppcastItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcastItem.h; path = Sparkle.framework/Versions/A/Headers/SUAppcastItem.h; sourceTree = "<group>"; };
+		67CFE5E234C7F2DCD4D7D31694F8B396 /* SUVersionDisplayProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionDisplayProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionDisplayProtocol.h; sourceTree = "<group>"; };
+		69C4F5FC94544701EEDF23E0D974905B /* NMSSH-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NMSSH-prefix.pch"; sourceTree = "<group>"; };
+		6A8004EF8AED76D82188650F8C947EAD /* NMSSHConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHConfig.h; path = NMSSH/NMSSHConfig.h; sourceTree = "<group>"; };
+		6BAD3847AFCC9F7C0D2E020BCBB2A5C6 /* SPUDownloaderSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderSession.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderSession.h; sourceTree = "<group>"; };
+		6EEC77F51858349E93EF74E23C115C64 /* NMSSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NMSSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA7D829C3B6362ABC44015DD640D00 /* Pods-FrogBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrogBlog.debug.xcconfig"; sourceTree = "<group>"; };
-		7B7CD4F29B5C4D6CAACD1034B5B71875 /* PwGen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PwGen.debug.xcconfig; sourceTree = "<group>"; };
-		7BB0459471A0E610D9071834CBBF92BF /* libssh2_sftp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = libssh2_sftp.h; path = "NMSSH-OSX/Libraries/include/libssh2/libssh2_sftp.h"; sourceTree = "<group>"; };
-		7E7CD52EBB1A3EE93EABDADC98A54FAF /* SUUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdaterDelegate.h; path = Sparkle.framework/Versions/A/Headers/SUUpdaterDelegate.h; sourceTree = "<group>"; };
-		863169FFD20AB0F187969EAB35AD7EC9 /* SUExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUExport.h; path = Sparkle.framework/Versions/A/Headers/SUExport.h; sourceTree = "<group>"; };
-		8A817CE7A755EB8F2637D9BBCAD1D141 /* SPUDownloadData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloadData.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloadData.h; sourceTree = "<group>"; };
+		77CBD8BDAF3A9E34796F6D78CC354FA0 /* NMSSH-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "NMSSH-Info.plist"; sourceTree = "<group>"; };
+		789298DA8DCBAF17129A92AA6647BABD /* NMSSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMSSH.debug.xcconfig; sourceTree = "<group>"; };
+		7CCAC2F5E5F5106228D40C7EAA94625D /* SUAppcast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcast.h; path = Sparkle.framework/Versions/A/Headers/SUAppcast.h; sourceTree = "<group>"; };
+		8ABB7841DC581277BC7AB481B5FCE73F /* SPUURLRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUURLRequest.h; path = Sparkle.framework/Versions/A/Headers/SPUURLRequest.h; sourceTree = "<group>"; };
 		91129EC6AF2AB1F2A7AEC54319D12F62 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		93F3077E08929936A9D4D3D1A35A7B1C /* PwGen-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PwGen-prefix.pch"; sourceTree = "<group>"; };
-		947C3EBFD2DBA8BA05F2D55B99DE0B06 /* socket_helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = socket_helper.m; path = NMSSH/Config/socket_helper.m; sourceTree = "<group>"; };
-		99CC37B3B779251EA0E3AED26173AD36 /* NMSSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMSSH.debug.xcconfig; sourceTree = "<group>"; };
+		953C8403B7DF118B375204461951DA2D /* NMSSHLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHLogger.m; path = NMSSH/Config/NMSSHLogger.m; sourceTree = "<group>"; };
+		95A0C9A38A91236A800068C40C96FAA4 /* SPUDownloaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderDelegate.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderDelegate.h; sourceTree = "<group>"; };
 		9A2F0E6DDDC0DC574D0B251A2425F77E /* Pods-FrogBlog-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrogBlog-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EAF4A9E0F9E5E3C387FF3BD771E068C /* SPUDownloadData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloadData.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloadData.h; sourceTree = "<group>"; };
 		9F9D48B3F5E62D81DBEF65A6A8E25B70 /* Pods-FrogBlog-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrogBlog-frameworks.sh"; sourceTree = "<group>"; };
-		A1889B2D8F2EB5495EA90EB170307635 /* NMSSHSessionDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHSessionDelegate.h; path = NMSSH/Protocols/NMSSHSessionDelegate.h; sourceTree = "<group>"; };
-		A2BE486139A6E1F97A6B8ADBB80A262B /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrogBlog.framework; path = "Pods-FrogBlog.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A33CCD3BD5EB5CAEE4250C80B0D98816 /* NMSFTPFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSFTPFile.h; path = NMSSH/NMSFTPFile.h; sourceTree = "<group>"; };
-		A674AABC7CBD23E8F63B5A5A417C86C4 /* NMSSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMSSH.release.xcconfig; sourceTree = "<group>"; };
+		A2BE486139A6E1F97A6B8ADBB80A262B /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75F2F8A78DDB153BF36B638756F8F2C /* Pods-FrogBlog-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrogBlog-acknowledgements.plist"; sourceTree = "<group>"; };
-		A7EC6A0630237060CE51756583330061 /* Sparkle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sparkle.h; path = Sparkle.framework/Versions/A/Headers/Sparkle.h; sourceTree = "<group>"; };
-		AE16A679C84A140833504A3177441026 /* NMSSH.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NMSSH.modulemap; sourceTree = "<group>"; };
-		AE37C2398141C7404CEC05CF2C87ED4C /* NMSSHChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHChannel.h; path = NMSSH/NMSSHChannel.h; sourceTree = "<group>"; };
-		B5502B725C810E35FD237B08C17D0D30 /* NMSSHHostConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHHostConfig.h; path = NMSSH/NMSSHHostConfig.h; sourceTree = "<group>"; };
+		AA097283D0AB37E2376414E7F3DAF0CE /* SUExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUExport.h; path = Sparkle.framework/Versions/A/Headers/SUExport.h; sourceTree = "<group>"; };
 		B6627C2458B12132ECEFE8728F538A7D /* Pods-FrogBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrogBlog.release.xcconfig"; sourceTree = "<group>"; };
-		BAC7BDF567D87A44F273D9F9D4B1ACF5 /* NMSSH+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NMSSH+Protected.h"; path = "NMSSH/Config/NMSSH+Protected.h"; sourceTree = "<group>"; };
-		C152AE460A6A79861EB6C883BCFA4829 /* NMSSHConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHConfig.m; path = NMSSH/NMSSHConfig.m; sourceTree = "<group>"; };
-		C28247FD88E335F1F15D9F7B1E132DDC /* libssl.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libssl.a; path = "NMSSH-OSX/Libraries/lib/libssl.a"; sourceTree = "<group>"; };
+		B816A006ED047FA83BEE7E79C0F14823 /* SUUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdaterDelegate.h; path = Sparkle.framework/Versions/A/Headers/SUUpdaterDelegate.h; sourceTree = "<group>"; };
+		BC5E89681C09FF057F5F3203E8745227 /* NMSSHChannelDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHChannelDelegate.h; path = NMSSH/Protocols/NMSSHChannelDelegate.h; sourceTree = "<group>"; };
+		C021F47562351D2285EFCE12D7A6DDC6 /* NMSFTPFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSFTPFile.h; path = NMSSH/NMSFTPFile.h; sourceTree = "<group>"; };
+		C14015BF4A644DD58A73B98D16D68B4A /* Sparkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.release.xcconfig; sourceTree = "<group>"; };
 		C2D1A1EB3E1B1437DCF99789BCD12233 /* Pods-FrogBlog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrogBlog-dummy.m"; sourceTree = "<group>"; };
-		C46662879A52635C2F55C0EA44F5218A /* PwGen-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PwGen-umbrella.h"; sourceTree = "<group>"; };
-		C50283B617ABF4DB2E046304E8305EAF /* PwGen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PwGen.framework; path = PwGen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C76F98EC99ABB51684C2A945923B2D10 /* NMSSHChannelDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHChannelDelegate.h; path = NMSSH/Protocols/NMSSHChannelDelegate.h; sourceTree = "<group>"; };
-		D4A79DF37B64940AA8FFD892DC4ECC11 /* SPUDownloaderProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderProtocol.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderProtocol.h; sourceTree = "<group>"; };
+		C2E1648430536C30C412E56ECF89815B /* NMSSHSessionDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHSessionDelegate.h; path = NMSSH/Protocols/NMSSHSessionDelegate.h; sourceTree = "<group>"; };
+		C76CFE9C6685A7FDC1E5AF21BE6E7B2D /* NMSSH-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NMSSH-umbrella.h"; sourceTree = "<group>"; };
+		C872078E4A0FC8F64007087D86F0A3A8 /* SUUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdater.h; path = Sparkle.framework/Versions/A/Headers/SUUpdater.h; sourceTree = "<group>"; };
+		C9EE231301F8B43F57AC6EAC8C7E452D /* libssh2_sftp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = libssh2_sftp.h; path = "NMSSH-OSX/Libraries/include/libssh2/libssh2_sftp.h"; sourceTree = "<group>"; };
+		D01D0841776A0D511A6345A458C72050 /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionComparisonProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
+		D22A8E6C65484AE586959BBB1D1B9B77 /* NMSSHChannel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHChannel.m; path = NMSSH/NMSSHChannel.m; sourceTree = "<group>"; };
+		D35E6AD32D6068886CBDBBEA5B013955 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		D4364A7C890333676519D1616DC5976E /* socket_helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = socket_helper.h; path = NMSSH/Config/socket_helper.h; sourceTree = "<group>"; };
+		D4A74D9913A6C54BA573046AA1E79CA0 /* NMSSH+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NMSSH+Protected.h"; path = "NMSSH/Config/NMSSH+Protected.h"; sourceTree = "<group>"; };
+		D50A3812F1CDD6D4C063BA30898FC5D7 /* NMSSHSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHSession.h; path = NMSSH/NMSSHSession.h; sourceTree = "<group>"; };
 		D73C699237E7544C036ED439CFB2B2A1 /* Pods-FrogBlog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FrogBlog.modulemap"; sourceTree = "<group>"; };
-		D859045A16042E65790EB58D864EA20A /* NMSSHChannel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHChannel.m; path = NMSSH/NMSSHChannel.m; sourceTree = "<group>"; };
+		DBF8EA8632D2561B1829420116749E28 /* NMSSH.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSH.h; path = NMSSH/NMSSH.h; sourceTree = "<group>"; };
 		E109CE327B7A828EA2E7921F61D8F79A /* Pods-FrogBlog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FrogBlog-umbrella.h"; sourceTree = "<group>"; };
-		E4B59B736C68DAFF193301A641F92650 /* PwGen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PwGen.release.xcconfig; sourceTree = "<group>"; };
-		E71E92CA8A1DA8203EB82B15C51214E9 /* NMSSHConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHConfig.h; path = NMSSH/NMSSHConfig.h; sourceTree = "<group>"; };
-		EAC2357B2318A5AC85A44CDEBD49A5AB /* libssh2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = libssh2.h; path = "NMSSH-OSX/Libraries/include/libssh2/libssh2.h"; sourceTree = "<group>"; };
+		E7B13633698A1E611C9D2C7D84DA5292 /* NMSSHChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHChannel.h; path = NMSSH/NMSSHChannel.h; sourceTree = "<group>"; };
+		E944E3C2A48260E20E1622E622A438B1 /* SUErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUErrors.h; path = Sparkle.framework/Versions/A/Headers/SUErrors.h; sourceTree = "<group>"; };
+		EAAE6E7A0181B27F4A5D67E3238294BD /* SUStandardVersionComparator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUStandardVersionComparator.h; path = Sparkle.framework/Versions/A/Headers/SUStandardVersionComparator.h; sourceTree = "<group>"; };
+		EDBF846910A8D44A57D00D5952680352 /* SPUDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloader.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloader.h; sourceTree = "<group>"; };
 		EF90E8CC229D70FD372DB8686E57E29D /* Pods-FrogBlog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrogBlog-Info.plist"; sourceTree = "<group>"; };
-		EFC25C1BAC5B607CD651E6B2275B58E4 /* SUAppcast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcast.h; path = Sparkle.framework/Versions/A/Headers/SUAppcast.h; sourceTree = "<group>"; };
-		F740156F9C58958939775E531D9AE2B1 /* NMSSHLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHLogger.m; path = NMSSH/Config/NMSSHLogger.m; sourceTree = "<group>"; };
-		FC06C47F99D0A88AC4A98701F59998BB /* SUUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdater.h; path = Sparkle.framework/Versions/A/Headers/SUUpdater.h; sourceTree = "<group>"; };
+		F0C4903A8288980C6B30909AEAEAE0B0 /* NMSFTPFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSFTPFile.m; path = NMSSH/NMSFTPFile.m; sourceTree = "<group>"; };
+		F47F59485C25CB2857D29FCE7EBAC103 /* NMSSHHostConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHHostConfig.m; path = NMSSH/NMSSHHostConfig.m; sourceTree = "<group>"; };
+		F8BCB1EA24D36FBFE3CE10525DE4BFB7 /* NMSSHLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHLogger.h; path = NMSSH/Config/NMSSHLogger.h; sourceTree = "<group>"; };
+		F923FE5CC0D6A19F6431AA47B884B2E7 /* NMSSHConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHConfig.m; path = NMSSH/NMSSHConfig.m; sourceTree = "<group>"; };
+		F9AD035110AF18AC13737FF46CEB34DF /* libssh2.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libssh2.a; path = "NMSSH-OSX/Libraries/lib/libssh2.a"; sourceTree = "<group>"; };
+		FC3B902812FD3340E8F603A1ED20008B /* NMSFTP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSFTP.m; path = NMSSH/NMSFTP.m; sourceTree = "<group>"; };
+		FF0B856D0C9FB65316C85B9E3909BBB5 /* SPUDownloaderProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderProtocol.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8A684CFDA06A14BCD295574C686185BB /* Frameworks */ = {
+		5B05919829937623AD64D4D68EE5E53F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B3C5DE220F7142494E755D1E89B0EF6 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9C2E13575661E1AF9FF0C75BFB2C18A1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90AEF31A6DCB905ED5D4F244F034FB77 /* Cocoa.framework in Frameworks */,
+				378CD758699093A38E0EC5D97CF6E77C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,82 +162,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00190604C248AB5E43475FA448A7B475 /* Frameworks */ = {
+		263B725757B0A581B419BFB8120E123C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E0BEE6E8CC1EEF10B5EDCD5BA1F3667 /* libcrypto.a */,
-				16AEBF22D6021589241E28424A2F1BCE /* libssh2.a */,
-				C28247FD88E335F1F15D9F7B1E132DDC /* libssl.a */,
+				D35E6AD32D6068886CBDBBEA5B013955 /* Sparkle.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		018A0B4B48EDE3F96537F1CE830BEEB0 /* PwGen */ = {
-			isa = PBXGroup;
-			children = (
-				552A258F543EC1D09E3C9A47A27B3E7D /* PwGen.swift */,
-				1447F2167DEA7910F779F7A7EBD589D3 /* Support Files */,
-			);
-			name = PwGen;
-			path = PwGen;
-			sourceTree = "<group>";
-		};
-		1447F2167DEA7910F779F7A7EBD589D3 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				07CA6D6AF7D1F6CF68507D2DB6BA262C /* PwGen.modulemap */,
-				39328D70DD94D0BBA5F0435FF9EB2C5F /* PwGen-dummy.m */,
-				47C5769E24397E271ECCA4581FF91649 /* PwGen-Info.plist */,
-				93F3077E08929936A9D4D3D1A35A7B1C /* PwGen-prefix.pch */,
-				C46662879A52635C2F55C0EA44F5218A /* PwGen-umbrella.h */,
-				7B7CD4F29B5C4D6CAACD1034B5B71875 /* PwGen.debug.xcconfig */,
-				E4B59B736C68DAFF193301A641F92650 /* PwGen.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/PwGen";
-			sourceTree = "<group>";
-		};
-		3A6EC3D1D1354A3045E987AEA731FA10 /* NMSSH */ = {
-			isa = PBXGroup;
-			children = (
-				EAC2357B2318A5AC85A44CDEBD49A5AB /* libssh2.h */,
-				167BD94556A62938AD4FD0460FDDDB8F /* libssh2_publickey.h */,
-				7BB0459471A0E610D9071834CBBF92BF /* libssh2_sftp.h */,
-				732A3265B549D705F83474A4AF013C34 /* NMSFTP.h */,
-				493185E424946BE8DC4AF722DE9FB955 /* NMSFTP.m */,
-				A33CCD3BD5EB5CAEE4250C80B0D98816 /* NMSFTPFile.h */,
-				3B9B18BFE7AB04B707F881A08B851AC5 /* NMSFTPFile.m */,
-				4F2371397EB87DD48E734A2C94B8CA1D /* NMSSH.h */,
-				BAC7BDF567D87A44F273D9F9D4B1ACF5 /* NMSSH+Protected.h */,
-				AE37C2398141C7404CEC05CF2C87ED4C /* NMSSHChannel.h */,
-				D859045A16042E65790EB58D864EA20A /* NMSSHChannel.m */,
-				C76F98EC99ABB51684C2A945923B2D10 /* NMSSHChannelDelegate.h */,
-				E71E92CA8A1DA8203EB82B15C51214E9 /* NMSSHConfig.h */,
-				C152AE460A6A79861EB6C883BCFA4829 /* NMSSHConfig.m */,
-				B5502B725C810E35FD237B08C17D0D30 /* NMSSHHostConfig.h */,
-				0C3F4CAACF9B478590CEDA9455E9A848 /* NMSSHHostConfig.m */,
-				1FE39863D885BF2380CA96EC55D5E51B /* NMSSHLogger.h */,
-				F740156F9C58958939775E531D9AE2B1 /* NMSSHLogger.m */,
-				6EFFC5A3CCFB775BD7321E1C8D76F9A4 /* NMSSHSession.h */,
-				442032870696003A95F55CB544F54641 /* NMSSHSession.m */,
-				A1889B2D8F2EB5495EA90EB170307635 /* NMSSHSessionDelegate.h */,
-				561B0BFDCE3168364849AA6B50446AA4 /* socket_helper.h */,
-				947C3EBFD2DBA8BA05F2D55B99DE0B06 /* socket_helper.m */,
-				00190604C248AB5E43475FA448A7B475 /* Frameworks */,
-				D80809A1EDD8BF6871A71991A3C77CC7 /* Support Files */,
-			);
-			name = NMSSH;
-			path = NMSSH;
-			sourceTree = "<group>";
-		};
-		458025AC887ECC95F48D3AEF46B5A29B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6EEC77F51858349E93EF74E23C115C64 /* NMSSH.framework */,
-				A2BE486139A6E1F97A6B8ADBB80A262B /* Pods_FrogBlog.framework */,
-				C50283B617ABF4DB2E046304E8305EAF /* PwGen.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		48F6A1152420A6EBB1854ACE80C8E915 /* Pods-FrogBlog */ = {
@@ -284,12 +187,54 @@
 			path = "Target Support Files/Pods-FrogBlog";
 			sourceTree = "<group>";
 		};
-		7A719635FF4DDF5783334CC0B193C358 /* Frameworks */ = {
+		4D5476155E94882A7D263CE54E7500E3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				42D188AFBD988D73501EACE473D8EFF7 /* Sparkle.framework */,
+				347E29E6CA7185808CCAFE42D068C8C1 /* NMSSH.modulemap */,
+				33BE3BD803CBCD775F60EF4396D78B5A /* NMSSH-dummy.m */,
+				77CBD8BDAF3A9E34796F6D78CC354FA0 /* NMSSH-Info.plist */,
+				69C4F5FC94544701EEDF23E0D974905B /* NMSSH-prefix.pch */,
+				C76CFE9C6685A7FDC1E5AF21BE6E7B2D /* NMSSH-umbrella.h */,
+				789298DA8DCBAF17129A92AA6647BABD /* NMSSH.debug.xcconfig */,
+				46E0A64CA5C8BCA2B3EAA565986E9064 /* NMSSH.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/NMSSH";
+			sourceTree = "<group>";
+		};
+		52FA3C90565C10F6AC5CFFB8F73F391D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDE88A131CE3133FF9D25524BE0C6E8D /* NMSSH */,
+				7981693D168C2B5580BB901F40B3732C /* Sparkle */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7981693D168C2B5580BB901F40B3732C /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				0448662E4F8C6CAC7D8DF64B2EE445E8 /* Sparkle.h */,
+				9EAF4A9E0F9E5E3C387FF3BD771E068C /* SPUDownloadData.h */,
+				EDBF846910A8D44A57D00D5952680352 /* SPUDownloader.h */,
+				95A0C9A38A91236A800068C40C96FAA4 /* SPUDownloaderDelegate.h */,
+				FF0B856D0C9FB65316C85B9E3909BBB5 /* SPUDownloaderProtocol.h */,
+				6BAD3847AFCC9F7C0D2E020BCBB2A5C6 /* SPUDownloaderSession.h */,
+				8ABB7841DC581277BC7AB481B5FCE73F /* SPUURLRequest.h */,
+				7CCAC2F5E5F5106228D40C7EAA94625D /* SUAppcast.h */,
+				5910CB6AFE83F6A7FA4B64FEFCDDE37B /* SUAppcastItem.h */,
+				441CFE2E30D2D01444FDA4091339E963 /* SUCodeSigningVerifier.h */,
+				E944E3C2A48260E20E1622E622A438B1 /* SUErrors.h */,
+				AA097283D0AB37E2376414E7F3DAF0CE /* SUExport.h */,
+				EAAE6E7A0181B27F4A5D67E3238294BD /* SUStandardVersionComparator.h */,
+				C872078E4A0FC8F64007087D86F0A3A8 /* SUUpdater.h */,
+				B816A006ED047FA83BEE7E79C0F14823 /* SUUpdaterDelegate.h */,
+				D01D0841776A0D511A6345A458C72050 /* SUVersionComparisonProtocol.h */,
+				67CFE5E234C7F2DCD4D7D31694F8B396 /* SUVersionDisplayProtocol.h */,
+				263B725757B0A581B419BFB8120E123C /* Frameworks */,
+				D7F15722E44A47682B5027DD5656EFC3 /* Support Files */,
+			);
+			path = Sparkle;
 			sourceTree = "<group>";
 		};
 		A9137EB5FDD9BFBF062899FB62225835 /* OS X */ = {
@@ -301,33 +246,6 @@
 			name = "OS X";
 			sourceTree = "<group>";
 		};
-		B54A91FDF3077D0895665484A1F9BF1B /* Sparkle */ = {
-			isa = PBXGroup;
-			children = (
-				A7EC6A0630237060CE51756583330061 /* Sparkle.h */,
-				8A817CE7A755EB8F2637D9BBCAD1D141 /* SPUDownloadData.h */,
-				2FC05B91B70B2247895C1525A7B0F214 /* SPUDownloader.h */,
-				2808B403A79EC73884319EE9C5B21022 /* SPUDownloaderDelegate.h */,
-				D4A79DF37B64940AA8FFD892DC4ECC11 /* SPUDownloaderProtocol.h */,
-				03DB9D6F8B2B9EC0B61D8AA8DBFBCFBE /* SPUDownloaderSession.h */,
-				2443FD02A57304B5BE7D14AC23F5A7BB /* SPUURLRequest.h */,
-				EFC25C1BAC5B607CD651E6B2275B58E4 /* SUAppcast.h */,
-				393BB075F8C22FD965D47FE65ED13D6F /* SUAppcastItem.h */,
-				52E4B3DA2B23E4BF9A7718996471172C /* SUCodeSigningVerifier.h */,
-				23CF4A9BFC8830E972DE4CD4B9F50046 /* SUErrors.h */,
-				863169FFD20AB0F187969EAB35AD7EC9 /* SUExport.h */,
-				06197E16B17ED55033180B726F36651B /* SUStandardVersionComparator.h */,
-				FC06C47F99D0A88AC4A98701F59998BB /* SUUpdater.h */,
-				7E7CD52EBB1A3EE93EABDADC98A54FAF /* SUUpdaterDelegate.h */,
-				6137B85A02B4D9BB6938DE141CA65207 /* SUVersionComparisonProtocol.h */,
-				5B309E0A9CC97FEBAEDB302FA3DD696A /* SUVersionDisplayProtocol.h */,
-				7A719635FF4DDF5783334CC0B193C358 /* Frameworks */,
-				C4CFC4B23E9F216C7D3826CA19D5CAFC /* Support Files */,
-			);
-			name = Sparkle;
-			path = Sparkle;
-			sourceTree = "<group>";
-		};
 		C080C886C9E2F80D52E3E86A62E5B711 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,51 +254,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C4CFC4B23E9F216C7D3826CA19D5CAFC /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4F0ACEBCE5049990C0851087899325E2 /* Sparkle-copy-dsyms.sh */,
-				6D34373F2BDC08CAD949E1BC6650A993 /* Sparkle.debug.xcconfig */,
-				38CDD53B70AE9C97FCE8687E600B2F7A /* Sparkle.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Sparkle";
-			sourceTree = "<group>";
-		};
-		CBB6BCB2382E7FE1C8EC9137E2B5DDD9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3A6EC3D1D1354A3045E987AEA731FA10 /* NMSSH */,
-				018A0B4B48EDE3F96537F1CE830BEEB0 /* PwGen */,
-				B54A91FDF3077D0895665484A1F9BF1B /* Sparkle */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				C080C886C9E2F80D52E3E86A62E5B711 /* Frameworks */,
-				CBB6BCB2382E7FE1C8EC9137E2B5DDD9 /* Pods */,
-				458025AC887ECC95F48D3AEF46B5A29B /* Products */,
+				52FA3C90565C10F6AC5CFFB8F73F391D /* Pods */,
+				F245C902489FBFE21DA02FC2CED37441 /* Products */,
 				F10F2635860EDACBC707E82A69ABE778 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D80809A1EDD8BF6871A71991A3C77CC7 /* Support Files */ = {
+		D7F15722E44A47682B5027DD5656EFC3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				AE16A679C84A140833504A3177441026 /* NMSSH.modulemap */,
-				733772F177AD827DA45FE5D2C3B078F2 /* NMSSH-dummy.m */,
-				66ABCFC859323837A023522E2466F70A /* NMSSH-Info.plist */,
-				4E532ED89D9F0DAD70124EE55328F8EF /* NMSSH-prefix.pch */,
-				3FF9B5E6E735C4865711AAEC510095C3 /* NMSSH-umbrella.h */,
-				99CC37B3B779251EA0E3AED26173AD36 /* NMSSH.debug.xcconfig */,
-				A674AABC7CBD23E8F63B5A5A417C86C4 /* NMSSH.release.xcconfig */,
+				5000267DE67B864C1F3181C13C378D39 /* Sparkle-copy-dsyms.sh */,
+				1C60EA730EC4191B676122A748173A13 /* Sparkle.debug.xcconfig */,
+				C14015BF4A644DD58A73B98D16D68B4A /* Sparkle.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/NMSSH";
+			path = "../Target Support Files/Sparkle";
+			sourceTree = "<group>";
+		};
+		E11D5C1C9B10EFCA6D26567D1743C57A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09B7BB0FE186BF6B80C0D071998EFEF5 /* libcrypto.a */,
+				F9AD035110AF18AC13737FF46CEB34DF /* libssh2.a */,
+				3BA78E031B29776E9BA39328B9695EBD /* libssl.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDE88A131CE3133FF9D25524BE0C6E8D /* NMSSH */ = {
+			isa = PBXGroup;
+			children = (
+				08751048E0F37C274DA7AFB3D225FBE0 /* libssh2.h */,
+				3D00106CF6DDB746A1280C2BD1F37BEF /* libssh2_publickey.h */,
+				C9EE231301F8B43F57AC6EAC8C7E452D /* libssh2_sftp.h */,
+				36F9E4567513F47E6B60DD7CEA9ED682 /* NMSFTP.h */,
+				FC3B902812FD3340E8F603A1ED20008B /* NMSFTP.m */,
+				C021F47562351D2285EFCE12D7A6DDC6 /* NMSFTPFile.h */,
+				F0C4903A8288980C6B30909AEAEAE0B0 /* NMSFTPFile.m */,
+				DBF8EA8632D2561B1829420116749E28 /* NMSSH.h */,
+				D4A74D9913A6C54BA573046AA1E79CA0 /* NMSSH+Protected.h */,
+				E7B13633698A1E611C9D2C7D84DA5292 /* NMSSHChannel.h */,
+				D22A8E6C65484AE586959BBB1D1B9B77 /* NMSSHChannel.m */,
+				BC5E89681C09FF057F5F3203E8745227 /* NMSSHChannelDelegate.h */,
+				6A8004EF8AED76D82188650F8C947EAD /* NMSSHConfig.h */,
+				F923FE5CC0D6A19F6431AA47B884B2E7 /* NMSSHConfig.m */,
+				2274A651980645BDDAD886E20C43FA2C /* NMSSHHostConfig.h */,
+				F47F59485C25CB2857D29FCE7EBAC103 /* NMSSHHostConfig.m */,
+				F8BCB1EA24D36FBFE3CE10525DE4BFB7 /* NMSSHLogger.h */,
+				953C8403B7DF118B375204461951DA2D /* NMSSHLogger.m */,
+				D50A3812F1CDD6D4C063BA30898FC5D7 /* NMSSHSession.h */,
+				1E388A256D67868293416B35A421066E /* NMSSHSession.m */,
+				C2E1648430536C30C412E56ECF89815B /* NMSSHSessionDelegate.h */,
+				D4364A7C890333676519D1616DC5976E /* socket_helper.h */,
+				04C32B61FCF093E384FDB7F8AED063CE /* socket_helper.m */,
+				E11D5C1C9B10EFCA6D26567D1743C57A /* Frameworks */,
+				4D5476155E94882A7D263CE54E7500E3 /* Support Files */,
+			);
+			path = NMSSH;
 			sourceTree = "<group>";
 		};
 		F10F2635860EDACBC707E82A69ABE778 /* Targets Support Files */ = {
@@ -391,9 +326,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		F245C902489FBFE21DA02FC2CED37441 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EEC77F51858349E93EF74E23C115C64 /* NMSSH.framework */,
+				A2BE486139A6E1F97A6B8ADBB80A262B /* Pods_FrogBlog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		6238A159B914536B9836F091F5B777D2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DEE6AF97D80947D6E99BC8F99D0BECD /* Pods-FrogBlog-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70B01127C1DD30C3E89FAE59C5CAB706 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,43 +369,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		768502FB4EE4C9C9E69400050A13EFB2 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6449E7A9087922EEF1A75A6BEB34881A /* Pods-FrogBlog-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ED91636F24D69E1F34A427F01E6B6D06 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BBD1A9220151A06C013B34DBE46A9499 /* PwGen-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		83012D2D3A4A07ABF5B0EBD43ADF7C2F /* PwGen */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B570DF704966DBDF4C77CF38AEDD49E9 /* Build configuration list for PBXNativeTarget "PwGen" */;
-			buildPhases = (
-				ED91636F24D69E1F34A427F01E6B6D06 /* Headers */,
-				99C22D72F7CF455F60F64CA26E9466D0 /* Sources */,
-				9C2E13575661E1AF9FF0C75BFB2C18A1 /* Frameworks */,
-				764688E002F9D69A10094187D78CB0A9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PwGen;
-			productName = PwGen;
-			productReference = C50283B617ABF4DB2E046304E8305EAF /* PwGen.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		E36E3194AA9B06BC5873E083ED10B917 /* NMSSH */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CA4E19B0F38DBC86BC7EF0D40E3B93B /* Build configuration list for PBXNativeTarget "NMSSH" */;
@@ -474,19 +392,18 @@
 		};
 		ED0A79B3FD9DA3AA14A36963E36EE862 /* Pods-FrogBlog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5317C8D945814A92361B83F3E9B7588C /* Build configuration list for PBXNativeTarget "Pods-FrogBlog" */;
+			buildConfigurationList = 80167CFB0329C944DDB015CA536BB3C1 /* Build configuration list for PBXNativeTarget "Pods-FrogBlog" */;
 			buildPhases = (
-				768502FB4EE4C9C9E69400050A13EFB2 /* Headers */,
-				82CEB0ADA60583E0BC7C734B7B582091 /* Sources */,
-				8A684CFDA06A14BCD295574C686185BB /* Frameworks */,
-				0F84975C4E805A2C7AC9DBB3272A5D6D /* Resources */,
+				6238A159B914536B9836F091F5B777D2 /* Headers */,
+				CA760793955EF125363CEE40513AB5F2 /* Sources */,
+				5B05919829937623AD64D4D68EE5E53F /* Frameworks */,
+				C5833F9D43988AFD834CCC0D88807C87 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AE76FC63A3AEFF0A9E8B0BD408EF3640 /* PBXTargetDependency */,
-				19F2B40213E5A63575E6A225FC9D5873 /* PBXTargetDependency */,
-				8AE7F05F44254B2C162C27E83CD91FEE /* PBXTargetDependency */,
+				314E4B340BD9963D83B44BD4AE46D99F /* PBXTargetDependency */,
+				7411D68A2480503A6B176676B1028676 /* PBXTargetDependency */,
 			);
 			name = "Pods-FrogBlog";
 			productName = "Pods-FrogBlog";
@@ -500,7 +417,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 11.0";
@@ -511,34 +428,26 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 458025AC887ECC95F48D3AEF46B5A29B /* Products */;
+			productRefGroup = F245C902489FBFE21DA02FC2CED37441 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E36E3194AA9B06BC5873E083ED10B917 /* NMSSH */,
 				ED0A79B3FD9DA3AA14A36963E36EE862 /* Pods-FrogBlog */,
-				83012D2D3A4A07ABF5B0EBD43ADF7C2F /* PwGen */,
 				ED77B4B88587C894E85C361023D67C53 /* Sparkle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0F84975C4E805A2C7AC9DBB3272A5D6D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		764688E002F9D69A10094187D78CB0A9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8F1C06336AD64E3A9D11DDA723A811E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5833F9D43988AFD834CCC0D88807C87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -568,20 +477,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		82CEB0ADA60583E0BC7C734B7B582091 /* Sources */ = {
+		CA760793955EF125363CEE40513AB5F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BB12D6A3E7E5957753CD0955EEA39A9 /* Pods-FrogBlog-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		99C22D72F7CF455F60F64CA26E9466D0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1513AB09B9E851FE93D9DF26125320E /* PwGen-dummy.m in Sources */,
-				D03EB40D66217A12370CE150C3492085 /* PwGen.swift in Sources */,
+				36E56D031D277BCC514780C16FF77FA9 /* Pods-FrogBlog-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,23 +504,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		19F2B40213E5A63575E6A225FC9D5873 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PwGen;
-			target = 83012D2D3A4A07ABF5B0EBD43ADF7C2F /* PwGen */;
-			targetProxy = DE140E9E2FEE4D0075F75A1605C8C87E /* PBXContainerItemProxy */;
-		};
-		8AE7F05F44254B2C162C27E83CD91FEE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Sparkle;
-			target = ED77B4B88587C894E85C361023D67C53 /* Sparkle */;
-			targetProxy = 0789CA8F3337169F79B9F08FC90E5D05 /* PBXContainerItemProxy */;
-		};
-		AE76FC63A3AEFF0A9E8B0BD408EF3640 /* PBXTargetDependency */ = {
+		314E4B340BD9963D83B44BD4AE46D99F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NMSSH;
 			target = E36E3194AA9B06BC5873E083ED10B917 /* NMSSH */;
-			targetProxy = A48A7053CEAC8A28773E93104D1F9D8D /* PBXContainerItemProxy */;
+			targetProxy = 59CAC25881D9D13E0BD3A2D549810C3D /* PBXContainerItemProxy */;
+		};
+		7411D68A2480503A6B176676B1028676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sparkle;
+			target = ED77B4B88587C894E85C361023D67C53 /* Sparkle */;
+			targetProxy = 7E11356DFC99864DE58E7C18379A2057 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -687,11 +581,84 @@
 			};
 			name = Release;
 		};
+		217FB050A1117D1DA4486A964B954D4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75EA7D829C3B6362ABC44015DD640D00 /* Pods-FrogBlog.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		71D14B18C4897402038F03FE6BDD7636 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6627C2458B12132ECEFE8728F538A7D /* Pods-FrogBlog.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		72609D2A9886B2676F90850CCAC8B5DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A674AABC7CBD23E8F63B5A5A417C86C4 /* NMSSH.release.xcconfig */;
+			baseConfigurationReference = 46E0A64CA5C8BCA2B3EAA565986E9064 /* NMSSH.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -709,7 +676,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MODULEMAP_FILE = "Target Support Files/NMSSH/NMSSH.modulemap";
 				PRODUCT_MODULE_NAME = NMSSH;
 				PRODUCT_NAME = NMSSH;
@@ -788,49 +755,10 @@
 			};
 			name = Debug;
 		};
-		8A84E745DCC5B4D3590A13CBCD1D596E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6627C2458B12132ECEFE8728F538A7D /* Pods-FrogBlog.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MODULEMAP_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		97AFD3DE16E5989465E5F686534C8481 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99CC37B3B779251EA0E3AED26173AD36 /* NMSSH.debug.xcconfig */;
+			baseConfigurationReference = 789298DA8DCBAF17129A92AA6647BABD /* NMSSH.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -848,7 +776,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MODULEMAP_FILE = "Target Support Files/NMSSH/NMSSH.modulemap";
 				PRODUCT_MODULE_NAME = NMSSH;
 				PRODUCT_NAME = NMSSH;
@@ -861,85 +789,10 @@
 			};
 			name = Debug;
 		};
-		9B4FAFBF9F757828D9BD0768AE33BAA5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75EA7D829C3B6362ABC44015DD640D00 /* Pods-FrogBlog.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MODULEMAP_FILE = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		AC561C5C6BF7F93BEF0B8C6C06B10F34 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B7CD4F29B5C4D6CAACD1034B5B71875 /* PwGen.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/PwGen/PwGen-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PwGen/PwGen-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/PwGen/PwGen.modulemap";
-				PRODUCT_MODULE_NAME = PwGen;
-				PRODUCT_NAME = PwGen;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		DBBD2247B2CC6D15A7DE9D05CA4C30E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D34373F2BDC08CAD949E1BC6650A993 /* Sparkle.debug.xcconfig */;
+			baseConfigurationReference = 1C60EA730EC4191B676122A748173A13 /* Sparkle.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -954,9 +807,8 @@
 		};
 		F84E7A7485F0E2F1E055E5C2D5BB7B7A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38CDD53B70AE9C97FCE8687E600B2F7A /* Sparkle.release.xcconfig */;
+			baseConfigurationReference = C14015BF4A644DD58A73B98D16D68B4A /* Sparkle.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -966,42 +818,6 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		FE1212CB221517640C6C71EEEAC2B2F6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4B59B736C68DAFF193301A641F92650 /* PwGen.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/PwGen/PwGen-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PwGen/PwGen-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/PwGen/PwGen.modulemap";
-				PRODUCT_MODULE_NAME = PwGen;
-				PRODUCT_NAME = PwGen;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1026,15 +842,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5317C8D945814A92361B83F3E9B7588C /* Build configuration list for PBXNativeTarget "Pods-FrogBlog" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9B4FAFBF9F757828D9BD0768AE33BAA5 /* Debug */,
-				8A84E745DCC5B4D3590A13CBCD1D596E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		7CA4E19B0F38DBC86BC7EF0D40E3B93B /* Build configuration list for PBXNativeTarget "NMSSH" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1044,11 +851,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B570DF704966DBDF4C77CF38AEDD49E9 /* Build configuration list for PBXNativeTarget "PwGen" */ = {
+		80167CFB0329C944DDB015CA536BB3C1 /* Build configuration list for PBXNativeTarget "Pods-FrogBlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC561C5C6BF7F93BEF0B8C6C06B10F34 /* Debug */,
-				FE1212CB221517640C6C71EEEAC2B2F6 /* Release */,
+				217FB050A1117D1DA4486A964B954D4D /* Debug */,
+				71D14B18C4897402038F03FE6BDD7636 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
