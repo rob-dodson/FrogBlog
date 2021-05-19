@@ -28,6 +28,7 @@
 		AE10EC6223DE26F1003483BF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC6123DE26F1003483BF /* Image.swift */; };
 		AE10EC6423E08374003483BF /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC6323E08374003483BF /* Preview.swift */; };
 		AE154C372655AC960089B398 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE154C362655AC960089B398 /* String+Extensions.swift */; };
+		AE154C3F2655AE020089B398 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE154C3E2655AE020089B398 /* README.md */; };
 		AE3DB61223EDA7040087BB26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DB61123EDA7040087BB26 /* Model.swift */; };
 		AE5200D123AEFB0100F3D522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5200D023AEFB0100F3D522 /* AppDelegate.swift */; };
 		AE5200D623AEFB0300F3D522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5200D523AEFB0300F3D522 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		AE10EC6123DE26F1003483BF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		AE10EC6323E08374003483BF /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		AE154C362655AC960089B398 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		AE154C3E2655AE020089B398 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AE3DB61123EDA7040087BB26 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AE5200CD23AEFB0100F3D522 /* FrogBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrogBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5200D023AEFB0100F3D522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		AE5200C423AEFB0100F3D522 = {
 			isa = PBXGroup;
 			children = (
+				AE154C3E2655AE020089B398 /* README.md */,
 				AE5200CF23AEFB0100F3D522 /* FrogBlog */,
 				AE5200CE23AEFB0100F3D522 /* Products */,
 				AE5200F823AFCA8200F3D522 /* Frameworks */,
@@ -303,6 +306,7 @@
 				4A0C7A9023F3388B00890FD9 /* blogengine.php in Resources */,
 				AE5200FD23AFF53D00F3D522 /* MarkdownHelp.txt in Resources */,
 				AE10EC5A23DBA0C2003483BF /* BrowserWindow.xib in Resources */,
+				AE154C3F2655AE020089B398 /* README.md in Resources */,
 				AE5200D923AEFB0300F3D522 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
