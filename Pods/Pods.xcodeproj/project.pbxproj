@@ -16,7 +16,6 @@
 			dependencies = (
 			);
 			name = Sparkle;
-			productName = Sparkle;
 		};
 /* End PBXAggregateTarget section */
 
@@ -92,7 +91,7 @@
 		69C4F5FC94544701EEDF23E0D974905B /* NMSSH-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NMSSH-prefix.pch"; sourceTree = "<group>"; };
 		6A8004EF8AED76D82188650F8C947EAD /* NMSSHConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMSSHConfig.h; path = NMSSH/NMSSHConfig.h; sourceTree = "<group>"; };
 		6BAD3847AFCC9F7C0D2E020BCBB2A5C6 /* SPUDownloaderSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderSession.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderSession.h; sourceTree = "<group>"; };
-		6EEC77F51858349E93EF74E23C115C64 /* NMSSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NMSSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EEC77F51858349E93EF74E23C115C64 /* NMSSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NMSSH.framework; path = NMSSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA7D829C3B6362ABC44015DD640D00 /* Pods-FrogBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrogBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		77CBD8BDAF3A9E34796F6D78CC354FA0 /* NMSSH-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "NMSSH-Info.plist"; sourceTree = "<group>"; };
 		789298DA8DCBAF17129A92AA6647BABD /* NMSSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMSSH.debug.xcconfig; sourceTree = "<group>"; };
@@ -102,10 +101,10 @@
 		953C8403B7DF118B375204461951DA2D /* NMSSHLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMSSHLogger.m; path = NMSSH/Config/NMSSHLogger.m; sourceTree = "<group>"; };
 		95A0C9A38A91236A800068C40C96FAA4 /* SPUDownloaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderDelegate.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderDelegate.h; sourceTree = "<group>"; };
 		9A2F0E6DDDC0DC574D0B251A2425F77E /* Pods-FrogBlog-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrogBlog-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EAF4A9E0F9E5E3C387FF3BD771E068C /* SPUDownloadData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloadData.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloadData.h; sourceTree = "<group>"; };
 		9F9D48B3F5E62D81DBEF65A6A8E25B70 /* Pods-FrogBlog-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrogBlog-frameworks.sh"; sourceTree = "<group>"; };
-		A2BE486139A6E1F97A6B8ADBB80A262B /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2BE486139A6E1F97A6B8ADBB80A262B /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrogBlog.framework; path = "Pods-FrogBlog.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75F2F8A78DDB153BF36B638756F8F2C /* Pods-FrogBlog-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrogBlog-acknowledgements.plist"; sourceTree = "<group>"; };
 		AA097283D0AB37E2376414E7F3DAF0CE /* SUExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUExport.h; path = Sparkle.framework/Versions/A/Headers/SUExport.h; sourceTree = "<group>"; };
 		B6627C2458B12132ECEFE8728F538A7D /* Pods-FrogBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrogBlog.release.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +233,7 @@
 				263B725757B0A581B419BFB8120E123C /* Frameworks */,
 				D7F15722E44A47682B5027DD5656EFC3 /* Support Files */,
 			);
+			name = Sparkle;
 			path = Sparkle;
 			sourceTree = "<group>";
 		};
@@ -315,6 +315,7 @@
 				E11D5C1C9B10EFCA6D26567D1743C57A /* Frameworks */,
 				4D5476155E94882A7D263CE54E7500E3 /* Support Files */,
 			);
+			name = NMSSH;
 			path = NMSSH;
 			sourceTree = "<group>";
 		};
@@ -417,7 +418,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 11.0";
@@ -586,6 +587,7 @@
 			baseConfigurationReference = 75EA7D829C3B6362ABC44015DD640D00 /* Pods-FrogBlog.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -623,6 +625,7 @@
 			baseConfigurationReference = B6627C2458B12132ECEFE8728F538A7D /* Pods-FrogBlog.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -659,6 +662,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46E0A64CA5C8BCA2B3EAA565986E9064 /* NMSSH.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -676,7 +680,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MODULEMAP_FILE = "Target Support Files/NMSSH/NMSSH.modulemap";
 				PRODUCT_MODULE_NAME = NMSSH;
 				PRODUCT_NAME = NMSSH;
@@ -759,6 +763,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 789298DA8DCBAF17129A92AA6647BABD /* NMSSH.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -776,7 +781,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MODULEMAP_FILE = "Target Support Files/NMSSH/NMSSH.modulemap";
 				PRODUCT_MODULE_NAME = NMSSH;
 				PRODUCT_NAME = NMSSH;
@@ -793,6 +798,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C60EA730EC4191B676122A748173A13 /* Sparkle.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -809,6 +815,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C14015BF4A644DD58A73B98D16D68B4A /* Sparkle.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				COMBINE_HIDPI_IMAGES = YES;
