@@ -29,6 +29,7 @@
 		AE10EC6423E08374003483BF /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC6323E08374003483BF /* Preview.swift */; };
 		AE154C372655AC960089B398 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE154C362655AC960089B398 /* String+Extensions.swift */; };
 		AE154C3F2655AE020089B398 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE154C3E2655AE020089B398 /* README.md */; };
+		AE34028A268BCA57002EF20A /* Shout in Frameworks */ = {isa = PBXBuildFile; productRef = AE340289268BCA57002EF20A /* Shout */; };
 		AE3DB61223EDA7040087BB26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DB61123EDA7040087BB26 /* Model.swift */; };
 		AE5200D123AEFB0100F3D522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5200D023AEFB0100F3D522 /* AppDelegate.swift */; };
 		AE5200D623AEFB0300F3D522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5200D523AEFB0300F3D522 /* Assets.xcassets */; };
@@ -100,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE34028A268BCA57002EF20A /* Shout in Frameworks */,
 				AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */,
 				4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */,
 				4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */,
@@ -249,6 +251,7 @@
 				4A2585C923CBF43F00EC176F /* KeychainSwift */,
 				4A2585DB23CCD7CD00EC176F /* Ink */,
 				4A83D39B23D27F710011049C /* GRDB */,
+				AE340289268BCA57002EF20A /* Shout */,
 			);
 			productName = FrogBlog;
 			productReference = AE5200CD23AEFB0100F3D522 /* FrogBlog.app */;
@@ -282,6 +285,7 @@
 				4A2585C823CBF43F00EC176F /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */,
 				4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */,
 			);
 			productRefGroup = AE5200CE23AEFB0100F3D522 /* Products */;
 			projectDirPath = "";
@@ -544,6 +548,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sshlibs",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = net.frogradio.frogblog;
@@ -569,6 +577,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sshlibs",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.6;
@@ -627,6 +639,14 @@
 				minimumVersion = 4.9.0;
 			};
 		};
+		AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jakeheis/Shout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -644,6 +664,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
+		};
+		AE340289268BCA57002EF20A /* Shout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */;
+			productName = Shout;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

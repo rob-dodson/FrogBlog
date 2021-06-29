@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Socket",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueSocket",
+        "state": {
+          "branch": null,
+          "revision": "c9894fd117457f1d006575fbfb2fdfd6f79eac03",
+          "version": "1.0.200"
+        }
+      },
+      {
         "package": "GRDB",
         "repositoryURL": "https://github.com/groue/GRDB.swift.git",
         "state": {
@@ -26,6 +35,15 @@
           "branch": null,
           "revision": "96fb84f45a96630e7583903bd7e08cf095c7a7ef",
           "version": "19.0.0"
+        }
+      },
+      {
+        "package": "Shout",
+        "repositoryURL": "https://github.com/jakeheis/Shout",
+        "state": {
+          "branch": null,
+          "revision": "fbcae228bc68d5e2352f0790079995d27b610dbc",
+          "version": "0.5.7"
         }
       }
     ]

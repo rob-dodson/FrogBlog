@@ -12,8 +12,8 @@
 import Foundation
 import Cocoa
 
-import NMSSH  // sftp code
 import Ink    // markdown support
+import Shout  // SSH & SFTP code
 
 
 class Publish
@@ -26,19 +26,15 @@ class Publish
     }
 
     
-    func sendFile(blog:Blog, ftp:NMSFTP, path:String, data:Data) throws
+    func sendFile(blog:Blog, ftp:SFTP, path:String, data:Data) throws
     {
-        let result = ftp.writeContents(data, toFileAtPath: path)
-        if result == false
-        {
-           throw PublishError(msg: "sendFile failed to write file", info: path, blog: blog.nickname)
-        }
+        try ftp.upload(data: data, remotePath: path)
         
         Utils.writeDebugMsgToFile(msg:"sendFile done: \(path)")
     }
-   
+    
 
-    func sendArticleImages(blog:Blog, article:Article, images:[Image], ftp:NMSFTP) throws
+    func sendArticleImages(blog:Blog, article:Article, images:[Image], ftp:SFTP) throws
     {
         for image in images
         {
@@ -46,18 +42,14 @@ class Publish
             
             Utils.writeDebugMsgToFile(msg:"Sending image \(image.name)")
             
-            let result = ftp.writeContents(image.imagedata,toFileAtPath:path)
-            if result == false
-            {
-                throw PublishError(msg: "send image failed", info: path, blog: blog.nickname)
-            }
+            try ftp.upload(data: image.imagedata, remotePath: path)
         }
         
         Utils.writeDebugMsgToFile(msg:"sendArticleImages done")
     }
     
     
-    func sendArticle(blog:Blog, article:Article, ftp:NMSFTP) throws
+    func sendArticle(blog:Blog, article:Article, ftp:SFTP) throws
     {
         let parser = MarkdownParser()
 
@@ -84,11 +76,7 @@ class Publish
         let path = article.makePathOnServer()
         let htmldata = Data(articlehtml.utf8)
        
-        let result = ftp.writeContents(htmldata,toFileAtPath:path)
-        if result == false
-        {
-            throw PublishError(msg: "sendCurrentArticle failed to write file", info: path, blog: blog.nickname)
-        }
+        try ftp.upload(data: htmldata, remotePath: path)
         
         article.markAsPublished()
         
@@ -99,96 +87,78 @@ class Publish
     func deleteBlogFolderFromServer(blog:Blog) throws
     {
        try publishTask(blog: blog)
-        { (blog, sftp, session) in
+        { (blog, sftp) in
              
-            sftp.removeFile(atPath: "\(blog.remoteroot)/\(File.BLOGENGINE)")
-            sftp.removeFile(atPath: "\(blog.remoteroot)/\(File.INDEXHTML)")
-            sftp.removeFile(atPath: "\(blog.remoteroot)/\(File.STYLESCSS)")
+            try sftp.removeFile("\(blog.remoteroot)/\(File.BLOGENGINE)")
+            try sftp.removeFile("\(blog.remoteroot)/\(File.INDEXHTML)")
+            try sftp.removeFile("\(blog.remoteroot)/\(File.STYLESCSS)")
             
-            sftp.removeDirectory(atPath: "\(blog.remoteroot)/articles")
-            sftp.removeDirectory(atPath: "\(blog.remoteroot)/images")
-            let result = sftp.removeDirectory(atPath: blog.remoteroot)
-            if result == false
-            {
-               throw PublishError(msg: "deleteBlogFolderFromServer failed", info: blog.remoteroot, blog: blog.nickname)
-            }
-            else
-            {
-                Utils.writeDebugMsgToFile(msg:"deleteBlogFolderFromServer done: \(blog.remoteroot)")
-            }
+            try sftp.removeDirectory("\(blog.remoteroot)/articles")
+            try sftp.removeDirectory("\(blog.remoteroot)/images")
+        
+            Utils.writeDebugMsgToFile(msg:"deleteBlogFolderFromServer done: \(blog.remoteroot)")
         }
     }
+    
     
     func deleteArticleFromServerByPath(blog:Blog,path:String) throws
     {
         try publishTask(blog: blog)
-        { (blog, sftp, session) in
+        { (blog, sftp) in
               
-            let result = sftp.removeFile(atPath: path)
-            if result == false
-            {
-               throw PublishError(msg: "deleteArticleFromServerByPath failed", info: path, blog: blog.nickname)
-            }
-            else
-            {
-              Utils.writeDebugMsgToFile(msg:"deleteArticleFromServerByPath done: \(path)")
-            }
+            try sftp.removeFile(path)
+            
+            Utils.writeDebugMsgToFile(msg:"deleteArticleFromServerByPath done: \(path)")
         }
     }
-          
+    
     
     func deleteArticleFromServer(blog:Blog, article:Article) throws
     {
         try publishTask(blog: blog)
-        { (blog, sftp, session) in
+        { (blog, sftp) in
                     
             let path = article.makePathOnServer()
-            let result = sftp.removeFile(atPath: path)
-            if result == false
-            {
-                 throw PublishError(msg: "deleteArticleFromServer failed", info: path, blog: blog.nickname)
-            }
-            else
-            {
-                Utils.writeDebugMsgToFile(msg:"deleteArticleFromServer done: \(article.title)")
-            }
+            try sftp.removeFile(path)
+            
+            Utils.writeDebugMsgToFile(msg:"deleteArticleFromServer done: \(article.title)")
         }
     }
+    
     
     
     func deleteImagesFromServer(blog:Blog,images:[Image]) throws
     {
         try publishTask(blog: blog)
-        { (blog, sftp, session) in
+        { (blog, sftp) in
                    
             for image in images
             {
                 let path = image.makePathOnServer(blog:blog)
-                let result = sftp.removeFile(atPath: path)
+                try sftp.removeFile(path)
                 
-                if result == false
-                {
-                    Utils.writeDebugMsgToFile(msg:"Error in deleteImagesFromServer: \(image.name)")
-                    throw PublishError.init(msg: "Error in deleteImagesFromServer:", info: "\(image.name)", blog: blog.nickname)
-                }
-                else
-                {
-                    Utils.writeDebugMsgToFile(msg:"deleteImagesFromServer done: \(image.name)")
-                }
+                Utils.writeDebugMsgToFile(msg:"deleteImagesFromServer done: \(image.name)")
             }
         }
     }
     
 
-    func createBlogFoldersOnSever(blog:Blog,ftp:NMSFTP)
+    func createBlogFoldersOnSever(blog:Blog,ftp:SFTP)
     {
-        ftp.createDirectory(atPath:"\(blog.remoteroot)")
-        ftp.createDirectory(atPath:"\(blog.remoteroot)/articles")
-        ftp.createDirectory(atPath:"\(blog.remoteroot)/images")
+        do
+        {
+            try ftp.createDirectory("\(blog.remoteroot)")
+            try ftp.createDirectory("\(blog.remoteroot)/articles")
+            try ftp.createDirectory("\(blog.remoteroot)/images")
+        }
+        catch
+        {
+            Utils.writeDebugMsgToFile(msg:"Error : createBlogFoldersOnSever [Folders already exist?]: \(error.localizedDescription)")
+        }
     }
- 
     
-    func sendSupportFiles(blog:Blog,ftp:NMSFTP) throws
+    
+    func sendSupportFiles(blog:Blog,ftp:SFTP) throws
     {
         self.createBlogFoldersOnSever(blog: blog, ftp: ftp)
         
@@ -213,24 +183,18 @@ class Publish
         try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/rss.xml", data: Data(blog.exportRSS().utf8))
     }
     
-
+    
     func sendAllArticles(blog:Blog) throws
     {
         try publishTask(blog: blog)
-        { (blog:Blog, sftp:NMSFTP, session:NMSSHSession) in
+        { (blog:Blog, sftp:SFTP) in
             
             for article in blog.articles
             {
                 let path = article.makePathOnServer()
-                let result = sftp.removeFile(atPath: path)
-                if result == false
-                {
-                    Utils.writeDebugMsgToFile(msg: "sendAllArticles: Error deleting article from server: \(article.title)")
-                }
-                else
-                {
-                    Utils.writeDebugMsgToFile(msg:"sendAllArticles: deleted article \(article.title) from sever")
-                }
+                try sftp.removeFile(path)
+                
+                Utils.writeDebugMsgToFile(msg:"sendAllArticles: deleted article \(article.title) from sever")
             }
             
             try self.sendSupportFiles(blog: blog, ftp: sftp)
@@ -246,7 +210,7 @@ class Publish
     func sendArticleAndSupportFiles(blog:Blog, article:Article) throws
     {
         try publishTask(blog: blog)
-        { (blog:Blog, sftp:NMSFTP, session:NMSSHSession) in // you can put types in here!
+        { (blog:Blog, sftp:SFTP) in // you can put types in here!
         
             try self.sendSupportFiles(blog: blog, ftp: sftp)
             
@@ -260,7 +224,21 @@ class Publish
         }
     }
     
+    func publishTask(blog:Blog, task: @escaping (Blog,SFTP) throws -> Void) throws
+    {
+         let ssh = try SSH(host: blog.hostname)
+        
+        var keypassword = Keys.getFromKeychain(name: blog.makekey())
+        
+         try ssh.authenticate(username: blog.loginname, privateKey: blog.privatekeypath, publicKey: blog.publickeypath, passphrase: keypassword)
+        
+        keypassword = String("") // erase the password from memory
+        
+         let sftp = try ssh.openSftp()
+         try task(blog,sftp)
+    }
     
+    /*
     func publishTask(blog:Blog, task: @escaping (Blog,NMSFTP,NMSSHSession) throws -> Void) throws
     {
         let session = NMSSHSession(host: blog.hostname,
@@ -302,6 +280,7 @@ class Publish
         
         Utils.writeDebugMsgToFile(msg:"publishTask: done")
     }
+ */
     
 }
 

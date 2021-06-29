@@ -3,7 +3,6 @@ target 'FrogBlog' do
 	use_frameworks!
 
 	# Pods for FrogBlog
-	pod 'NMSSH'
 	pod 'Sparkle'
 
 end
