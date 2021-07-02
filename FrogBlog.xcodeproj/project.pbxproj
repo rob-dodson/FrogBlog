@@ -42,8 +42,6 @@
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
 		AECDBE8623CD3DFE0014B73F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDBE8523CD3DFE0014B73F /* Article.swift */; };
 		AEE84CAC23D4E72A009E20DA /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE84CAB23D4E72A009E20DA /* File.swift */; };
-		AEF276A1268CFC9B002436B3 /* libssh2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF276A0268CFC9B002436B3 /* libssh2.1.dylib */; };
-		AEF276A6268CFEF9002436B3 /* libssh2.1.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEF276A0268CFC9B002436B3 /* libssh2.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,7 +51,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AEF276A6268CFEF9002436B3 /* libssh2.1.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +93,6 @@
 		AECD48E323CFB3DC00A9F503 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		AECDBE8523CD3DFE0014B73F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		AEE84CAB23D4E72A009E20DA /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		AEF276A0268CFC9B002436B3 /* libssh2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libssh2.1.dylib; sourceTree = "<group>"; };
 		C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,7 +103,6 @@
 			files = (
 				AE34028A268BCA57002EF20A /* Shout in Frameworks */,
 				AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */,
-				AEF276A1268CFC9B002436B3 /* libssh2.1.dylib in Frameworks */,
 				4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */,
 				4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */,
 				7867BB1AE8B693246B81CA9B /* Pods_FrogBlog.framework in Frameworks */,
@@ -161,7 +156,6 @@
 		AE5200F823AFCA8200F3D522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AEF276A0268CFC9B002436B3 /* libssh2.1.dylib */,
 				AE5CCECC23E24BFB00A19E0E /* WebKit.framework */,
 				C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */,
 			);
@@ -550,10 +544,7 @@
 				DEVELOPMENT_TEAM = ZYF5X8SV2F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "FrogBlog/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -580,10 +571,7 @@
 				DEVELOPMENT_TEAM = ZYF5X8SV2F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "FrogBlog/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

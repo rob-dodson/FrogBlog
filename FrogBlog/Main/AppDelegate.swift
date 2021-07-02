@@ -304,7 +304,7 @@ class AppDelegate: NSObject,
        }
        catch let err as Publish.PublishError
        {
-           errmsg(msg: "Error publishing: \(err.msg) - \(err.info) - \(err.blog)")
+           errmsg(msg: "Error publishing:\n\n msg: \(err.msg)\n error: \(err.info)\n blog: \(err.blog)")
        }
        catch
        {

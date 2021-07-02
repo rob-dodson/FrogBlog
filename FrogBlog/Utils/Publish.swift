@@ -224,19 +224,31 @@ class Publish
         }
     }
     
+    
     func publishTask(blog:Blog, task: @escaping (Blog,SFTP) throws -> Void) throws
     {
-         let ssh = try SSH(host: blog.hostname)
+        let ssh : SSH!
         
-        var keypassword = Keys.getFromKeychain(name: blog.makekey())
-        
-         try ssh.authenticate(username: blog.loginname, privateKey: blog.privatekeypath, publicKey: blog.publickeypath, passphrase: keypassword)
-        
-        keypassword = String("") // erase the password from memory
-        
-         let sftp = try ssh.openSftp()
-         try task(blog,sftp)
+        do
+        {
+            ssh = try SSH(host: blog.hostname)
+            
+            var keypassword = Keys.getFromKeychain(name: blog.makekey())
+            
+            try ssh.authenticate(username: blog.loginname, privateKey: blog.privatekeypath, publicKey: blog.publickeypath, passphrase: keypassword)
+            
+            keypassword = String("") // erase the password from memory
+            
+            let sftp = try ssh.openSftp()
+            
+            try task(blog,sftp)
+        }
+        catch
+        {
+            throw PublishError(msg: "Failed to connect!", info: "\(error)", blog: "\(blog.nickname) at \(blog.hostname)")
+        }
     }
+    
     
     /*
     func publishTask(blog:Blog, task: @escaping (Blog,NMSFTP,NMSSHSession) throws -> Void) throws
