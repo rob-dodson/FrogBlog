@@ -4,6 +4,5 @@ target 'FrogBlog' do
 
 	# Pods for FrogBlog
 	pod 'NMSSH'
-	pod 'Sparkle'
 
 end
