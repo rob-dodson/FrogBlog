@@ -12,7 +12,7 @@
 import Foundation
 import Cocoa
 
-import NMSSH  // sftp code
+import Shout  // sftp code
 import Ink    // markdown support
 
 

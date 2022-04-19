@@ -13,7 +13,6 @@
 		4A4E333723D92539009EC347 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E333623D92539009EC347 /* Utils.swift */; };
 		4A83D39923D26BB30011049C /* SqliteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D39823D26BB30011049C /* SqliteDB.swift */; };
 		4A83D39C23D27F710011049C /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 4A83D39B23D27F710011049C /* GRDB */; };
-		7867BB1AE8B693246B81CA9B /* Pods_FrogBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */; };
 		AE0059DD23C7682F00CD0DFB /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0059DC23C7682F00CD0DFB /* Blog.swift */; };
 		AE0059DF23C798C100CD0DFB /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = AE0059DE23C798C100CD0DFB /* index.html */; };
 		AE0059E423C903B600CD0DFB /* BlogSettingsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0059E223C903B600CD0DFB /* BlogSettingsPanel.swift */; };
@@ -44,25 +43,10 @@
 		AEE84CAC23D4E72A009E20DA /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE84CAB23D4E72A009E20DA /* File.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		AE5200FB23AFCA8300F3D522 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		31B05568A490CA7C1013ABD9 /* Pods-FrogBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogBlog.debug.xcconfig"; path = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		4A0C7A8F23F3388B00890FD9 /* blogengine.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = blogengine.php; sourceTree = "<group>"; };
 		4A4E333623D92539009EC347 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4A83D39823D26BB30011049C /* SqliteDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDB.swift; sourceTree = "<group>"; };
-		900640F0187F95DBBE7A0655 /* Pods-FrogBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogBlog.release.xcconfig"; path = "Target Support Files/Pods-FrogBlog/Pods-FrogBlog.release.xcconfig"; sourceTree = "<group>"; };
 		AE0059DC23C7682F00CD0DFB /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		AE0059DE23C798C100CD0DFB /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		AE0059E223C903B600CD0DFB /* BlogSettingsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogSettingsPanel.swift; sourceTree = "<group>"; };
@@ -93,7 +77,6 @@
 		AECD48E323CFB3DC00A9F503 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		AECDBE8523CD3DFE0014B73F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		AEE84CAB23D4E72A009E20DA /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +96,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		267E6103B08233362818470E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				31B05568A490CA7C1013ABD9 /* Pods-FrogBlog.debug.xcconfig */,
-				900640F0187F95DBBE7A0655 /* Pods-FrogBlog.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		AE5200C423AEFB0100F3D522 = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +103,6 @@
 				AE5200CF23AEFB0100F3D522 /* FrogBlog */,
 				AE5200CE23AEFB0100F3D522 /* Products */,
 				AE5200F823AFCA8200F3D522 /* Frameworks */,
-				267E6103B08233362818470E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				AE5CCECC23E24BFB00A19E0E /* WebKit.framework */,
-				C36B63971386DBEA3289227D /* Pods_FrogBlog.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -234,12 +206,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE5200DE23AEFB0300F3D522 /* Build configuration list for PBXNativeTarget "FrogBlog" */;
 			buildPhases = (
-				9D10902A48B22ED34E46D8EC /* [CP] Check Pods Manifest.lock */,
 				AE5200C923AEFB0100F3D522 /* Sources */,
 				AE5200CA23AEFB0100F3D522 /* Frameworks */,
 				AE5200CB23AEFB0100F3D522 /* Resources */,
-				AE5200FB23AFCA8300F3D522 /* Embed Frameworks */,
-				CB4DBC1E4B567A3C317821CD /* [CP] Embed Pods Frameworks */,
 				AED6174923E8D81F005F3E45 /* ShellScript */,
 			);
 			buildRules = (
@@ -318,28 +287,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9D10902A48B22ED34E46D8EC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FrogBlog-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AED6174923E8D81F005F3E45 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,23 +303,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${INFOPLIST_FILE}\"\n";
-		};
-		CB4DBC1E4B567A3C317821CD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FrogBlog/Pods-FrogBlog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FrogBlog/Pods-FrogBlog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FrogBlog/Pods-FrogBlog-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -453,6 +383,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -467,6 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -474,6 +406,9 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -514,6 +449,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -522,18 +458,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 		AE5200DF23AEFB0300F3D522 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31B05568A490CA7C1013ABD9 /* Pods-FrogBlog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "FrogBlog/Supporting Files/FrogBlog.entitlements";
@@ -543,23 +482,43 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZYF5X8SV2F;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/libssh2/1.10.0/include,
+				);
 				INFOPLIST_FILE = "FrogBlog/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/libssh2/1.10.0/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.6;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"Sparkle\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.frogradio.frogblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
 		AE5200E023AEFB0300F3D522 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 900640F0187F95DBBE7A0655 /* Pods-FrogBlog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "FrogBlog/Supporting Files/FrogBlog.entitlements";
@@ -569,17 +528,38 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZYF5X8SV2F;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/libssh2/1.10.0/include,
+				);
 				INFOPLIST_FILE = "FrogBlog/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/libssh2/1.10.0/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.6;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"Sparkle\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.frogradio.frogblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
