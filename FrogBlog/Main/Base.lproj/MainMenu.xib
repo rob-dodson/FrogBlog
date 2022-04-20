@@ -754,7 +754,7 @@ CA
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn editable="NO" width="387" minWidth="40" maxWidth="1000" id="m5V-LP-fVl">
+                                                <tableColumn editable="NO" width="358" minWidth="40" maxWidth="1000" id="m5V-LP-fVl">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Blog">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -767,11 +767,11 @@ CA
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="PCG-uS-a96">
-                                                            <rect key="frame" x="1" y="1" width="396" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="367" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rIO-yb-hm7">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="367" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="LwF-wa-3Ol">
                                                                         <font key="font" metaFont="system"/>
@@ -1107,8 +1107,7 @@ CA
                 <defaultToolbarItems>
                     <toolbarItem reference="fDN-Oy-0fN"/>
                     <toolbarItem reference="ILY-fY-R5K"/>
-                    <toolbarItem reference="6rx-2K-E0j"/>
-                    <toolbarItem reference="6rx-2K-E0j"/>
+                    <toolbarItem reference="evX-AA-wQf"/>
                     <toolbarItem reference="fHR-th-rI6"/>
                     <toolbarItem reference="gRs-6y-6J0"/>
                     <toolbarItem reference="eYj-C8-UyQ"/>

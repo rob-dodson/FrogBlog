@@ -22,8 +22,22 @@ class Publish
         let info : String
         let blog : String
     }
-
    
+    
+    func publishTask(blog:Blog, task: @escaping (Blog,SSH) throws -> Void) throws
+    {
+        guard let keypassword = Keys.getFromKeychain(name: blog.makekey())  else
+        {
+            throw PublishError(msg: "Failed to get key password", info:"foo", blog: blog.hostname)
+        }
+        let ssh = SSH(indentityfile: blog.privatekeypath, keypassword:keypassword, destusername: blog.loginname, destmachine: blog.hostname)
+       
+        try task(blog,ssh)
+        
+       
+        Utils.writeDebugMsgToFile(msg:"publishTask: done")
+    }
+    
     
     func sendFile(blog:Blog, ssh:SSH, path:String, data:Data) throws
     {
@@ -280,57 +294,6 @@ class Publish
         }
     }
     
-    
-    func publishTask(blog:Blog, task: @escaping (Blog,SSH) throws -> Void) throws
-    {
-        guard let keypassword = Keys.getFromKeychain(name: blog.makekey())  else
-        {
-            throw PublishError(msg: "Failed to get key password", info:"foo", blog: blog.hostname)
-        }
-        let ssh = SSH(indentityfile: blog.privatekeypath, keypassword:keypassword, destusername: blog.loginname, destmachine: blog.hostname)
-       
-        try task(blog,ssh)
-        
-        /*
-        let session = NMSSHSession(host: blog.hostname,
-                                   andUsername: blog.loginname)
-        session.connect()
-        if (session.isConnected == true)
-        {
-            Utils.writeDebugMsgToFile(msg:"publishTask: connected")
-            
-            var keypassword = Keys.getFromKeychain(name: blog.makekey())
-            
-            session.authenticate(byPublicKey: blog.publickeypath,
-                                 privateKey: blog.privatekeypath,
-                                 andPassword: keypassword)
-            keypassword = String("") // erase the password from memory
-            
-            if (session.isAuthorized == true)
-            {
-                Utils.writeDebugMsgToFile(msg:"publishTask: We're AUTHed");
-                
-                let sftp = NMSFTP(session: session)
-                sftp.connect() // took a while to notice I needed to do this call.
-                
-                try task(blog,sftp,session)
-                
-                sftp.disconnect()
-            }
-            else
-            {
-                throw PublishError(msg: "Failed to authorise", info:session.lastError.debugDescription, blog: blog.hostname)
-            }
-        }
-        else
-        {
-            throw PublishError(msg: "Failed to connect", info:session.lastError.debugDescription, blog: blog.hostname)
-        }
-        
-        session.disconnect();
-        */
-        Utils.writeDebugMsgToFile(msg:"publishTask: done")
-    }
-    
+   
 }
 

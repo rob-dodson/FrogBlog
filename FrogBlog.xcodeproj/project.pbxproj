@@ -36,6 +36,7 @@
 		AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5CCECC23E24BFB00A19E0E /* WebKit.framework */; };
 		AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CCECE23E26E1800A19E0E /* Publish.swift */; };
 		AE76AAED27C422A700F389E3 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = AE76AAEC27C422A700F389E3 /* Sparkle */; };
+		AE83D91E2810A6EC00D2AAA6 /* SSH.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85A8E0280F14A600F107EA /* SSH.swift */; };
 		AEA07E7523CD20D1009E07A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07E7423CD20D1009E07A0 /* Alert.swift */; };
 		AEBDC01E2448C12300E4F8A5 /* Changed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDC01D2448C12300E4F8A5 /* Changed.swift */; };
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
@@ -85,12 +86,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE85A8E4280F45A400F107EA /* Sparkle in Frameworks */,
 				AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */,
 				4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */,
 				4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */,
 				AE76AAED27C422A700F389E3 /* Sparkle in Frameworks */,
-				7867BB1AE8B693246B81CA9B /* Pods_FrogBlog.framework in Frameworks */,
 				4A83D39C23D27F710011049C /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +325,7 @@
 				AE3DB61223EDA7040087BB26 /* Model.swift in Sources */,
 				AE10EC6423E08374003483BF /* Preview.swift in Sources */,
 				AE10EC6223DE26F1003483BF /* Image.swift in Sources */,
-				AE85A8E1280F14A600F107EA /* SSH.swift in Sources */,
+				AE83D91E2810A6EC00D2AAA6 /* SSH.swift in Sources */,
 				AEE84CAC23D4E72A009E20DA /* File.swift in Sources */,
 				AE0059E423C903B600CD0DFB /* BlogSettingsPanel.swift in Sources */,
 				AE10EC5223DB7E68003483BF /* Doc.swift in Sources */,
