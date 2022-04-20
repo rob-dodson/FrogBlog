@@ -25,51 +25,36 @@ class SSH
         self.destmachine = destmachine
         
         //
-                   // add our ssh key to the ssh agent
-                   //
-                   let processaddkey = Process()
-                   processaddkey.launchPath = "/usr/bin/ssh-add"
-                   processaddkey.arguments = ["\(indentityfile)"]
-                   var env = ProcessInfo.processInfo.environment
-                   env.removeValue(forKey: "DISPLAY") // if DISPLAY not set, ssh-add will ask for a password on stdin, and we will write it to there.
-                   processaddkey.environment = env
-                   do
-                   {
-                        runprocessPassword(process:processaddkey, password:keypassword)
-                   }
-                   catch
-                   {
-                       Utils.writeDebugMsgToFile(msg:"Error getting password from keychain: \(error.localizedDescription)")
-                       return
-                   }
+        // add our ssh key to the ssh agent
+        //
+        let processaddkey = Process()
+        processaddkey.launchPath = "/usr/bin/ssh-add"
+        processaddkey.arguments = ["\(indentityfile)"]
+        var env = ProcessInfo.processInfo.environment
+        env.removeValue(forKey: "DISPLAY") // if DISPLAY not set, ssh-add will ask for a password on stdin, and we will write it to there.
+        processaddkey.environment = env
+        runprocessPassword(process:processaddkey, password:keypassword)
     }
+    
     
     func writeFile(data:Data,destfile:String) throws
     {
-        let desktop = URL(fileURLWithPath: "/tmp/FrogBlog")
-
-        do {
-            let temporaryDirectory = try FileManager.default.url(
-                for: .itemReplacementDirectory,
-                in: .userDomainMask,
-                appropriateFor: desktop,
-                create: true
-            )
+        do
+        {
             
-            print(temporaryDirectory)
-            let tempurl = URL(fileURLWithPath: "\(temporaryDirectory)/temp")
-            try data.write(to: tempurl, options: [])
+            let file = "/tmp/frogblog-\(UUID()).temp"
             
-            let args: [String] = ["-i",indentityfile,tempurl.absoluteString, "\(destusername)@\(destmachine):\(destfile)"]
+            try data.write(to: URL(fileURLWithPath: file), options: [])
+            
+            let args: [String] = ["-i",indentityfile,file, "\(destusername)@\(destmachine):\(destfile)"]
             
             try runSCP(args:args)
             
-            try FileManager.default.removeItem(atPath: tempurl.absoluteString)
+            try FileManager.default.removeItem(atPath: file)
         }
         catch
         {
-            
-            // Handle the error.
+            Utils.writeDebugMsgToFile(msg: "Error sending data file: \(error)")
         }
        
     }
@@ -83,7 +68,7 @@ class SSH
     
     func createDirectory(atPath:String) throws
     {
-        let args: [String] = ["-i",indentityfile,"\(destusername)@\(destmachine)","mkdir -r \(atPath)"]
+        let args: [String] = ["-i",indentityfile,"\(destusername)@\(destmachine)","mkdir -p \(atPath)"]
         
         try runSSH(args:args)
     }
@@ -108,6 +93,7 @@ class SSH
         subprocess.launchPath = "/usr/bin/scp"
         subprocess.arguments = args
         try subprocess.run()
+        subprocess.waitUntilExit()
     }
     
     func runSSH(args:[String]) throws
@@ -116,6 +102,7 @@ class SSH
         subprocess.launchPath = "/usr/bin/ssh"
         subprocess.arguments = args
         try subprocess.run()
+        subprocess.waitUntilExit()
     }
     
     
@@ -146,7 +133,7 @@ class SSH
                        {
                            if let stderr = String(data: stderr_data, encoding:.utf8)
                            {
-                               self.logit(msg: stderr)
+                               Utils.writeDebugMsgToFile(msg: stderr)
                            }
                        }
                        else
@@ -159,7 +146,7 @@ class SSH
                       {
                            if let stdout = String(data: stdout_data, encoding:.utf8)
                            {
-                               self.logit(msg: stdout)
+                               Utils.writeDebugMsgToFile(msg: stdout)
                            }
                       }
                       else
@@ -176,7 +163,7 @@ class SSH
            }
            catch
            {
-               alert(msg: "password process error", info: error.localizedDescription)
+               Utils.writeDebugMsgToFile(msg: "password process error: \(error.localizedDescription)")
            }
        }
     

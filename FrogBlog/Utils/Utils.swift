@@ -149,7 +149,7 @@ class Utils
     static func getISO8601DateString(date:Date) -> String
     {
         let dateFormatter = ISO8601DateFormatter()
-        dateFormatter.formatOptions = [.withFullDate,.withFullTime,.withSpaceBetweenDateAndTime]
+        dateFormatter.formatOptions = [.withFullDate,.withFullTime]
         dateFormatter.timeZone = TimeZone.current
         
 		return dateFormatter.string(from:date)
