@@ -89,6 +89,8 @@ class SSH
     
     func runSCP(args:[String]) throws
     {
+        Utils.writeDebugMsgToFile(msg: "scp args: \(args)")
+
         let subprocess = Process.init()
         subprocess.launchPath = "/usr/bin/scp"
         subprocess.arguments = args
@@ -98,6 +100,9 @@ class SSH
     
     func runSSH(args:[String]) throws
     {
+        Utils.writeDebugMsgToFile(msg: "ssh args: \(args)")
+
+        
         let subprocess = Process.init()
         subprocess.launchPath = "/usr/bin/ssh"
         subprocess.arguments = args

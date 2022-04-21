@@ -223,7 +223,12 @@ class Publish
     
     func sendSupportFiles(blog:Blog,ssh:SSH) throws
     {
-        try self.createBlogFoldersOnSever(blog: blog,ssh:ssh)
+        if blog.supportFilesSent == false
+        {
+            try self.createBlogFoldersOnSever(blog: blog,ssh:ssh)
+            try self.sendFile(blog: blog, ssh:ssh, path: "\(blog.remoteroot)/rss.xml", data: Data(blog.exportRSS().utf8))
+            blog.supportFilesSent = true;
+        }
         
         if blog.css.changed.needsPublishing
         {
@@ -242,8 +247,6 @@ class Publish
             try self.sendFile(blog: blog, ssh:ssh, path: "\(blog.remoteroot)/\(File.BLOGENGINE)", data: Data(blog.engine.filteredtext.utf8))
             blog.engine.changed.needsPublishing = false
         }
-        
-        try self.sendFile(blog: blog, ssh:ssh, path: "\(blog.remoteroot)/rss.xml", data: Data(blog.exportRSS().utf8))
     }
     
 
