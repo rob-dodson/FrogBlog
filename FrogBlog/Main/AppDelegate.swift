@@ -45,6 +45,7 @@ class AppDelegate: NSObject,
     var model             : Model!
     var alert             : NSAlert!
     
+    
     override init()
     {
         preview = Preview()
@@ -143,12 +144,6 @@ class AppDelegate: NSObject,
             self.saveChanged()
         })
         
-        
-        //
-        //
-        //
-        SUUpdater.shared()?.checkForUpdatesInBackground();
-        
         //
         // Load up the outlineview
         //
@@ -178,8 +173,7 @@ class AppDelegate: NSObject,
     }
 
         
-       
-    
+   
     
     //
     // Methods
