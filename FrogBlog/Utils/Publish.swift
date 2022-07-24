@@ -242,57 +242,13 @@ class Publish
             let sftp = try ssh.openSftp()
             
             try task(blog,sftp)
+
+			Utils.writeDebugMsgToFile(msg:"publishTask: done")
         }
         catch
         {
             throw PublishError(msg: "Failed to connect!", info: "\(error)", blog: "\(blog.nickname) at \(blog.hostname)")
         }
     }
-    
-    
-    /*
-    func publishTask(blog:Blog, task: @escaping (Blog,NMSFTP,NMSSHSession) throws -> Void) throws
-    {
-        let session = NMSSHSession(host: blog.hostname,
-                                   andUsername: blog.loginname)
-        session.connect()
-        if (session.isConnected == true)
-        {
-            Utils.writeDebugMsgToFile(msg:"publishTask: connected")
-            
-            var keypassword = Keys.getFromKeychain(name: blog.makekey())
-            
-            session.authenticate(byPublicKey: blog.publickeypath,
-                                 privateKey: blog.privatekeypath,
-                                 andPassword: keypassword)
-            keypassword = String("") // erase the password from memory
-            
-            if (session.isAuthorized == true)
-            {
-                Utils.writeDebugMsgToFile(msg:"publishTask: We're AUTHed");
-                
-                let sftp = NMSFTP(session: session)
-                sftp.connect() // took a while to notice I needed to do this call.
-                
-                try task(blog,sftp,session)
-                
-                sftp.disconnect()
-            }
-            else
-            {
-                throw PublishError(msg: "Failed to authorise", info:session.lastError.debugDescription, blog: blog.hostname)
-            }
-        }
-        else
-        {
-            throw PublishError(msg: "Failed to connect", info:session.lastError.debugDescription, blog: blog.hostname)
-        }
-        
-        session.disconnect();
-        
-        Utils.writeDebugMsgToFile(msg:"publishTask: done")
-    }
- */
-    
 }
 
