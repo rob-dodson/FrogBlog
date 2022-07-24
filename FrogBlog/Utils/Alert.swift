@@ -42,7 +42,7 @@ class Alert
         let alert = NSAlert.init()
         alert.messageText = message
         alert.alertStyle = .informational
-        alert.addButton(withTitle: "")
+        alert.addButton(withTitle: "ok")
         
         alert.beginSheetModal(for: window)
         { (response) in

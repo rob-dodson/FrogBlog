@@ -10,13 +10,15 @@ import Cocoa
 import WebKit
 
 import Ink
-import Sparkle
+//import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject,
 	NSApplicationDelegate,
 	WKNavigationDelegate,
 	NSOutlineViewDataSource,
+    //SPUUpdaterDelegate,
+    //SPUStandardUserDriverDelegate,
 	NSOutlineViewDelegate
 {
     @IBOutlet var markdownTextView: NSTextView!
@@ -147,7 +149,9 @@ class AppDelegate: NSObject,
         //
         //
         //
-        SUUpdater.shared()?.checkForUpdatesInBackground();
+        //let updater = SPUStandardUpdaterController(updaterDelegate: self, userDriverDelegate: self)
+       // updater.checkForUpdates(self)
+        
         
         //
         // Load up the outlineview
