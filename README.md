@@ -26,5 +26,4 @@ Todo:
 
 * Don't load articles and images into memory until editing
 * Support password login to server?
-* Currently using calls to command line ssh and scp to move files to server. See AddShout2 branch wip to add SHOUT to handle this.
 
