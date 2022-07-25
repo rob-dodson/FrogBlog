@@ -116,6 +116,20 @@ class Model
     }
     
     
+    func deleteAllArticlesFromServer(blog:Blog) throws
+    {
+        do
+        {
+            let pub = Publish()
+            try pub.deleteAllArticlesFromServer(blog: blog)
+            try pub.deleteAllImagesFromServer(blog: blog)
+        }
+        catch let err as Publish.PublishError
+        {
+            throw ModelError(msg: "Error deleting all articles from server: \(err.msg) - \(err.info) - \(err.blog)")
+        }
+    }
+    
     func addABlog(blog:Blog)
     {
        blogs!.append(blog)
@@ -157,6 +171,7 @@ class Model
     {
         try self.db.updateImage(image: image)
     }
+    
     
     
     func deleteBlog(blog:Blog) throws

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <plugIn identifier="com.apple.WebKit2IBPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -155,10 +154,15 @@ CA
                             <menuItem title="Publish All Articles" id="9gI-Fa-cnW">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="publishAllAction:" target="Voe-Tx-rLC" id="Vri-5g-3Ny"/>
+                                    <action selector="publishAllAction:" target="Voe-Tx-rLC" id="LyZ-x4-VlS"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="IMj-Ic-Tmp"/>
+                            <menuItem title="Delete All Articles From Server" id="khb-IY-0tH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="deleteAllArticlesFromServerAction:" target="Voe-Tx-rLC" id="jlV-lo-Z5s"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
                             <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
@@ -814,9 +818,9 @@ CA
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <box misplaced="YES" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EeQ-Zp-5nm">
-                                                            <rect key="frame" x="6" y="645" width="408" height="124"/>
+                                                            <rect key="frame" x="6" y="650" width="503" height="119"/>
                                                             <view key="contentView" id="rMd-cP-nhg">
-                                                                <rect key="frame" x="3" y="3" width="402" height="118"/>
+                                                                <rect key="frame" x="3" y="3" width="497" height="113"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONs-RV-Har">
@@ -909,9 +913,9 @@ CA
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="EeQ-Zp-5nm" firstAttribute="top" secondItem="gUP-1n-ceF" secondAttribute="top" constant="7" id="Pp1-LZ-bEg"/>
-                                                        <constraint firstItem="EeQ-Zp-5nm" firstAttribute="leading" secondItem="gUP-1n-ceF" secondAttribute="leading" constant="9" id="Wtt-Be-Nkr"/>
+                                                        <constraint firstItem="EeQ-Zp-5nm" firstAttribute="leading" secondItem="gUP-1n-ceF" secondAttribute="leading" constant="10" id="Wtt-Be-Nkr"/>
                                                         <constraint firstItem="WU8-N4-f6c" firstAttribute="top" secondItem="EeQ-Zp-5nm" secondAttribute="bottom" constant="30" id="hEM-XQ-Aie"/>
-                                                        <constraint firstAttribute="trailing" secondItem="EeQ-Zp-5nm" secondAttribute="trailing" constant="9" id="td2-Up-0Pa"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EeQ-Zp-5nm" secondAttribute="trailing" constant="10" id="td2-Up-0Pa"/>
                                                     </constraints>
                                                 </view>
                                             </tabViewItem>
@@ -1113,7 +1117,7 @@ CA
                     <toolbarItem reference="eYj-C8-UyQ"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="408" y="-202"/>
+            <point key="canvasLocation" x="280" y="62"/>
         </window>
     </objects>
 </document>

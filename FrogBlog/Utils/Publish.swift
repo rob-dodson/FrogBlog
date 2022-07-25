@@ -126,6 +126,45 @@ class Publish
     }
     
     
+    func deleteAllArticlesFromServer(blog:Blog) throws
+    {
+        try publishTask(blog: blog)
+        { (blog, sftp) in
+                    
+            let filesonserver = try sftp.listFiles(in: "\(blog.remoteroot)/articles")
+            for file in filesonserver.keys
+            {
+                if file == "." { continue }
+                if file == ".." { continue }
+                
+                try sftp.removeFile("\(blog.remoteroot)/articles/\(file)")
+                Utils.writeDebugMsgToFile(msg:"deleteArticleFromServer done: \(file)")
+            }
+            
+            Utils.writeDebugMsgToFile(msg:"deleteAllArticlesFromServer done")
+        }
+    }
+    
+    
+    func deleteAllImagesFromServer(blog:Blog) throws
+    {
+        try publishTask(blog: blog)
+        { (blog, sftp) in
+                   
+            for article in blog.articles
+            {
+                for image in article.images
+                {
+                    let path = image.makePathOnServer(blog:blog)
+                    try sftp.removeFile(path)
+                    
+                    Utils.writeDebugMsgToFile(msg:"deleteImageFromServer done: \(image.name)")
+                }
+                
+                Utils.writeDebugMsgToFile(msg:"deleteAllImagesFromServer done")
+            }
+        }
+    }
     
     func deleteImagesFromServer(blog:Blog,images:[Image]) throws
     {
@@ -188,14 +227,6 @@ class Publish
     {
         try publishTask(blog: blog)
         { (blog:Blog, sftp:SFTP) in
-            
-            for article in blog.articles
-            {
-                let path = article.makePathOnServer()
-                try sftp.removeFile(path)
-                
-                Utils.writeDebugMsgToFile(msg:"sendAllArticles: deleted article \(article.title) from sever")
-            }
             
             try self.sendSupportFiles(blog: blog, ftp: sftp)
             

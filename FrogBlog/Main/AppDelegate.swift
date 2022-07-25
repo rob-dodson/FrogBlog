@@ -182,7 +182,7 @@ class AppDelegate: NSObject,
         editBlog(blog:model.currentBlog,overridepublickeypasswod: nil,editDoneBlock: {})
     }
 
-        
+    @IBAction func deleteAllArticlesFromServerAction(_ sender:Any) { deleteAllArticlesFromServer() }
    
     
     //
@@ -251,6 +251,7 @@ class AppDelegate: NSObject,
             do
             {
                 try self.model.filterBlogSupportFiles(blog:blog)
+                try Publish().deleteAllArticlesFromServer(blog: blog)
                 try Publish().sendAllArticles(blog:blog)
             }
             catch let err as Publish.PublishError
@@ -777,6 +778,35 @@ class AppDelegate: NSObject,
             Alert.showAlertInWindow(window: self.window, message: "Blog deleted", info:"", ok: {}, cancel: {})
         },
         cancel: {})
+    }
+    
+    
+    func deleteAllArticlesFromServer()
+    {
+        if isBlogSelected() == false
+        {
+                return
+        }
+        
+        Alert.showAlertInWindow(window: self.window,
+                                message: "Delete all articles from server: \(model.currentBlog.nickname)?",
+            info: "Are you sure?",
+            ok:
+            {
+                do
+                {
+                    try self.model.deleteAllArticlesFromServer(blog: self.model.currentBlog)
+                }
+                catch
+                {
+                    Utils.writeDebugMsgToFile(msg:"Error deleting all articles from \(self.model.currentBlog.nickname): \(error)")
+                }
+                 
+             
+                Alert.showAlertInWindow(window: self.window, message: "All articles deleted from server  from \(self.model.currentBlog.nickname)", info: "", ok: {}, cancel: {})
+            },
+            cancel: {})
+        
     }
     
     
