@@ -15,6 +15,7 @@ import Cocoa
 import Ink    // markdown support
 import Shout  // SSH & SFTP code
 
+
 class Publish
 {
     struct PublishError: Error
@@ -23,7 +24,7 @@ class Publish
         let info : String
         let blog : String
     }
-   
+
     
     func sendFile(blog:Blog, ftp:SFTP, path:String, data:Data) throws
     {
@@ -159,30 +160,27 @@ class Publish
     
     func sendSupportFiles(blog:Blog,ftp:SFTP) throws
     {
-        if blog.supportFilesSent == false
-        {
-            try self.createBlogFoldersOnSever(blog: blog,ssh:ssh)
-            try self.sendFile(blog: blog, ssh:ssh, path: "\(blog.remoteroot)/rss.xml", data: Data(blog.exportRSS().utf8))
-            blog.supportFilesSent = true;
-        }
+        self.createBlogFoldersOnSever(blog: blog, ftp: ftp)
         
         if blog.css.changed.needsPublishing
         {
-            try self.sendFile(blog: blog, ssh:ssh, path: "\(blog.remoteroot)/\(File.STYLESCSS)", data: Data(blog.css.filteredtext.utf8))
+            try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/\(File.STYLESCSS)", data: Data(blog.css.filteredtext.utf8))
             blog.css.changed.needsPublishing = false
         }
         
         if blog.html.changed.needsPublishing
         {
-            try self.sendFile(blog: blog, ssh:ssh, path: "\(blog.remoteroot)/\(File.INDEXHTML)", data: Data(blog.html.filteredtext.utf8))
+            try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/\(File.INDEXHTML)", data: Data(blog.html.filteredtext.utf8))
             blog.html.changed.needsPublishing = false
         }
         
         if blog.engine.changed.needsPublishing
         {
-            try self.sendFile(blog: blog, ssh:ssh, path: "\(blog.remoteroot)/\(File.BLOGENGINE)", data: Data(blog.engine.filteredtext.utf8))
+            try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/\(File.BLOGENGINE)", data: Data(blog.engine.filteredtext.utf8))
             blog.engine.changed.needsPublishing = false
         }
+        
+        try self.sendFile(blog: blog, ftp: ftp, path: "\(blog.remoteroot)/rss.xml", data: Data(blog.exportRSS().utf8))
     }
     
     
@@ -199,11 +197,11 @@ class Publish
                 Utils.writeDebugMsgToFile(msg:"sendAllArticles: deleted article \(article.title) from sever")
             }
             
-            try self.sendSupportFiles(blog: blog,ssh:ssh)
+            try self.sendSupportFiles(blog: blog, ftp: sftp)
             
             for article in blog.articles
             {
-                try self.sendArticle(blog: blog, article:article,ssh:ssh)
+                try self.sendArticle(blog: blog, article:article, ftp: sftp)
             }
         }
     }
@@ -214,12 +212,12 @@ class Publish
         try publishTask(blog: blog)
         { (blog:Blog, sftp:SFTP) in // you can put types in here!
         
-            try self.sendSupportFiles(blog:blog,ssh:ssh)
+            try self.sendSupportFiles(blog: blog, ftp: sftp)
             
             if article.changed.needsPublishing
             {
-                try self.sendArticle(blog: blog, article:article,ssh:ssh)
-                try self.sendArticleImages(blog: blog,article:article,images:article.images,ssh:ssh)
+                try self.sendArticle(blog: blog, article:article, ftp: sftp)
+                try self.sendArticleImages(blog: blog, article:article, images:article.images, ftp: sftp)
                 
                 article.changed.needsPublishing = false
             }
