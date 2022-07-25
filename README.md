@@ -25,9 +25,6 @@ All data is stored in a local Sqlite database on your Mac.
 Todo:
 
 * Don't load articles and images into memory until editing
-* Some kind of syncing 
-	- Investigate using GRDB json export/import to/from the web server
 * Support password login to server?
-* Remove all cocoapods
-* Use something else instead of NMSSH!!
+* Currently using calls to command line ssh and scp to move files to server. See AddShout2 branch wip to add SHOUT to handle this.
 

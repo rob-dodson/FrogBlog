@@ -45,7 +45,8 @@ class AppDelegate: NSObject,
     var articleTimer      : Timer!
     var preview           : Preview
     var model             : Model!
-
+    var alert             : NSAlert!
+    
     
     override init()
     {
@@ -182,8 +183,7 @@ class AppDelegate: NSObject,
     }
 
         
-       
-    
+   
     
     //
     // Methods
@@ -270,7 +270,7 @@ class AppDelegate: NSObject,
     }
     
     
-    
+       
     func publish()
     {
         if isBlogSelected() == false
@@ -296,29 +296,49 @@ class AppDelegate: NSObject,
             dateText.stringValue = article.formatArticleDate()
         }
         
-        let alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
+        alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
+        var done = false
         
-       do
-       {
-            try model.filterBlogSupportFiles(blog:blog)
-            try Publish().sendArticleAndSupportFiles(blog: blog, article: article)
-            markCurrentArticlePublished()
+        DispatchQueue.global().async
+        {
+            
+           do
+           {
+               try self.model.filterBlogSupportFiles(blog:blog)
+               try Publish().sendArticleAndSupportFiles(blog: blog, article: article)
+              
+               done = true
+           }
+           catch let err as Publish.PublishError
+           {
+               self.errmsg(msg: "Error publishing: \(err.msg) - \(err.info) - \(err.blog)")
+           }
+           catch
+           {
+               self.errmsg(msg:"Error publishing: \(error)")
+           }
+        }
         
-            Alert.showAlertInWindow(window: self.window, message: "Article published", info: article.title, ok: {}, cancel:{})
-       }
-       catch let err as Publish.PublishError
-       {
-           errmsg(msg: "Error publishing:\n\n msg: \(err.msg)\n error: \(err.info)\n blog: \(err.blog)")
-       }
-       catch
-       {
-           errmsg(msg:"Error publishing: \(error)")
-       }
+        DispatchQueue.global().async
+        {
+            while done == false
+            {
+                sleep(1)
+            }
+            
+            DispatchQueue.main.async
+            {
+                self.markCurrentArticlePublished()
+                self.saveChanged()
+                self.setTitle()
+                
+                self.alert.window.close()
+                Alert.showAlertInWindow(window: self.window, message: "Article published", info: article.title, ok: {}, cancel:{})
+            }
+        }
         
-       alert.window.sheetParent!.endSheet(alert.window, returnCode: .cancel)
+        
       
-       saveChanged()
-       setTitle()
         
        DispatchQueue.global(qos: .background).async
        {

@@ -39,7 +39,7 @@ class Alert
     static func showProgressWindow(window:NSWindow,
                            message:String) -> NSAlert
     {
-        let alert = NSAlert.init()
+        let alert = NSAlert()
         alert.messageText = message
         alert.alertStyle = .informational
         alert.addButton(withTitle: "ok")

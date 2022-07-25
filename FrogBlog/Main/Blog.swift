@@ -33,6 +33,8 @@ class Blog : Record,Codable
     var html           : File!
     var css            : File!
     var engine         : File!
+    var supportFilesSent : Bool!
+    
     
     enum CodingKeys: String,CodingKey
     {
@@ -75,6 +77,7 @@ class Blog : Record,Codable
         privatekeypath = ""
         
         articles = Array()
+        supportFilesSent = false
         
         super.init()
     }
@@ -109,6 +112,7 @@ class Blog : Record,Codable
         privatekeypath = row[CodingKeys.privatekeypath.rawValue]
 
         articles = Array()
+        supportFilesSent = false
         
         super.init()
         

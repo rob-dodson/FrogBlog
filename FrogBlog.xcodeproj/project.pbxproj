@@ -219,6 +219,7 @@
 				4A83D39823D26BB30011049C /* SqliteDB.swift */,
 				AE10EC6323E08374003483BF /* Preview.swift */,
 				AE3DB61123EDA7040087BB26 /* Model.swift */,
+				AE85A8E0280F14A600F107EA /* SSH.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -349,6 +350,7 @@
 				AE3DB61223EDA7040087BB26 /* Model.swift in Sources */,
 				AE10EC6423E08374003483BF /* Preview.swift in Sources */,
 				AE10EC6223DE26F1003483BF /* Image.swift in Sources */,
+				AE83D91E2810A6EC00D2AAA6 /* SSH.swift in Sources */,
 				AEE84CAC23D4E72A009E20DA /* File.swift in Sources */,
 				AE0059E423C903B600CD0DFB /* BlogSettingsPanel.swift in Sources */,
 				AE10EC5223DB7E68003483BF /* Doc.swift in Sources */,
@@ -410,6 +412,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -431,6 +434,9 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -472,6 +478,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -486,6 +493,9 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
