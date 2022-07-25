@@ -160,9 +160,9 @@ class Publish
                     
                     Utils.writeDebugMsgToFile(msg:"deleteImageFromServer done: \(image.name)")
                 }
-                
-                Utils.writeDebugMsgToFile(msg:"deleteAllImagesFromServer done")
             }
+            
+            Utils.writeDebugMsgToFile(msg:"deleteAllImagesFromServer done")
         }
     }
     
