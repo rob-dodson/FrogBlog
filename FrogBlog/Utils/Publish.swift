@@ -166,6 +166,7 @@ class Publish
         }
     }
     
+    
     func deleteImagesFromServer(blog:Blog,images:[Image]) throws
     {
         try publishTask(blog: blog)

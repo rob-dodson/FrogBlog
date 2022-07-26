@@ -18,6 +18,7 @@ class Alert
                            cancel: @escaping () -> Void)
     {
         let okcancelalert = NSAlert.init()
+        
         okcancelalert.addButton(withTitle: "Ok")
         okcancelalert.addButton(withTitle: "Cancel")
         okcancelalert.messageText = message
@@ -35,19 +36,4 @@ class Alert
                   }
     }
     
-    
-    static func showProgressWindow(window:NSWindow,
-                           message:String) -> NSAlert
-    {
-        let alert = NSAlert()
-        alert.messageText = message
-        alert.alertStyle = .informational
-        alert.addButton(withTitle: "ok")
-        
-        alert.beginSheetModal(for: window)
-        { (response) in
-        }
-        
-        return alert
-    }
 }

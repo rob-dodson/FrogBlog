@@ -45,7 +45,7 @@ class AppDelegate: NSObject,
     var articleTimer      : Timer!
     var preview           : Preview
     var model             : Model!
-    var alert             : NSAlert!
+    var progress          : ProgressPanel!
     
     
     override init()
@@ -237,33 +237,50 @@ class AppDelegate: NSObject,
         {
             return
         }
+        
+        let blog = model.currentBlog!
+        
+        progress = ProgressPanel(message: "Publishing all articles in blog: \(blog.nickname)", maxcount:4)
        
         saveChanged()
-        let blog = model.currentBlog!
+       
         
         Alert.showAlertInWindow(window: self.window,
         message: "Publish all articles in this blog? \(blog.nickname)",
         info: "Are you sure?",
         ok:
         {
-            let alert = Alert.showProgressWindow(window: self.window, message: "Publishing all articles in blog: \(blog.nickname)...")
-             
-            do
-            {
-                try self.model.filterBlogSupportFiles(blog:blog)
-                try Publish().deleteAllArticlesFromServer(blog: blog)
-                try Publish().sendAllArticles(blog:blog)
-            }
-            catch let err as Publish.PublishError
-            {
-                self.errmsg(msg: "Error publishing all articles: \(err.msg) - \(err.info) - \(err.blog)")
-            }
-            catch
-            {
-                self.errmsg(msg: "Error sending all articles: \(error)")
-            }
+            self.progress.show()
             
-            alert.window.sheetParent!.endSheet(alert.window, returnCode: .cancel)
+            DispatchQueue.global().async
+            {
+                self.progress.increment(amount: 1)
+                
+                do
+                {
+                    try self.model.filterBlogSupportFiles(blog:blog)
+                    self.progress.increment(amount: 1)
+                    try Publish().deleteAllArticlesFromServer(blog: blog)
+                    self.progress.increment(amount: 1)
+                    try Publish().sendAllArticles(blog:blog)
+                    self.progress.increment(amount: 2)
+                }
+                catch let err as Publish.PublishError
+                {
+                    self.errmsg(msg: "Error publishing all articles: \(err.msg) - \(err.info) - \(err.blog)")
+                }
+                catch
+                {
+                    self.errmsg(msg: "Error sending all articles: \(error)")
+                }
+                
+                
+                DispatchQueue.main.async
+                {
+                    self.progress.close()
+                    Alert.showAlertInWindow(window: self.window, message: "All articles published to server  from \(self.model.currentBlog.nickname)", info: "", ok: {}, cancel: {})
+                }
+            }
         },
         cancel:
         {
@@ -297,18 +314,20 @@ class AppDelegate: NSObject,
             dateText.stringValue = article.formatArticleDate()
         }
         
-        alert = Alert.showProgressWindow(window: self.window, message: "Publishing: \(article.title)...")
-        var done = false
+        progress = ProgressPanel(message: "Publishing: \(article.title)", maxcount:3)
+        self.progress.show()
+
+        
         
         DispatchQueue.global().async
         {
+            self.progress.increment(amount: 1)
             
            do
            {
                try self.model.filterBlogSupportFiles(blog:blog)
                try Publish().sendArticleAndSupportFiles(blog: blog, article: article)
-              
-               done = true
+               self.progress.increment(amount: 2)
            }
            catch let err as Publish.PublishError
            {
@@ -318,14 +337,7 @@ class AppDelegate: NSObject,
            {
                self.errmsg(msg:"Error publishing: \(error)")
            }
-        }
-        
-        DispatchQueue.global().async
-        {
-            while done == false
-            {
-                sleep(1)
-            }
+            
             
             DispatchQueue.main.async
             {
@@ -333,18 +345,20 @@ class AppDelegate: NSObject,
                 self.saveChanged()
                 self.setTitle()
                 
-                self.alert.window.close()
+                self.progress.close()
+                
                 Alert.showAlertInWindow(window: self.window, message: "Article published", info: article.title, ok: {}, cancel:{})
             }
+            
+           
         }
         
-        
-      
         
        DispatchQueue.global(qos: .background).async
        {
            self.deleteUnusedImages(article:article)
        }
+        
     }
     
     
@@ -758,24 +772,28 @@ class AppDelegate: NSObject,
         info: "Are you sure?",
         ok:
         {
-            let alert = Alert.showProgressWindow(window: self.window, message: "Deleting \(blog.nickname)...")
-           
-            do
+            DispatchQueue.main.async
             {
-                try self.model.deleteBlog(blog:blog)
-            }
-            catch
-            {
-                self.errmsg(msg:"Error deleting blog \(blog.nickname): \(error)")
-            }
+                let prog = ProgressPanel(message: "Deleting \(blog.nickname)", maxcount:blog.articles.count)
+                prog.show()
+                
+                do
+                {
+                    try self.model.deleteBlog(blog:blog)
+                }
+                catch
+                {
+                    self.errmsg(msg:"Error deleting blog \(blog.nickname): \(error)")
+                }
+                
+                self.model.currentBlog = nil
+                self.updateOutline(blog:nil)
+                self.clearUI()
+               
+                prog.close()
             
-            self.model.currentBlog = nil
-            self.updateOutline(blog:nil)
-            self.clearUI()
-           
-            
-            alert.window.sheetParent!.endSheet(alert.window, returnCode: .cancel)
-            Alert.showAlertInWindow(window: self.window, message: "Blog deleted", info:"", ok: {}, cancel: {})
+                Alert.showAlertInWindow(window: self.window, message: "Blog deleted", info:"", ok: {}, cancel: {})
+            }
         },
         cancel: {})
     }
@@ -788,22 +806,35 @@ class AppDelegate: NSObject,
                 return
         }
         
+        progress = ProgressPanel(message: "Deleting all articles on server: \(model.currentBlog.nickname)", maxcount:3)
+                                 
         Alert.showAlertInWindow(window: self.window,
                                 message: "Delete all articles from server: \(model.currentBlog.nickname)?",
             info: "Are you sure?",
             ok:
             {
-                do
+                self.progress.show()
+            
+                DispatchQueue.global().async
                 {
-                    try self.model.deleteAllArticlesFromServer(blog: self.model.currentBlog)
+                    self.progress.increment(amount: 1)
+                    do
+                    {
+                        try self.model.deleteAllArticlesFromServer(blog: self.model.currentBlog)
+                    }
+                    catch
+                    {
+                        Utils.writeDebugMsgToFile(msg:"Error deleting all articles from \(self.model.currentBlog.nickname): \(error)")
+                    }
+                    self.progress.increment(amount: 2)
+                    
+                    
+                    DispatchQueue.main.async
+                    {
+                        self.progress.close()
+                        Alert.showAlertInWindow(window: self.window, message: "All articles deleted from server  from \(self.model.currentBlog.nickname)", info: "", ok: {}, cancel: {})
+                    }
                 }
-                catch
-                {
-                    Utils.writeDebugMsgToFile(msg:"Error deleting all articles from \(self.model.currentBlog.nickname): \(error)")
-                }
-                 
-             
-                Alert.showAlertInWindow(window: self.window, message: "All articles deleted from server  from \(self.model.currentBlog.nickname)", info: "", ok: {}, cancel: {})
             },
             cancel: {})
         
@@ -822,38 +853,45 @@ class AppDelegate: NSObject,
            info: "Are you sure?",
            ok:
            {
-                let articlename = self.model.currentArticle.title
-                let alert = Alert.showProgressWindow(window: self.window, message: "Deleting article: \"\(articlename)\"...")
-
-                do
+                DispatchQueue.main.async
                 {
-                    try self.model.deleteArticle(article: self.model.currentArticle)
-                }
-                catch
-                {
-                    Utils.writeDebugMsgToFile(msg:"Error deleting article \(self.model.currentArticle.title): \(error)")
-                }
-
-                if self.model.currentArticle.published == true
-                {
+                    let articlename = self.model.currentArticle.title
+               
+                    let prog = ProgressPanel(message: "Deleting article: \(articlename)", maxcount:2)
+                    prog.show()
+               
+                    prog.increment(amount: 1)
                     do
                     {
-                        try self.model.deleteArticleFromServer(article: self.model.currentArticle)
+                        try self.model.deleteArticle(article: self.model.currentArticle)
                     }
                     catch
                     {
-                        Utils.writeDebugMsgToFile(msg:"Error deleting article from server\(self.model.currentArticle.title): \(error)")
+                        Utils.writeDebugMsgToFile(msg:"Error deleting article \(self.model.currentArticle.title): \(error)")
                     }
+
+                    prog.increment(amount: 1)
+                    if self.model.currentArticle.published == true
+                    {
+                        do
+                        {
+                            try self.model.deleteArticleFromServer(article: self.model.currentArticle)
+                        }
+                        catch
+                        {
+                            Utils.writeDebugMsgToFile(msg:"Error deleting article from server\(self.model.currentArticle.title): \(error)")
+                        }
+                    }
+                
+                    prog.increment(amount: 1)
+                    self.updateOutline(blog:self.model.currentBlog)
+                    self.clearUI()
+                    self.model.currentArticle = nil
+                
+                   
+                    prog.close()
+                    Alert.showAlertInWindow(window: self.window, message: "Article \"\(articlename)\" deleted.", info: "", ok: {}, cancel: {})
                 }
-            
-            
-                self.updateOutline(blog:self.model.currentBlog)
-                self.clearUI()
-                self.model.currentArticle = nil
-            
-               
-               alert.window.sheetParent!.endSheet(alert.window, returnCode: .cancel)
-               Alert.showAlertInWindow(window: self.window, message: "Article \"\(articlename)\" deleted.", info: "", ok: {}, cancel: {})
            },
            cancel: {})
     }
