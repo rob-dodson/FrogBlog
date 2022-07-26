@@ -15,7 +15,7 @@ Export/Import writes/reads standard json files.
 
 All data is stored in a local Sqlite database on your Mac.
 
-###
+### libssh2
 
 This project needs to link to [libssh2](https://libssh2.org). Here is a way to do it:
 
