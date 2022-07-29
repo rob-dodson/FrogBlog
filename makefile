@@ -1,58 +1,53 @@
 #
-# makefile for FrogBlog
-#
-# To build for non app store: make app;make notarize; make notarizewatch RequestUUID=XXX ; make staple; make shipit
+# To build for non app store: make app;make notarize; make staple; make shipit
 #
 # To build for Mac App Store: make app; make upload # NOT TESTED YET!
 #
-# To build the app:
-#    make SCHEME=FrogBlog
-#    make SCHEME=FrogBlogAppStore
-#    make SCHEME=FrogBlogiPhone
+#    make 
+#    make SCHEME=<SCHEME>
 #
-ARCHIVE = ~/Desktop/FrogBlog.xcarchive
-WORKSPACE = FrogBlog.xcworkspace
-SCHEME = FrogBlog
-USER = rad@robdodson.net
+APPNAME = FrogBlog
+
+EXPORTPATH = ~/Desktop/${APPNAME}-Build
+ARCHIVE = ${EXPORTPATH}/${APPNAME}.xcarchive
+SCHEME = ${APPNAME}
+PROJECT = ${APPNAME}.xcodeproj
+DEVUSER = rad@robdodson.net
 ZIPFILE = ${SCHEME}.zip
-OSX_APP_BUNDLE_ID = Shy-Frog.FrogBlog
-ALTOOL_ONETIME_PASS = jkdn-cjob-evtk-uuey
-APP = ~/Desktop/FrogBlog.app
-KEYCHAINPASS = ALTOOLPASS
-SDK = macosx10.15
-RequestUUID = # get from successful notarize output or notarizehistory
+APP_BUNDLE_ID = Shy-Frog.${APPNAME}
+APP = ${EXPORTPATH}/${APPNAME}.app
+SDK = `xcodebuild -showsdks | grep macosx | cut -f3`
+PROFILENAME = frogradio-notarize
+NOTARYTOOL_PASSWORD = tsze-wegl-vsfj-wakd
+TEAM_ID = ZYF5X8SV2F
 
 
 all:
-	xcodebuild -workspace ${WORKSPACE} -scheme ${SCHEME} -configuration release
+	echo Using: ${SDK}
+	xcodebuild  -project ${PROJECT} -scheme ${SCHEME} -configuration release
 
 clean:
-	xcodebuild -workspace ${WORKSPACE} -scheme ${SCHEME} clean
+	xcodebuild -project ${PROJECT} -scheme ${SCHEME} clean
 
 archive:
-	xcodebuild -workspace ${WORKSPACE} -scheme ${SCHEME} clean archive -configuration release -sdk ${SDK} -archivePath ${ARCHIVE} 
+	xcodebuild -project ${PROJECT} -scheme ${SCHEME} clean archive -configuration release ${SDK} -archivePath ${ARCHIVE} 
 
 app: archive
-	xcodebuild -exportArchive -archivePath ${ARCHIVE} -exportPath ~/Desktop -exportOptionsPlist ExportOptions.plist 
+	rm -rf ${APP}
+	xcodebuild -exportArchive -archivePath ${ARCHIVE} -exportPath ${EXPORTPATH} -exportOptionsPlist ExportOptions.plist 
 
 upload: archive
-	xcrun altool --upload-app --type osx --file ${ARCHIVE} --username ${USER} 
+	xcrun altool --upload-app --type osx --file ${ARCHIVE} --username ${DEVUSER} 
 
-notarize: 
+notarize:
 	/usr/bin/ditto -c -k --keepParent ${APP} ${ZIPFILE}
-	xcrun altool --store-password-in-keychain-item ${KEYCHAINPASS} --username ${USER} --password ${ALTOOL_ONETIME_PASS}
-	xcrun altool --notarize-app -f ${ZIPFILE} --primary-bundle-id ${OSX_APP_BUNDLE_ID} --username ${USER} --password @keychain:${KEYCHAINPASS}
-	rm ${ZIPFILE}
-
-notarizewatch:
-	xcrun altool --notarization-info ${RequestUUID} --username ${USER} --password @keychain:${KEYCHAINPASS}
-
-notarizehistory:
-	xcrun altool --notarization-history 0 --username rad@robdodson.net --password @keychain:${KEYCHAINPASS}
+	xcrun notarytool store-credentials ${PROFILENAME} --password ${NOTARYTOOL_PASSWORD} --apple-id ${DEVUSER} --team-id ${TEAM_ID}
+	xcrun notarytool submit ${ZIPFILE} --keychain-profile ${PROFILENAME}  --wait
 
 staple:
 	xcrun stapler staple ${APP}
 
 shipit:
-	(cd ~/Pro/dev/InstallerStuff/FrogBlog;~/bin/shipit)
+	cp ${APP} ~/Desktop
+	(cd ~/Pro/dev/devtools/InstallerStuff/${APPNAME};../../bin/shipit)
 

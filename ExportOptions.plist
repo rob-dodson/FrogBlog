@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>destination</key>
+	<string>export</string>
+	<key>iCloudContainerEnvironment</key>
+	<string>Production</string>
+	<key>method</key>
+	<string>developer-id</string>
+	<key>teamID</key>
+	<string>ZYF5X8SV2F</string>
+    <key>provisioningProfiles</key>
+      <dict>
+        <key>net.frogradio.frogblog</key>
+        <string>FrogBlogDeveloper</string>
+      </dict>
+</dict>
+</plist>
+
+
