@@ -1004,13 +1004,16 @@ class AppDelegate: NSObject,
     
     func errmsg(msg:String)
     {
-        Utils.writeDebugMsgToFile(msg:msg)
+        DispatchQueue.main.sync
+        {
+            Utils.writeDebugMsgToFile(msg:msg)
 
-        Alert.showAlertInWindow(window: self.window,
-                                message: msg,
-            info: "",
-            ok: {},
-            cancel: {})
+            Alert.showAlertInWindow(window: self.window,
+                                    message: msg,
+                info: "",
+                ok: {},
+                cancel: {})
+        }
     }
    
     
