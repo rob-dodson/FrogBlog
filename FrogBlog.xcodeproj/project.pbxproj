@@ -28,8 +28,8 @@
 		AE10EC6423E08374003483BF /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC6323E08374003483BF /* Preview.swift */; };
 		AE154C372655AC960089B398 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE154C362655AC960089B398 /* String+Extensions.swift */; };
 		AE154C3F2655AE020089B398 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE154C3E2655AE020089B398 /* README.md */; };
-		AE1C8DC0288F073D00CE3D15 /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; };
-		AE1C8DC1288F073D00CE3D15 /* libcrypto.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE1C8DC0288F073D00CE3D15 /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; settings = {ATTRIBUTES = (Required, ); }; };
+		AE1C8DC1288F073D00CE3D15 /* libcrypto.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AE34028A268BCA57002EF20A /* Shout in Frameworks */ = {isa = PBXBuildFile; productRef = AE340289268BCA57002EF20A /* Shout */; };
 		AE3DB61223EDA7040087BB26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DB61123EDA7040087BB26 /* Model.swift */; };
 		AE5200D123AEFB0100F3D522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5200D023AEFB0100F3D522 /* AppDelegate.swift */; };
@@ -39,7 +39,7 @@
 		AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5CCECC23E24BFB00A19E0E /* WebKit.framework */; };
 		AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CCECE23E26E1800A19E0E /* Publish.swift */; };
 		AE9F65A3288CE63800A1C75A /* libssh2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F65A2288CE63800A1C75A /* libssh2.xcframework */; };
-		AE9F65A4288CE63800A1C75A /* libssh2.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F65A2288CE63800A1C75A /* libssh2.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE9F65A4288CE63800A1C75A /* libssh2.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F65A2288CE63800A1C75A /* libssh2.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AEA07E7523CD20D1009E07A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07E7423CD20D1009E07A0 /* Alert.swift */; };
 		AEBDC01E2448C12300E4F8A5 /* Changed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDC01D2448C12300E4F8A5 /* Changed.swift */; };
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
@@ -518,7 +518,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZYF5X8SV2F;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = ZYF5X8SV2F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
