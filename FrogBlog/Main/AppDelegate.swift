@@ -10,15 +10,15 @@ import Cocoa
 import WebKit
 
 import Ink
-//import Sparkle
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject,
 	NSApplicationDelegate,
 	WKNavigationDelegate,
 	NSOutlineViewDataSource,
-    //SPUUpdaterDelegate,
-    //SPUStandardUserDriverDelegate,
+    SPUUpdaterDelegate,
+    SPUStandardUserDriverDelegate,
 	NSOutlineViewDelegate
 {
     @IBOutlet var markdownTextView: NSTextView!
@@ -150,8 +150,8 @@ class AppDelegate: NSObject,
         //
         //
         //
-        //let updater = SPUStandardUpdaterController(updaterDelegate: self, userDriverDelegate: self)
-       // updater.checkForUpdates(self)
+        let updater = SPUStandardUpdaterController(updaterDelegate: self, userDriverDelegate: self)
+        updater.checkForUpdates(self)
         
         
         //

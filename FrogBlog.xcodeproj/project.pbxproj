@@ -28,6 +28,7 @@
 		AE10EC6423E08374003483BF /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE10EC6323E08374003483BF /* Preview.swift */; };
 		AE154C372655AC960089B398 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE154C362655AC960089B398 /* String+Extensions.swift */; };
 		AE154C3F2655AE020089B398 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE154C3E2655AE020089B398 /* README.md */; };
+		AE170EC328A7FA4A005AA3C1 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = AE170EC228A7FA4A005AA3C1 /* Sparkle */; };
 		AE1C8DC0288F073D00CE3D15 /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; settings = {ATTRIBUTES = (Required, ); }; };
 		AE1C8DC1288F073D00CE3D15 /* libcrypto.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AE34028A268BCA57002EF20A /* Shout in Frameworks */ = {isa = PBXBuildFile; productRef = AE340289268BCA57002EF20A /* Shout */; };
@@ -110,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE34028A268BCA57002EF20A /* Shout in Frameworks */,
+				AE170EC328A7FA4A005AA3C1 /* Sparkle in Frameworks */,
 				AE9F65A3288CE63800A1C75A /* libssh2.xcframework in Frameworks */,
 				AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */,
 				AE1C8DC0288F073D00CE3D15 /* libcrypto.xcframework in Frameworks */,
@@ -252,6 +254,7 @@
 				4A2585DB23CCD7CD00EC176F /* Ink */,
 				4A83D39B23D27F710011049C /* GRDB */,
 				AE340289268BCA57002EF20A /* Shout */,
+				AE170EC228A7FA4A005AA3C1 /* Sparkle */,
 			);
 			productName = FrogBlog;
 			productReference = AE5200CD23AEFB0100F3D522 /* FrogBlog.app */;
@@ -286,6 +289,7 @@
 				4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */,
 				4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 				AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */,
+				AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = AE5200CE23AEFB0100F3D522 /* Products */;
 			projectDirPath = "";
@@ -632,6 +636,14 @@
 				minimumVersion = 4.9.0;
 			};
 		};
+		AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jakeheis/Shout";
@@ -657,6 +669,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
+		};
+		AE170EC228A7FA4A005AA3C1 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 		AE340289268BCA57002EF20A /* Shout */ = {
 			isa = XCSwiftPackageProductDependency;
