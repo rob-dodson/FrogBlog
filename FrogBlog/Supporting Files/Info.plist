@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1004</string>
+	<string>1006</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>
@@ -36,5 +36,7 @@
 	<true/>
 	<key>SUFeedURL</key>
 	<string>https://robdodson.net/FrogBlog/downloads/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>IG4LrTVZqfCJn2KLV7/ktzsC2XPpmzem5NMf2VyDPcs=</string>
 </dict>
 </plist>
