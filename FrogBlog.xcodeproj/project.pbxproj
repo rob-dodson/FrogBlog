@@ -29,9 +29,6 @@
 		AE154C372655AC960089B398 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE154C362655AC960089B398 /* String+Extensions.swift */; };
 		AE154C3F2655AE020089B398 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE154C3E2655AE020089B398 /* README.md */; };
 		AE170EC328A7FA4A005AA3C1 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = AE170EC228A7FA4A005AA3C1 /* Sparkle */; };
-		AE1C8DC0288F073D00CE3D15 /* libcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; settings = {ATTRIBUTES = (Required, ); }; };
-		AE1C8DC1288F073D00CE3D15 /* libcrypto.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AE34028A268BCA57002EF20A /* Shout in Frameworks */ = {isa = PBXBuildFile; productRef = AE340289268BCA57002EF20A /* Shout */; };
 		AE3DB61223EDA7040087BB26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3DB61123EDA7040087BB26 /* Model.swift */; };
 		AE5200D123AEFB0100F3D522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5200D023AEFB0100F3D522 /* AppDelegate.swift */; };
 		AE5200D623AEFB0300F3D522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5200D523AEFB0300F3D522 /* Assets.xcassets */; };
@@ -39,8 +36,7 @@
 		AE5200FD23AFF53D00F3D522 /* MarkdownHelp.txt in Resources */ = {isa = PBXBuildFile; fileRef = AE5200FC23AFF53D00F3D522 /* MarkdownHelp.txt */; };
 		AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5CCECC23E24BFB00A19E0E /* WebKit.framework */; };
 		AE5CCECF23E26E1800A19E0E /* Publish.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5CCECE23E26E1800A19E0E /* Publish.swift */; };
-		AE9F65A3288CE63800A1C75A /* libssh2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F65A2288CE63800A1C75A /* libssh2.xcframework */; };
-		AE9F65A4288CE63800A1C75A /* libssh2.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE9F65A2288CE63800A1C75A /* libssh2.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AE63E88A28C6A01300949BAD /* Shout in Frameworks */ = {isa = PBXBuildFile; productRef = AE63E88928C6A01300949BAD /* Shout */; };
 		AEA07E7523CD20D1009E07A0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA07E7423CD20D1009E07A0 /* Alert.swift */; };
 		AEBDC01E2448C12300E4F8A5 /* Changed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDC01D2448C12300E4F8A5 /* Changed.swift */; };
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
@@ -51,17 +47,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AE3926BC288B2DBE0068F3FA /* Embed Frameworks */ = {
+		AE170EC728A9999D005AA3C1 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AE1C8DC1288F073D00CE3D15 /* libcrypto.xcframework in Embed Frameworks */,
-				AE9F65A4288CE63800A1C75A /* libssh2.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -84,7 +78,6 @@
 		AE10EC6323E08374003483BF /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		AE154C362655AC960089B398 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		AE154C3E2655AE020089B398 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libcrypto.xcframework; path = ../../libssh2/3.2.2/libcrypto.xcframework; sourceTree = "<group>"; };
 		AE3DB61123EDA7040087BB26 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AE5200CD23AEFB0100F3D522 /* FrogBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrogBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5200D023AEFB0100F3D522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +88,6 @@
 		AE5200FC23AFF53D00F3D522 /* MarkdownHelp.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = MarkdownHelp.txt; sourceTree = "<group>"; };
 		AE5CCECC23E24BFB00A19E0E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AE5CCECE23E26E1800A19E0E /* Publish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publish.swift; sourceTree = "<group>"; };
-		AE9F65A2288CE63800A1C75A /* libssh2.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libssh2.xcframework; path = ../../libssh2/output/libssh2.xcframework; sourceTree = "<group>"; };
 		AEA07E7423CD20D1009E07A0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		AEBDC01D2448C12300E4F8A5 /* Changed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changed.swift; sourceTree = "<group>"; };
 		AECD48E323CFB3DC00A9F503 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -110,11 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE34028A268BCA57002EF20A /* Shout in Frameworks */,
+				AE63E88A28C6A01300949BAD /* Shout in Frameworks */,
 				AE170EC328A7FA4A005AA3C1 /* Sparkle in Frameworks */,
-				AE9F65A3288CE63800A1C75A /* libssh2.xcframework in Frameworks */,
 				AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */,
-				AE1C8DC0288F073D00CE3D15 /* libcrypto.xcframework in Frameworks */,
 				4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */,
 				4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */,
 				4A83D39C23D27F710011049C /* GRDB in Frameworks */,
@@ -157,8 +147,6 @@
 		AE5200F823AFCA8200F3D522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AE1C8DBF288F073D00CE3D15 /* libcrypto.xcframework */,
-				AE9F65A2288CE63800A1C75A /* libssh2.xcframework */,
 				AE5CCECC23E24BFB00A19E0E /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -239,10 +227,10 @@
 			buildConfigurationList = AE5200DE23AEFB0300F3D522 /* Build configuration list for PBXNativeTarget "FrogBlog" */;
 			buildPhases = (
 				AE5200C923AEFB0100F3D522 /* Sources */,
-				AE3926BC288B2DBE0068F3FA /* Embed Frameworks */,
 				AE5200CA23AEFB0100F3D522 /* Frameworks */,
 				AE5200CB23AEFB0100F3D522 /* Resources */,
-				AED6174923E8D81F005F3E45 /* ShellScript */,
+				AED6174923E8D81F005F3E45 /* Run Script - Bump version */,
+				AE170EC728A9999D005AA3C1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,8 +241,8 @@
 				4A2585C923CBF43F00EC176F /* KeychainSwift */,
 				4A2585DB23CCD7CD00EC176F /* Ink */,
 				4A83D39B23D27F710011049C /* GRDB */,
-				AE340289268BCA57002EF20A /* Shout */,
 				AE170EC228A7FA4A005AA3C1 /* Sparkle */,
+				AE63E88928C6A01300949BAD /* Shout */,
 			);
 			productName = FrogBlog;
 			productReference = AE5200CD23AEFB0100F3D522 /* FrogBlog.app */;
@@ -288,8 +276,8 @@
 				4A2585C823CBF43F00EC176F /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */,
 				4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-				AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */,
 				AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				AE63E88828C6A01300949BAD /* XCRemoteSwiftPackageReference "Shout" */,
 			);
 			productRefGroup = AE5200CE23AEFB0100F3D522 /* Products */;
 			projectDirPath = "";
@@ -323,7 +311,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AED6174923E8D81F005F3E45 /* ShellScript */ = {
+		AED6174923E8D81F005F3E45 /* Run Script - Bump version */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -333,6 +321,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script - Bump version";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -644,12 +633,12 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */ = {
+		AE63E88828C6A01300949BAD /* XCRemoteSwiftPackageReference "Shout" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jakeheis/Shout";
+			repositoryURL = "https://github.com/glushchenko/Shout";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.7;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -675,9 +664,9 @@
 			package = AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
 		};
-		AE340289268BCA57002EF20A /* Shout */ = {
+		AE63E88928C6A01300949BAD /* Shout */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AE340288268BCA57002EF20A /* XCRemoteSwiftPackageReference "Shout" */;
+			package = AE63E88828C6A01300949BAD /* XCRemoteSwiftPackageReference "Shout" */;
 			productName = Shout;
 		};
 /* End XCSwiftPackageProductDependency section */

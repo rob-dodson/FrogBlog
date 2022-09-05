@@ -37,12 +37,21 @@
       }
     },
     {
+      "identity" : "libssh2prebuild",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/glushchenko/Libssh2Prebuild.git",
+      "state" : {
+        "revision" : "a91bcf205a6cbc84144f840c44145656abbd266a",
+        "version" : "1.10.0"
+      }
+    },
+    {
       "identity" : "shout",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jakeheis/Shout",
+      "location" : "https://github.com/glushchenko/Shout",
       "state" : {
-        "revision" : "fbcae228bc68d5e2352f0790079995d27b610dbc",
-        "version" : "0.5.7"
+        "branch" : "master",
+        "revision" : "aa2dc5dc124e8aa29002fcd4c334cdf54fa74df9"
       }
     },
     {
