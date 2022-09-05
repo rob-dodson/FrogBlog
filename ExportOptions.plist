@@ -10,11 +10,8 @@
 	<string>developer-id</string>
 	<key>teamID</key>
 	<string>ZYF5X8SV2F</string>
-    <key>provisioningProfiles</key>
-      <dict>
-        <key>net.frogradio.frogblog</key>
-        <string>FrogBlogDeveloper</string>
-      </dict>
+    <key>signingStyle</key>
+	<string>automatic</string>
 </dict>
 </plist>
 
