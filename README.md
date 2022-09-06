@@ -21,7 +21,7 @@ All data is stored in a local Sqlite database on your Mac.
 
 ---
 
-For a compiled version for macOS go [here](https://robdodson.net/FrogBlog/downloads/FrogBlog.dmg)
+For a compiled version for macOS go [here](https://robdodson.net/FrogBlog/downloads/FrogBlog.dmg).
 
 ---
 Todo:
