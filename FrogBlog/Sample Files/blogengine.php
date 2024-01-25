@@ -60,12 +60,12 @@
           print '<div class="nav">';
           if ($page > 1)
           {
-              print '<a href="BLOGPATH_HERE?page=' . $prev . '" class="previous">&laquo;Previous</a>';
+              print '<a href="BLOGPATH_HERE?page=' . $prev . '" class="next">&laquo;Next</a>';
           }
           
           if ($page < $pages)
           {
-              print '<a href="BLOGPATH_HERE?page=' . $next . '" class = "next">Next&raquo;</a>';
+              print '<a href="BLOGPATH_HERE?page=' . $next . '" class = "previous">Previous&raquo;</a>';
           }
           
           print '</div>';
