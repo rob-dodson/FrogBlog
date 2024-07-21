@@ -183,6 +183,7 @@ class AppDelegate: NSObject,
     }
 
     @IBAction func deleteAllArticlesFromServerAction(_ sender:Any) { deleteAllArticlesFromServer() }
+    @IBAction func uploadAllSupportFilesAction(_ sender: Any) { uploadAllSupportFiles() }
    
     
     //
@@ -287,7 +288,47 @@ class AppDelegate: NSObject,
         })
     }
     
-    
+    func uploadAllSupportFiles()
+    {
+        if isBlogSelected() == false
+        {
+            return
+        }
+        
+        saveChanged()
+        supportFilesFromUI()
+        
+        let blog = model.currentBlog!
+        
+        progress = ProgressPanel(message: "Uploading support files", maxcount:3)
+        self.progress.show()
+        
+        DispatchQueue.global().async
+        {
+            self.progress.increment(amount: 1)
+            
+            do
+            {
+                try self.model.filterBlogSupportFiles(blog:blog)
+                try Publish().uploadAllSupportFiles(blog: blog)
+                self.progress.increment(amount: 2)
+            }
+            catch
+            {
+                self.errmsg(msg:"Error uploading: \(error)")
+            }
+            
+            
+            DispatchQueue.main.async
+            {
+                self.progress.close()
+                
+                Alert.showAlertInWindow(window: self.window, message: "Files uploaded", info: "", ok: {}, cancel:{})
+            }
+            
+            
+        }
+    }
        
     func publish()
     {

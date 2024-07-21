@@ -1,12 +1,13 @@
 {
+  "originHash" : "2ee5d4bb505054cc6559bd37a7886ee875cc1bd532db455c33a393da74090d06",
   "pins" : [
     {
       "identity" : "bluesocket",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/IBM-Swift/BlueSocket",
       "state" : {
-        "revision" : "c9894fd117457f1d006575fbfb2fdfd6f79eac03",
-        "version" : "1.0.200"
+        "revision" : "7b23a867008e0027bfd6f4d398d44720707bc8ca",
+        "version" : "2.0.4"
       }
     },
     {
@@ -41,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/glushchenko/Libssh2Prebuild.git",
       "state" : {
-        "revision" : "a91bcf205a6cbc84144f840c44145656abbd266a",
-        "version" : "1.10.0"
+        "revision" : "024c2cf73e0b47deeea92a1176998f48f98ff4df",
+        "version" : "1.11.0-OpenSSL-1-1-1u"
       }
     },
     {
@@ -51,7 +52,7 @@
       "location" : "https://github.com/glushchenko/Shout",
       "state" : {
         "branch" : "master",
-        "revision" : "aa2dc5dc124e8aa29002fcd4c334cdf54fa74df9"
+        "revision" : "d733c3e6d3c3d7d44e08489e2dc21eff50a61a0e"
       }
     },
     {
@@ -59,10 +60,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "7907f058bcef1132c9b4af6c049cac598330a5f9",
-        "version" : "2.4.1"
+        "revision" : "0ef1ee0220239b3776f433314515fd849025673f",
+        "version" : "2.6.4"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

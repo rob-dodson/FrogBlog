@@ -140,7 +140,7 @@ img
 
 .next, .nav
  {
-        padding-left:20px;
+        padding-right:20px;
         color: green;
         text-decoration: none;
  }

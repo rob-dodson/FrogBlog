@@ -55,17 +55,17 @@
                }
           }
           
-          $prev = $page - 1;
-          $next = $page + 1;
+          $next = $page - 1;
+          $prev = $page + 1;
           print '<div class="nav">';
           if ($page > 1)
           {
-              print '<a href="BLOGPATH_HERE?page=' . $prev . '" class="next">&laquo;Next</a>';
+              print '<a href="BLOGPATH_HERE?page=' . $next . '" class="next">&laquo;Next</a>';
           }
           
           if ($page < $pages)
           {
-              print '<a href="BLOGPATH_HERE?page=' . $next . '" class = "previous">Previous&raquo;</a>';
+              print '<a href="BLOGPATH_HERE?page=' . $prev . '" class="prev">Prev&raquo;</a>';
           }
           
           print '</div>';
