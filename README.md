@@ -28,4 +28,5 @@ Todo:
 
 * Don't load articles and images into memory until editing
 * Support password login to server?
+- Cloud Sync blog meta data and articles
 
