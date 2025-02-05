@@ -15,7 +15,7 @@ import GRDB     // Sqlite database interface
 import Ink      // markdown to html processing
 
 
-class Blog : Record,Codable
+class Blog : Record,Codable,NSCopying
 {
     var uuid           : UUID
     var nickname       : String
@@ -61,7 +61,6 @@ class Blog : Record,Codable
         return SqliteDB.BLOG
     }
      
-    
     override init()
     {
         uuid           = UUID()
@@ -81,7 +80,34 @@ class Blog : Record,Codable
         
         super.init()
     }
+     
+    init(uuid: UUID, nickname: String, title: String, subtitle: String, author: String, address: String, hostname: String, remoteroot: String, loginname: String, publickeypath: String, privatekeypath: String, articles: [Article]!, html: File!, css: File!, engine: File!, supportFilesSent: Bool!)
+    {
+        self.uuid = uuid
+        self.nickname = nickname
+        self.title = title
+        self.subtitle = subtitle
+        self.author = author
+        self.address = address
+        self.hostname = hostname
+        self.remoteroot = remoteroot
+        self.loginname = loginname
+        self.publickeypath = publickeypath
+        self.privatekeypath = privatekeypath
+        self.articles = articles
+        self.html = html
+        self.css = css
+        self.engine = engine
+        self.supportFilesSent = supportFilesSent
+        
+        super.init()
+    }
     
+    func copy(with zone: NSZone? = nil) -> Any
+    {
+        let copy = Blog(uuid: uuid, nickname: nickname, title: title, subtitle: subtitle, author: author, address: address, hostname: hostname, remoteroot: remoteroot, loginname: loginname, publickeypath: publickeypath, privatekeypath: privatekeypath, articles: articles, html: html, css: css, engine: engine, supportFilesSent: supportFilesSent)
+        return copy
+    }
     
     //
     // We changed the key name to use the UUID instead of the nickname.

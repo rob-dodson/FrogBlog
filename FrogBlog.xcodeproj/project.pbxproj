@@ -12,7 +12,6 @@
 		4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 4A2585DB23CCD7CD00EC176F /* Ink */; };
 		4A4E333723D92539009EC347 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E333623D92539009EC347 /* Utils.swift */; };
 		4A83D39923D26BB30011049C /* SqliteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83D39823D26BB30011049C /* SqliteDB.swift */; };
-		4A83D39C23D27F710011049C /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 4A83D39B23D27F710011049C /* GRDB */; };
 		AE0059DD23C7682F00CD0DFB /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0059DC23C7682F00CD0DFB /* Blog.swift */; };
 		AE0059DF23C798C100CD0DFB /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = AE0059DE23C798C100CD0DFB /* index.html */; };
 		AE0059E423C903B600CD0DFB /* BlogSettingsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0059E223C903B600CD0DFB /* BlogSettingsPanel.swift */; };
@@ -42,6 +41,7 @@
 		AECD48E423CFB3DC00A9F503 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD48E323CFB3DC00A9F503 /* Keys.swift */; };
 		AECDBE8623CD3DFE0014B73F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECDBE8523CD3DFE0014B73F /* Article.swift */; };
 		AEE84CAC23D4E72A009E20DA /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE84CAB23D4E72A009E20DA /* File.swift */; };
+		AEEC49242D53B651001597B4 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = AEEC49232D53B651001597B4 /* GRDB */; };
 		AEEECEA7288F5D9200F5D10A /* ProgressPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEECEA5288F5D9200F5D10A /* ProgressPanel.swift */; };
 		AEEECEA8288F5D9200F5D10A /* ProgressPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEECEA6288F5D9200F5D10A /* ProgressPanel.xib */; };
 /* End PBXBuildFile section */
@@ -105,9 +105,9 @@
 				AE63E88A28C6A01300949BAD /* Shout in Frameworks */,
 				AE170EC328A7FA4A005AA3C1 /* Sparkle in Frameworks */,
 				AE5CCECD23E24BFB00A19E0E /* WebKit.framework in Frameworks */,
+				AEEC49242D53B651001597B4 /* GRDB in Frameworks */,
 				4A2585CA23CBF43F00EC176F /* KeychainSwift in Frameworks */,
 				4A2585DC23CCD7CD00EC176F /* Ink in Frameworks */,
-				4A83D39C23D27F710011049C /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,9 +240,9 @@
 			packageProductDependencies = (
 				4A2585C923CBF43F00EC176F /* KeychainSwift */,
 				4A2585DB23CCD7CD00EC176F /* Ink */,
-				4A83D39B23D27F710011049C /* GRDB */,
 				AE170EC228A7FA4A005AA3C1 /* Sparkle */,
 				AE63E88928C6A01300949BAD /* Shout */,
+				AEEC49232D53B651001597B4 /* GRDB */,
 			);
 			productName = FrogBlog;
 			productReference = AE5200CD23AEFB0100F3D522 /* FrogBlog.app */;
@@ -275,9 +275,9 @@
 			packageReferences = (
 				4A2585C823CBF43F00EC176F /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */,
-				4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 				AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				AE63E88828C6A01300949BAD /* XCRemoteSwiftPackageReference "Shout" */,
+				AEEC49222D53B651001597B4 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = AE5200CE23AEFB0100F3D522 /* Products */;
 			projectDirPath = "";
@@ -617,14 +617,6 @@
 				minimumVersion = 0.2.0;
 			};
 		};
-		4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/groue/GRDB.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.9.0;
-			};
-		};
 		AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -636,6 +628,14 @@
 		AE63E88828C6A01300949BAD /* XCRemoteSwiftPackageReference "Shout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/glushchenko/Shout";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		AEEC49222D53B651001597B4 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -654,11 +654,6 @@
 			package = 4A2585DA23CCD7CD00EC176F /* XCRemoteSwiftPackageReference "ink" */;
 			productName = Ink;
 		};
-		4A83D39B23D27F710011049C /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A83D39A23D27F710011049C /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
-		};
 		AE170EC228A7FA4A005AA3C1 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AE170EC128A7FA4A005AA3C1 /* XCRemoteSwiftPackageReference "Sparkle" */;
@@ -668,6 +663,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE63E88828C6A01300949BAD /* XCRemoteSwiftPackageReference "Shout" */;
 			productName = Shout;
+		};
+		AEEC49232D53B651001597B4 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEEC49222D53B651001597B4 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

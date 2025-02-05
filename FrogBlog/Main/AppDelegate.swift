@@ -94,7 +94,7 @@ class AppDelegate: NSObject,
         //
         // load blogs and etc
         //
-        model = Model()
+        model = Model(db: nil, currentBlog: nil, currentArticle: nil)
         do
         {
             try model.loadBlogsAndDocs()
@@ -198,24 +198,29 @@ class AppDelegate: NSObject,
             return
         }
         
-        let newblog = model.currentBlog.copy()
-        
-        newblog.nickname = "NEWBLOG_NICKNAME"
-        newblog.uuid = UUID()
-        newblog.articles = Array()
-        
-        var nsurl : NSURL = NSURL(string:newblog.address)!
-        nsurl = nsurl.deletingLastPathComponent! as NSURL
-        newblog.address = nsurl.absoluteString ?? "https://www.domain.com/"
-        newblog.address.append("NEWBLOG")
-        
-        let strremote : NSString = newblog.remoteroot as NSString
-        newblog.remoteroot = strremote.deletingLastPathComponent
-        newblog.remoteroot.append("/NEWBLOG")
-        
-        let publickeypassword = Keys.getFromKeychain(name:model.currentBlog.makekey())
-        
-        makeNewBlog(overidepublickeypassword: publickeypassword, newblog: newblog)
+        if let newblog = model.currentBlog.copy() as? Blog
+        {
+            newblog.nickname = "NEWBLOG_NICKNAME"
+            newblog.uuid = UUID()
+            newblog.articles = Array()
+            
+            var nsurl : NSURL = NSURL(string:newblog.address)!
+            nsurl = nsurl.deletingLastPathComponent! as NSURL
+            newblog.address = nsurl.absoluteString ?? "https://www.domain.com/"
+            newblog.address.append("NEWBLOG")
+            
+            let strremote : NSString = newblog.remoteroot as NSString
+            newblog.remoteroot = strremote.deletingLastPathComponent
+            newblog.remoteroot.append("/NEWBLOG")
+            
+            let publickeypassword = Keys.getFromKeychain(name:model.currentBlog.makekey())
+            
+            makeNewBlog(overidepublickeypassword: publickeypassword, newblog: newblog)
+        }
+        else
+        {
+            Alert.showAlertInWindow(window: self.window, message: "Copy of blog failed.", info: "", ok: {}, cancel: {})
+        }
     }
     
     

@@ -13,7 +13,7 @@
 import Foundation
 
 
-class Model
+class Model: NSCopying
 {
     var db                : SqliteDB!
     var blogs             : [Blog]?
@@ -25,6 +25,23 @@ class Model
     struct ModelError: Error
     {
         let msg  : String
+    }
+    
+    
+    init(db: SqliteDB!, blogs: [Blog]? = nil, docs: [Doc]? = nil, currentBlog: Blog!, currentArticle: Article!)
+    {
+        self.db = db
+        self.blogs = blogs
+        self.docs = docs
+        self.currentBlog = currentBlog
+        self.currentArticle = currentArticle
+    }
+    
+    
+    func copy(with zone: NSZone? = nil) -> Any
+    {
+        let copy = Model(db: db, blogs: blogs, docs: docs, currentBlog: currentBlog, currentArticle: currentArticle)
+        return copy
     }
     
     

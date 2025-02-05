@@ -1,5 +1,5 @@
 {
-  "originHash" : "2ee5d4bb505054cc6559bd37a7886ee875cc1bd532db455c33a393da74090d06",
+  "originHash" : "91d9cda301a5ae7a958d38380e53dfaef39ab9fac06ff25a3ce2ab22547df18c",
   "pins" : [
     {
       "identity" : "bluesocket",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/groue/GRDB.swift.git",
       "state" : {
-        "revision" : "5ee47c3c2765bdfde0f44c2ea9a263f6aa252d63",
-        "version" : "4.14.0"
+        "branch" : "master",
+        "revision" : "ea6d8e0123b0db79cd3cf736f5d9798a89839c51"
       }
     },
     {
