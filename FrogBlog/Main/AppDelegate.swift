@@ -300,7 +300,6 @@ class AppDelegate: NSObject,
             return
         }
         
-        saveChanged()
         supportFilesFromUI()
         
         let blog = model.currentBlog!
@@ -412,10 +411,13 @@ class AppDelegate: NSObject,
     {
         do
         {
-          var imagenamedict = Dictionary<String, Any>()
+          var imagesInArticle = Dictionary<String, Any>()
           
-          let pattern = #"!\[.*\]\(images/(.*)\)"#
-          let regex = try NSRegularExpression(pattern: pattern, options: [])
+            // <img src="IMAGEDIR/rrrrrrr-4CC9443B-0A09-4A9B-B951-1EEC31D9A9FA"
+            //let pattern = #"!\[.*\]\(images/(.*)\)"#
+            
+            let pattern = #"img src="IMAGEDIR/(.*)" width"# // must match the html or markdown put into article.
+            let regex = try NSRegularExpression(pattern: pattern, options: [])
           
           regex.enumerateMatches(in: article.markdowntext, options: [], range: NSMakeRange(0, article.markdowntext.utf16.count))
           { (match, _, stop) in
@@ -423,13 +425,13 @@ class AppDelegate: NSObject,
               let cap = match.range(at: 1)
               guard let caprang = Range(cap, in: article.markdowntext) else { return }
               let file = String(article.markdowntext[caprang])
-              imagenamedict[file] = file
+              imagesInArticle[file] = file
           }
           
         var images_to_delete_from_server = [Image]()
         for image in article.images
         {
-            if imagenamedict[image.name] == nil
+            if imagesInArticle[image.name] == nil // image in article struc but not mentioned in article text
             {
                 Utils.writeDebugMsgToFile(msg:"Deleting unused image \(image.name) from article \(article.title)")
 
@@ -899,14 +901,16 @@ class AppDelegate: NSObject,
            info: "Are you sure?",
            ok:
            {
-                DispatchQueue.main.async
+            let articlename = self.model.currentArticle.title
+           
+                self.progress = ProgressPanel(message: "Deleting article: \(articlename)", maxcount:2)
+                self.progress.show()
+           
+                DispatchQueue.global().async
                 {
-                    let articlename = self.model.currentArticle.title
                
-                    let prog = ProgressPanel(message: "Deleting article: \(articlename)", maxcount:2)
-                    prog.show()
-               
-                    prog.increment(amount: 1)
+                    self.progress.increment(amount: 1)
+                    
                     do
                     {
                         try self.model.deleteArticle(article: self.model.currentArticle)
@@ -916,7 +920,7 @@ class AppDelegate: NSObject,
                         Utils.writeDebugMsgToFile(msg:"Error deleting article \(self.model.currentArticle.title): \(error)")
                     }
 
-                    prog.increment(amount: 1)
+                    self.progress.increment(amount: 1)
                     if self.model.currentArticle.published == true
                     {
                         do
@@ -929,14 +933,19 @@ class AppDelegate: NSObject,
                         }
                     }
                 
-                    prog.increment(amount: 1)
-                    self.updateOutline(blog:self.model.currentBlog)
-                    self.clearUI()
-                    self.model.currentArticle = nil
-                
+                    self.progress.increment(amount: 1)
                    
-                    prog.close()
-                    Alert.showAlertInWindow(window: self.window, message: "Article \"\(articlename)\" deleted.", info: "", ok: {}, cancel: {})
+                    self.model.currentArticle = nil
+                   
+                    DispatchQueue.main.async
+                    {
+                        self.updateOutline(blog:self.model.currentBlog)
+                        self.clearUI()
+                        
+                        self.progress.close()
+                        
+                        Alert.showAlertInWindow(window: self.window, message: "Article \"\(articlename)\" deleted.", info: "", ok: {}, cancel: {})
+                    }
                 }
            },
            cancel: {})
@@ -1109,8 +1118,6 @@ class AppDelegate: NSObject,
                return
            }
            
-           nsimage = Utils.resizeImage(image: nsimage, minimumSize: 400.0)
-           
            guard let imagedata = Utils.getImageData(imagename:fileurl.lastPathComponent,nsimage:nsimage)
                else
            {
@@ -1119,7 +1126,9 @@ class AppDelegate: NSObject,
                return
            }
            
-           let image = Image(articleuuid:article.uuid, name: "\(article.title)-\(fileurl.lastPathComponent)", imagedata: imagedata)
+           article.title = article.title.replacingOccurrences(of: " ", with: "-")
+           let urlname = UUID()
+           let image = Image(articleuuid:article.uuid, name: "\(article.title)-\(urlname)", imagedata: imagedata)
            
            DispatchQueue.global(qos: .userInitiated).async
            {
@@ -1136,13 +1145,14 @@ class AppDelegate: NSObject,
                }
            }
 
-        let markdownimagetext = "\n![\(image.name)](\(AppDelegate.IMAGEDIR)/\(image.name))\n" // IMAGEDIR is one thing for preview, another for published article
-
-            self.markdownTextView.string.append(markdownimagetext)
+           // let markdownimagetext = "\n![\(image.name)](\(AppDelegate.IMAGEDIR)/\(image.name))\n" // IMAGEDIR is one thing for preview, another for published article
             
+            let markdownimagetext = "<img src=\"\(AppDelegate.IMAGEDIR)/\(image.name)\" width=\"\(nsimage.size.width)\" height=\"\(nsimage.size.height)\">" // Must match the regex in deleteUnusedImages()
+            self.markdownTextView.string.append(markdownimagetext)
+
             article.addImage(newimage: image)
             article.changed.needsPublishing = true
-            
+
             self.articleFromUI()
             self.saveArticle(article:article)
        })
